@@ -1,0 +1,138 @@
+html {
+	font-size: 22px;
+}
+
+body {
+	background-color: whitesmoke;
+	color: black;
+	border: 5px;
+	box-sizing: border-box;
+}
+
+.imagen-logo {
+	width: 150px;
+	height: 150px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-width: 2px;
+	border-color: black;
+	border-style: ridge;
+	border-radius: 50%;
+}
+
+a {
+	color: rgb(0, 0, 0); /* default link color */
+}
+
+a:visited {
+	color: rgb(15, 0, 102); /* after we visit the page */
+}
+
+a:hover {
+	color: rgb(145, 22, 6); /* when is a option */
+}
+
+div th,
+div td,
+div tr {
+	border: none;
+	padding: 6px;
+	text-align: left;
+	border-collapse: collapse;
+}
+
+.horario {
+	font-size: 25px;
+}
+
+th,
+td {
+	border: 2px solid #ccccccb6;
+	padding: 0.75rem;
+	text-align: left;
+}
+
+thead {
+	background-color: #f4f4f4;
+	text-align: center;
+}
+
+.seccion {
+	background-color: #e0e0e0;
+	font-weight: bold;
+	text-align: center;
+}
+
+.precio {
+	text-align: center;
+	margin: 0 auto;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: rgba(64, 5, 5, 0.83);
+}
+
+.variedad {
+	text-align: center;
+	margin: 0 auto;
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: rgba(64, 5, 5, 0.83);
+}
+title {
+	text-align: center;
+	text-decoration-line: line-through;
+}
+.imagen-presentacion {
+	display: block;
+	margin: 0;
+	border: #7f0909b6;
+	border-color: brown;
+	margin-left: auto;
+	margin-right: auto;
+}
+#menu-diario {
+	text-align: center;
+	margin: 20px;
+}
+
+.menu-titulo {
+	margin-top: 30px;
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+
+.menu-fecha {
+	margin-top: 30px;
+	margin-bottom: 8px;
+	font-size: 20px;
+}
+
+.menu-item {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.icono-delicious {
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	margin-right: 2px; /* espacio entre imagen y texto */
+}
+#lomaspedido {
+	font-family: Andika, sans-serif;
+	font-style: italic;
+}
+img[alt] {
+	font-family: Andika, sans-serif;
+	font-style: italic;
+}
+[type='radio'] {
+	margin: 2px;
+}
+/*Hexadecimal Code*/
+/*0-9 AF */
+/* #00      00        00
+    FF       FF       FF    mayor valor colocado 
+   rojo    verde     azul
+*/
