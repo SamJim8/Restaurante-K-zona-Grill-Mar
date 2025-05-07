@@ -8,28 +8,16 @@
 			content="This page contains the menu of K-zona Grill & Mar"
 		/>
 		<title>K-zona Grill & Mar</title>
-		<link
-			rel="icon"
-			href="../Restaurant Project/restaurante.png"
-			type="image/x-icon"
-		/>
-		<link
-			rel="stylesheet"
-			href="../Restaurant Project/kzona.css"
-			type="text/css"
-		/>
+		<link rel="icon" href="restaurante.png" type="image/x-icon" />
+		<link rel="stylesheet" href="kzona.css" type="text/css" />
 	</head>
 	<body id="top">
 		<header>
-			<h1 style="text-align: center">Restaurante K-zona Grill & Mar</h1>
-			<img
-				src="../Restaurant Project/logo.png"
-				alt="logo"
-				class="imagen-logo"
-			/>
+			<h1>Restaurante K-zona Grill & Mar</h1>
+			<img src="logo.png" alt="logo" class="imagen-logo" />
 			<nav aria-label="primary-navigation">
 				<ul>
-					<li><a href="../Restaurant Project/index.html">Inicio</a></li>
+					<li><a href="index.html">Inicio</a></li>
 					<li><a href="#lomaspedido">Los más pedidos</a></li>
 					<li><a href="#menu-diario">Menú diario</a></li>
 					<li><a href="#nuestromenu">Nuestro menú</a></li>
@@ -86,7 +74,7 @@
 				<section>
 					<figure>
 						<img
-							src="../Restaurant Project/pescfrit.jpeg"
+							src="pescfrit.jpeg"
 							alt="pescado frito"
 							title="Pescado Frito"
 						/>
@@ -98,11 +86,7 @@
 				</section>
 				<section>
 					<figure>
-						<img
-							src="../Restaurant Project/cecina.jpeg"
-							alt="cecina"
-							title="Cecina"
-						/>
+						<img src="cecina.jpeg" alt="cecina" title="Cecina" />
 						<figcaption>
 							Deliciosa cecina lojana acompañada de yuca, mote, aguacate y
 							ensalada.
@@ -111,11 +95,7 @@
 				</section>
 				<section>
 					<figure>
-						<img
-							src="../Restaurant Project/encebollado.jpeg"
-							alt="encebollado"
-							title="Encebollado"
-						/>
+						<img src="encebollado.jpeg" alt="encebollado" title="Encebollado" />
 						<figcaption>Acompañado de chifles</figcaption>
 					</figure>
 				</section>
@@ -125,7 +105,7 @@
 				<h2>Nuestro menú completo</h2>
 				<p>Pide lo que más te guste, cuando quieras y donde estés.</p>
 				<img
-					src="../Restaurant Project/presentacion.jpeg"
+					src="presentacion.jpeg"
 					alt="presentacion"
 					class="imagen-presentacion"
 					width="1000"
@@ -150,7 +130,7 @@
 				<br /><br />
 
 				<table>
-					<caption style="font-size: 40px">
+					<caption class="caption-table">
 						Carta K-zona Grill & Mar
 					</caption>
 					<thead>
@@ -159,11 +139,11 @@
 							<th scope="col">Descripción</th>
 							<th scope="col">Precio</th>
 						</tr>
+					</thead>
+					<tbody>
 						<tr>
 							<th scope="row" colspan="3" class="variedad">Mariscos</th>
 						</tr>
-					</thead>
-					<tbody>
 						<tr>
 							<th scope="row">Pescado frito</th>
 							<td>Acompañado de patacones, arroz, menestra y ensalada.</td>
@@ -284,12 +264,12 @@
 						>kzonagrillmar@gmail.com</a
 					>
 				</p>
-				<p>Llámanos al: <a href="tel: 0959221180">0959221180</a></p>
+				<p>Llámanos al: <a href="tel:0959221180">0959221180</a></p>
 			</article>
 			<br />
 			<hr />
 			<article id="registro">
-				<h3>Resgistro a nuestro sistema</h3>
+				<h3>Registro a nuestro sistema</h3>
 				<p>Nos gustaría seguir mejorando nuestra atención y menú</p>
 				<form action="https://httpbin.org/get" method="get">
 					<fieldset>
@@ -334,7 +314,7 @@
 								name="phone"
 								id="phone"
 								placeholder="5555555555"
-								pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+								pattern="\d{9,10}"
 								autocomplete="on"
 								required
 							/>
@@ -375,6 +355,8 @@
 								<option value="Otro"></option>
 							</datalist>
 						</p>
+					</fieldset>
+					<fieldset>
 						<legend>Bebida favorita:</legend>
 						<p>
 							<input type="radio" name="bebida" id="cafe" value="cafe" />
@@ -390,11 +372,10 @@
 							<label for="horchata">Horchata</label>
 						</p>
 						<p>
-							<input type="radio" name="bebida" id="otra" value="tra" />
+							<input type="radio" name="bebida" id="otra" value="otra" />
 							<label for="otra">Otra</label>
 						</p>
 					</fieldset>
-					<br />
 					<fieldset>
 						<label for="opinion">Déjanos un comentario:</label>
 						<br />
@@ -422,11 +403,8 @@
 		<hr />
 		<footer>
 			<p><a href="#">Ir al inicio</a></p>
-			<p
-				style="font-family: Arial, Helvetica, sans-serif; font-size: 15px"
-				&lt;&lt;&lt;&copy;
-			>
-				&gt;&gt;&gt;<a href="../lesson_2/about.html">Sammi</a>
+			<p>
+				&gt;&gt;&gt;<a href="about.html">Sammi</a>
 				&gt;&gt;&gt;
 			</p>
 		</footer>

@@ -136,3 +136,16 @@ img[alt] {
     FF       FF       FF    mayor valor colocado 
    rojo    verde     azul
 */
+h1 {
+	font-family: 'Times New Roman', Times, serif;
+	text-align: center;
+	font-size: 40px;
+}
+.caption-table {
+	text-align: center;
+	font-size: 35px;
+}
+footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
