@@ -12,7 +12,7 @@ Este es un sitio web sencillo diseñado como parte de un curso de HTML. El objet
 ## 🚀 Cómo verlo
 
 1. Descarga el repositorio
-2. Abre el archivo `index.html` con tu navegador favorito
+2. Abre el archivo `k-zona.html` con tu navegador favorito
 
 ## ✏️ Tecnologías usadas
 
