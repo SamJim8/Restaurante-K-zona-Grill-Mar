@@ -264,6 +264,7 @@ td {
 }
 .formulari-sec textarea {
 	font-size: 2rem;
+	width: 100%;
 }
 
 .formulari-sec input {
