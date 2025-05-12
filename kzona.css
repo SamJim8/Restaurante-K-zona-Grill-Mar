@@ -2,23 +2,34 @@ html {
 	font-size: 22px;
 }
 
+* {
+	box-sizing: border-box;
+	max-width: 1400px;
+	margin: 2px;
+	padding: auto;
+}
+
+h1 {
+	font-size: 3.5em;
+}
+h2 {
+	font-size: 1.7em;
+}
+p {
+	font-size: 1em;
+}
+
 body {
 	background-color: whitesmoke;
 	color: black;
 	border: 5px;
 	box-sizing: border-box;
+	margin: 1;
 }
 
-.imagen-logo {
-	width: 150px;
-	height: 150px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	border-width: 2px;
-	border-color: black;
-	border-style: ridge;
-	border-radius: 50%;
+img[alt] {
+	font-family: Andika, sans-serif;
+	font-style: italic;
 }
 
 a {
@@ -33,89 +44,86 @@ a:hover {
 	color: rgb(145, 22, 6); /* when is a option */
 }
 
-div th,
-div td,
-div tr {
-	border: none;
-	padding: 6px;
-	text-align: left;
-	border-collapse: collapse;
-}
-
-.horario {
-	font-size: 25px;
-}
-
-th,
-td {
-	border: 2px solid #ccccccb6;
-	padding: 0.75rem;
-	text-align: left;
-}
-
-thead {
-	background-color: #f4f4f4;
-	text-align: center;
-}
-
-.seccion {
-	background-color: #e0e0e0;
-	font-weight: bold;
-	text-align: center;
-}
-
-.precio {
-	text-align: center;
-	margin: 0 auto;
-	font-size: 1.2rem;
-	font-weight: bold;
-	color: rgba(64, 5, 5, 0.83);
-}
-
-.variedad {
-	text-align: center;
-	margin: 0 auto;
-	font-size: 1.2rem;
-	font-weight: bold;
-	color: rgba(64, 5, 5, 0.83);
-}
 title {
 	text-align: center;
 	text-decoration-line: line-through;
 }
-.imagen-presentacion {
-	display: block;
-	margin: 0;
-	border: #7f0909b6;
-	border-color: brown;
-	margin-left: auto;
-	margin-right: auto;
-}
-#menu-diario {
-	text-align: center;
-	margin: 20px;
+
+header {
+	background-color: rgb(245, 245, 245);
 }
 
-.menu-titulo {
-	margin-top: 30px;
-	margin-bottom: 8px;
+/*head-LOGO*/
+.imagen-logo {
+	width: 150px;
+	height: 150px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-width: 2px;
+	border-color: black;
+	border-style: ridge;
+	border-radius: 50%;
+}
+
+/*head-lista de navegacion*/
+.nav-lista {
+	background-color: rgb(183, 81, 38);
+	padding: 5px 0px;
+	display: flex;
+	flex-direction: row; /* por defecto fila */
+	justify-content: center;
+	flex-wrap: wrap;
+	margin: 0;
+}
+
+.nav-lista li {
+	list-style: none;
+	padding: 0.5rem 0.7rem;
+	font-size: 1rem;
+}
+
+.nav-lista li a {
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	display: block;
+}
+
+.nav-lista li:hover {
+	background-color: rgb(76, 37, 18);
+	color: white;
+}
+
+@media (max-width: 480px) {
+	.nav-lista {
+		flex-direction: column; /* aquí cambia a columna */
+		align-items: center;
+	}
+}
+
+/*HORARIOS DE ATENCION*/
+.tabla-sin-bordes {
+	border: none;
+	border-collapse: collapse;
+	margin: 0 auto;
+}
+
+.tabla-sin-bordes th,
+td {
+	border: none;
+	padding: 10px;
+	font-size: 25px;
+	text-align: center;
+}
+.tabla-sin-bordes th {
+	font-size: 22px;
 	font-weight: bold;
 }
 
-.menu-fecha {
-	margin-top: 30px;
-	margin-bottom: 8px;
-	font-size: 20px;
-}
-
-.menu-item {
-	margin-top: 3px;
-	margin-bottom: 3px;
-}
-
+/*main-lo mas pedido*/
 .icono-delicious {
-	width: 30px;
-	height: 30px;
+	width: 1.5em;
+	height: 1.5em;
 	vertical-align: middle;
 	margin-right: 2px; /* espacio entre imagen y texto */
 }
@@ -123,29 +131,206 @@ title {
 	font-family: Andika, sans-serif;
 	font-style: italic;
 }
-img[alt] {
-	font-family: Andika, sans-serif;
-	font-style: italic;
+
+.img-plato {
+	max-width: 100%;
+	height: auto;
 }
-[type='radio'] {
+
+.images-lomaspedido {
+	background-color: rgba(195, 105, 20, 0.371);
+	color: rgb(0, 0, 0);
+	gap: 2px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.images-lomaspedido img {
+	display: flex;
+	justify-content: start;
+	width: 800px;
+	height: auto;
+	padding: 1px;
+	margin: 20px;
+}
+
+.images-lomaspedido figcaption {
+	font-size: 40px;
+	display: flex;
+	justify-content: end;
+	flex-wrap: wrap-reverse;
+	padding: 1px;
+	margin: 20px;
+}
+
+/*menu diario*/
+.style-nuestromenu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column wrap;
+}
+
+.style-nuestromenu p {
 	margin: 2px;
 }
-/*Hexadecimal Code*/
-/*0-9 AF */
-/* #00      00        00
-    FF       FF       FF    mayor valor colocado 
-   rojo    verde     azul
-*/
-h1 {
-	font-family: 'Times New Roman', Times, serif;
-	text-align: center;
-	font-size: 40px;
+
+.style-nuestromenu h4 {
+	margin: 9px;
 }
-.caption-table {
-	text-align: center;
-	font-size: 35px;
+
+.style-nuestromenu h3 {
+	justify-content: center;
 }
+#menu-diario h2 {
+	font-size: 28px;
+	text-align: center;
+	background-color: rgba(235, 113, 68, 0.559);
+	margin: 10px;
+	padding: 10px;
+}
+#menu-diario p {
+	font-size: 21px;
+}
+
+/*Carta menu kzona*/
+.tabla-menu caption {
+	text-align: center;
+	font-size: 45px;
+	font-family: 'Amatic SC', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.tabla-menu {
+	border-collapse: collapse;
+	width: 100%; /* o el ancho que necesites */
+}
+
+.tabla-menu th,
+.tabla-menu td {
+	border: 1px solid #ccccccb6;
+	padding: 4px;
+	text-align: left;
+	font-size: 20px;
+}
+
+.tabla-menu .variedad {
+	text-align: center;
+}
+
+.imagen-presentacion {
+	margin: 0;
+	border: #7f0909b6;
+	border-color: brown;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (max-width: 480px) {
+	.imagen-presentacion {
+		width: 100%; /* o lo que creas adecuado */
+		height: 30vh;
+	}
+}
+
+/*formulario*/
+.formulari-sec {
+	font-size: 2.3rem;
+	margin: 0px;
+	padding: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: start;
+	flex-direction: column;
+	width: 100%;
+	color: white;
+	background-image: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0.5)
+		),
+		url('background.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.formulari-sec p {
+	font-size: 2rem;
+	margin: 0px;
+	padding: 0.3rem;
+}
+.formulari-sec textarea {
+	font-size: 2rem;
+}
+
+.formulari-sec input {
+	font-size: 1.5rem;
+}
+.formulari-sec label {
+	font-size: 2rem;
+}
+#formulario {
+	margin: 12px;
+	padding: 12px;
+	width: 100%;
+}
+
+@media screen {
+	.formulari-sec {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
+	.formulari-sec input {
+		display: flex;
+		align-content: start;
+	}
+}
+
+@media screen {
+	#formulario {
+		width: 100%;
+	}
+}
+
+.botones-formulario {
+	display: flex;
+	gap: 8rem; /* separación entre botones */
+	justify-content: center; /* centra los botones */
+	margin-top: 10px;
+}
+
+/*botones formulario*/
+button {
+	font-size: 0.8em;
+	font-weight: bold;
+	padding: 15px;
+	border-radius: 10px;
+	border: 1px solid rgba(10, 6, 7, 0.5);
+	box-shadow: 2px 3px rgba(10, 6, 7, 0.5);
+	color: rgb(255, 255, 255);
+	background-color: rgb(176, 74, 48);
+	display: inline-block;
+}
+
+button:hover {
+	background-color: rgb(84, 30, 17);
+}
+
+/*footer*/
 footer {
+	background-color: rgba(0, 0, 0, 0.915);
+	color: white;
+	margin: 5px;
+	padding: 12px;
+}
+
+footer p a {
+	color: rgb(255, 255, 255) !important;
+
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
 }
