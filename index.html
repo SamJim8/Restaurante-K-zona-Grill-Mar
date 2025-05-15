@@ -1,59 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="author" content="Sammi" />
-		<meta
-			name="description"
-			content="This page contains the menu of K-zona Grill & Mar"
-		/>
-		<title>K-zona Grill & Mar</title>
-		<link rel="icon" href="restaurante.png" type="image/x-icon" />
-		<link rel="stylesheet" href="kzona.css" type="text/css" />
-		<!--solo se usa para subir a git-hub-->
 
-		<!--<base href="/Restaurante-K-zona-Grill-Mar/" />-->
-		<script>
-			if (window.location.hostname === 'samjim8.github.io') {
-				// Solo agregar <base> si está en GitHub Pages
-				var baseTag = document.createElement('base');
-				baseTag.setAttribute('href', '/Restaurante-K-zona-Grill-Mar/');
-				document.head.appendChild(baseTag);
-			}
-		</script>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-	</head>
-	<body id="top">
-		<header>
-			<h1>Restaurante K-zona Grill & Mar</h1>
-			<br>
-			<img src="logo.png" alt="logo" class="imagen-logo" />
-			<br>
-			<nav aria-label="primary-navigation">
-				<ul class="nav-lista">
-					<li><a href="index.html">Inicio</a></li>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="author" content="Sammi" />
+	<meta name="description" content="This page contains the menu of K-zona Grill & Mar" />
+	<title>K-zona Grill & Mar</title>
+	<link rel="icon" href="restaurante.png" type="image/x-icon" />
+	<link rel="stylesheet" href="kzona.css" type="text/css" />
+	<!--solo se usa para subir a git-hub-->
+
+	<!--<base href="/Restaurante-K-zona-Grill-Mar/" />-->
+	<script>
+		if (window.location.hostname === 'samjim8.github.io') {
+			// Solo agregar <base> si está en GitHub Pages
+			var baseTag = document.createElement('base');
+			baseTag.setAttribute('href', '/Restaurante-K-zona-Grill-Mar/');
+			document.head.appendChild(baseTag);
+		}
+	</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+	<header>
+		<div class="container-nav">
+			<nav aria-label="primary-navigation" class="nav-left">
+				<ul>
+					<li><a href="#">Inicio</a></li>
 					<li><a href="#lomaspedido">Los más pedidos</a></li>
 					<li><a href="#menu-diario">Menú diario</a></li>
+				</ul>
+			</nav>
+
+			<img src="logo.png" alt="logo" class="logo" />
+			<nav class="nav-right">
+				<ul>
 					<li><a href="#nuestromenu">Nuestro menú</a></li>
 					<li><a href="#contactanos">Contáctanos</a></li>
 					<li><a href="#registro">Déjanos tu opinión</a></li>
 				</ul>
 			</nav>
-		</header>
-		<br>
-		<section>
-		<main>
-			<h3>
-				Sobre nosotros:
-			</h3>
-			<p>
-				Nuestra historia nace del arduo trabajo que hemos realizado durante décadas. Aunque quizás no comenzamos con el nombre que hoy nos identifica, contamos con una amplia trayectoria en atención al cliente. Iniciamos con la venta de pollos asados en la ciudad de Loja, nuestra tierra natal, que dio fuerza y raíces a este emprendimiento. Con el tiempo, hemos crecido y expandido nuestro restaurante, incorporando un variado menú que incluye mariscos, asados, cafetería y mucho más. </p>
+		</div>
+	</header>
 
-				<p>Este camino no habría sido posible sin el apoyo incondicional de nuestras familias y la confianza de nuestros clientes, muchos de los cuales se han convertido en grandes amigos. Hoy, nos encontramos en la capital del Ecuador, orgullosos de ofrecer nuestros platos tradicionales con el mismo sabor de siempre y la calidez que ustedes se merecen.
-			</p>
-			<br>
+	<!--<h1>Restaurante <br> <strong>K-zona Grill & Mar</strong> </h1>
+>-->
+	<div class="intro">
+		<br>
+		<h3>
+			Sobre nosotros:
+		</h3>
+		<p>
+			Nuestra historia nace del arduo trabajo que hemos realizado durante décadas. Aunque quizás no comenzamos con
+			el nombre que hoy nos identifica, contamos con una amplia trayectoria en atención al cliente. Iniciamos con
+			la venta de pollos asados en la ciudad de Loja, nuestra tierra natal, que dio fuerza y raíces a este
+			emprendimiento. Con el tiempo, hemos crecido y expandido nuestro restaurante, incorporando un variado menú
+			que incluye mariscos, asados, cafetería y mucho más. </p>
+
+		<p>Este camino no habría sido posible sin el apoyo incondicional de nuestras familias y la confianza de nuestros
+			clientes, muchos de los cuales se han convertido en grandes amigos. Hoy, nos encontramos en la capital del
+			Ecuador, orgullosos de ofrecer nuestros platos tradicionales con el mismo sabor de siempre y la calidez que
+			ustedes se merecen.
+		</p>
+	</div>
+	<br>
+	<main>
+		<section>
 			<div>
 				<details>
 					<summary>Horario de atención</summary>
@@ -84,363 +99,312 @@
 					</table>
 				</details>
 			</div>
-			</section>
-			<br>	
-			<hr />
-			
-			<section id="lomaspedido">
-					<h2>
-						Lo más pedido				
-						<img
-							src="https://img.icons8.com/?size=100&id=jijxyLFxJ0Yg&format=png&color=000000"
-							alt="delicious"
-							class="icono-delicious"
-						/>
-					</h2>
-					<p>Por algo está tan bueno</p>
+		</section>
+		<br>
+		<hr />
+
+		<section id="lomaspedido">
+			<h2>
+				Lo más pedido
+				<img class="icono-delicious"
+					src="https://img.icons8.com/?size=100&id=jijxyLFxJ0Yg&format=png&color=000000" alt="delicious">
+			</h2>
+			<p>¡Por algo está tan bueno!</p>
+
 			<div class="images-lomaspedido">
-				<article id="pescado" >
-					<figure>
-						<img
-							src="pescfrit.png"
-							alt="pescado frito"
-							title="Pescado Frito"
-							class="img-plato"
-						/>
+				<article>
+					<figure class="pescado">
+						<img src="pescfrit.png" alt="pescado frito" title="Pescado Frito">
 						<figcaption>
-							Delicioso pargo acompañado de patacones, arroz, ensalada y
-							menestra.
+							Delicioso pargo acompañado de patacones, arroz, ensalada y menestra.
 						</figcaption>
 					</figure>
 				</article>
-				<article id="cecina">
-					<figure>
-						<img src="cecina.png" alt="cecina" title="Cecina" class="img-plato"/>
+
+				<article>
+					<figure class="cecina">
+						<img src="cecina.png" alt="cecina" title="Cecina">
 						<figcaption>
-							Deliciosa cecina lojana acompañada de yuca, mote, aguacate y
-							ensalada.
+							Deliciosa y tradicional cecina lojana acompañada de yuca, mote, aguacate y ensalada.
 						</figcaption>
 					</figure>
-					</article>
-					<article id="encebollado">
-					<figure>
-						<img src="encebollado.png" alt="encebollado" title="Encebollado" class="img-plato"/>
-						<figcaption>Acompañado de chifles</figcaption>
+				</article>
+
+				<article>
+					<figure class="encebollado">
+						<img src="encebollado.png" alt="encebollado" title="Encebollado">
+						<figcaption>Pueder ser el normal, mixto o afrodisiaco pero todos te vienen acompañados de
+							chifles.</figcaption>
 					</figure>
-					</article>
-				</div>
-				</section>
-<br>
-			<section id="menu-diario">
-				<h2>Nuestro menú completo</h2>
-				<p>Pide lo que más te guste, cuando quieras y donde estés.</p>
-				<br />
-				<hr />
-					<section class="style-nuestromenu">
-					<h3>Menú diario</h3>
-					<p><span>Fecha: 4 de mayo de 2025</span></p>
-					<h4><strong>Sopa:</strong></h4>
-					<p>Locro de acelga</p>
-					<p>Sancocho de res</p>
-					<br>
-					<h4><strong>Plato fuerte:</strong></h4>
-					<p>Lasagna de carne</p>
-					<p>Estofado de pollo</p>
-					<p>Omellette de camarón</p>
-					<br>
-					<h4><strong>Postre:</strong></h4>
-					<p>Gelatina de frutas</p>
-					<h4><strong>Bebida:</strong></h4>
-					<p>Limonada</p>
-					</div>
-				</section>
-				<hr />
-				<br />
-				<section class="tabla-menu" id="nuestromenu">
-				<table>
-					<caption>
-						Carta K-zona Grill & Mar
-					</caption>
-					<thead>
-						<tr>
-							<th scope="col">Platos</th>
-							<th scope="col">Descripción</th>
-							<th scope="col">Precio</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th colspan="3" class="variedad">Mariscos</th>
-						</tr>
-						<tr>
-							<th scope="row">Pescado frito</th>
-							<td>Acompañado de patacones, arroz, menestra y ensalada.</td>
-							<td class="precio">$8.00</td>
-						</tr>
-						<tr>
-							<th scope="row">Encebollado normal</th>
-							<td rowspan="2">Acompañado de una porción de chifles.</td>
-							<td class="precio">$3.00</td>
-						</tr>
-						<tr>
-							<th scope="row">Mega Encebollado</th>
-							<td class="precio">$4.00</td>
-						</tr>
-						<tr>
-							<th scope="row">Encebollado mixto</th>
-							<td>Camarón y Albacora.</td>
-							<td class="precio">$4.00</td>
-						</tr>
-						<tr>
-							<th class="variedad" colspan="3">Asados</th>
-						</tr>
-						<tr>
-							<th scope="row">Filete de pollo</th>
-							<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-							<td class="precio">$4.00</td>
-						</tr>
-						<tr>
-							<th scope="row">Chuleta al grill</th>
-							<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-							<td class="precio">$4.50</td>
-						</tr>
-						<tr>
-							<th colspan="3" class="variedad">Arroces</th>
-						</tr>
-						<tr>
-							<th scope="row">Chaulafán mixto</th>
-							<td>Contiene cerdo y pollo.</td>
-							<td class="precio">$5.00</td>
-						</tr>
-						<tr>
-							<th scope="row">Chaulafán especial</th>
-							<td>Contiene cerdo, pollo y camarón.</td>
-							<td class="precio">$6.00</td>
-						</tr>
-						<tr>
-							<th scope="row">Chaulafán con tallarín mixto</th>
-							<td>Contiene cerdo y pollo.</td>
-							<td class="precio">$7.00</td>
-						</tr>
-						<tr>
-							<th colspan="3" class="variedad">
-								Comida típica Lojana
-							</th>
-						</tr>
-						<tr>
-							<th scope="row">Cecina</th>
-							<td>Acompañado de yucas, mote, aguacate y ensalada.</td>
-							<td class="precio">$7.00</td>
-						</tr>
-						<tr>
-							<th scope="row">Humitas</th>
-							<td>Rellenas de queso.</td>
-							<td class="precio">$1.25</td>
-						</tr>
-						<tr>
-							<th scope="row">Tamales</th>
-							<td>Rellenas de pollo o queso.</td>
-							<td class="precio">$1.75</td>
-						</tr>
-						<tr>
-							<th colspan="3" class="variedad">Cafetería</th>
-						</tr>
-						<tr>
-							<th scope="row">Desayuno continental</th>
-							<td>
-								Contiene huevos a su gusto, tostada, jugo, porción de frutas y
-								cafe/leche.
-							</td>
-							<td class="precio">$4.50</td>
-						</tr>
-						<tr>
-							<th scope="row">Bolón</th>
-							<td>Relleno de queso, chicharrón o mixto + café.</td>
-							<td class="precio">$3.25</td>
-						</tr>
-						<tr>
-							<th scope="row">Tigrillo</th>
-							<td>De queso, chicharrón o mixto + café.</td>
-							<td class="precio">$3.75</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr>
-							<td colspan="3">
-								Para llevar, cada plato tiene un precio extra de $0.50 por los
-								desechables.
-							</td>
-						</tr>
-					</tfoot>
-				</table>
-			</section>
-				<br>
-			</article>
-							<img
-					src="presentacion.jpeg"
-					alt="presentacion"
-					class="imagen-presentacion"
-					width="1000"
-				/>
-			<br>
-			<div class="contacto">
-			<article id="contactanos">
-				<h2>Contáctanos</h2>
-				<p>Ubicación Google maps:</p>
-				<p>
-					<img
-						src="https://img.icons8.com/?size=100&id=PZTTDl8ML4vy&format=png&color=000000"
-						alt="location"
-						width="50"
-					/><a href="https://maps.app.goo.gl/etEfyUXMmZKjtdNv9" target="_blank"
-						>Visitanos</a
-					>
-				</p>
-				<p>
-					Email:
-					<a href="mailto:kzonagrillmar@gmail.com" target="_blank"
-						>kzonagrillmar@gmail.com</a
-					>
-				</p>
-				<p>Llámanos al: <a href="tel:0959221180">0959221180</a></p>
-			</article>
+				</article>
 			</div>
+		</section>
+
+		<br>
+		<section id="menu-diario">
+			<h2>Nuestro menú completo</h2>
+			<p>Pide lo que más te guste, cuando quieras y donde estés.</p>
 			<br />
 			<hr />
-			<article id="registro"  class="formulari-sec">
-				<h3>Registro a nuestro sistema</h3>
-				<p style="font-size:1.5rem">Nos gustaría seguir mejorando nuestra atención y menú</p>
+			<div class="style-nuestromenu">
+				<h3>Menú diario</h3>
+				<p><span>Fecha: 4 de mayo de 2025</span></p>
+				<h4><strong>Sopa:</strong></h4>
+				<p>Locro de acelga</p>
+				<p>Sancocho de res</p>
 				<br>
-				<p  style="font-size:2rem">Registrate para que te enteres de todas nuestras promociones.</p>
-				<form id="formulario">
-					<div class="form-content">
-					<fieldset>
-						<legend style="font-size:2.5rem">Información personal</legend>
-						<label for="primernombre">Primer nombre:</label>
-						<input
-							type="text"
-							name="primernombre"
-							id="primernombre"
-							placeholder="Jane"
-							autocomplete="on"
-							required
-						/>
+				<h4><strong>Plato fuerte:</strong></h4>
+				<p>Lasagna de carne</p>
+				<p>Estofado de pollo</p>
+				<p>Omellette de camarón</p>
+				<br>
+				<h4><strong>Postre:</strong></h4>
+				<p>Gelatina de frutas</p>
+				<h4><strong>Bebida:</strong></h4>
+				<p>Limonada</p>
+			</div>
+		</section>
+		<hr />
+		<br />
+		<section class="tabla-menu" id="nuestromenu">
+			<table>
+				<caption>
+					Carta K-zona Grill & Mar
+				</caption>
+				<thead>
+					<tr>
+						<th scope="col">Platos</th>
+						<th scope="col">Descripción</th>
+						<th scope="col">Precio</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th colspan="3" class="variedad">Mariscos</th>
+					</tr>
+					<tr>
+						<th scope="row">Pescado frito</th>
+						<td>Acompañado de patacones, arroz, menestra y ensalada.</td>
+						<td class="precio">$8.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Encebollado normal</th>
+						<td rowspan="2">Acompañado de una porción de chifles.</td>
+						<td class="precio">$3.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Mega Encebollado</th>
+						<td class="precio">$4.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Encebollado mixto</th>
+						<td>Camarón y Albacora.</td>
+						<td class="precio">$4.00</td>
+					</tr>
+					<tr>
+						<th class="variedad" colspan="3">Asados</th>
+					</tr>
+					<tr>
+						<th scope="row">Filete de pollo</th>
+						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
+						<td class="precio">$4.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Chuleta al grill</th>
+						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
+						<td class="precio">$4.50</td>
+					</tr>
+					<tr>
+						<th colspan="3" class="variedad">Arroces</th>
+					</tr>
+					<tr>
+						<th scope="row">Chaulafán mixto</th>
+						<td>Contiene cerdo y pollo.</td>
+						<td class="precio">$5.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Chaulafán especial</th>
+						<td>Contiene cerdo, pollo y camarón.</td>
+						<td class="precio">$6.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Chaulafán con tallarín mixto</th>
+						<td>Contiene cerdo y pollo.</td>
+						<td class="precio">$7.00</td>
+					</tr>
+					<tr>
+						<th colspan="3" class="variedad">
+							Comida típica Lojana
+						</th>
+					</tr>
+					<tr>
+						<th scope="row">Cecina</th>
+						<td>Acompañado de yucas, mote, aguacate y ensalada.</td>
+						<td class="precio">$7.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Humitas</th>
+						<td>Rellenas de queso.</td>
+						<td class="precio">$1.25</td>
+					</tr>
+					<tr>
+						<th scope="row">Tamales</th>
+						<td>Rellenas de pollo o queso.</td>
+						<td class="precio">$1.75</td>
+					</tr>
+					<tr>
+						<th colspan="3" class="variedad">Cafetería</th>
+					</tr>
+					<tr>
+						<th scope="row">Desayuno continental</th>
+						<td>
+							Contiene huevos a su gusto, tostada, jugo, porción de frutas y
+							cafe/leche.
+						</td>
+						<td class="precio">$4.50</td>
+					</tr>
+					<tr>
+						<th scope="row">Bolón</th>
+						<td>Relleno de queso, chicharrón o mixto + café.</td>
+						<td class="precio">$3.25</td>
+					</tr>
+					<tr>
+						<th scope="row">Tigrillo</th>
+						<td>De queso, chicharrón o mixto + café.</td>
+						<td class="precio">$3.75</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3">
+							Para llevar, cada plato tiene un precio extra de $0.50 por los
+							desechables.
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</section>
+		<br>
+		</article>
+		<img src="presentacion.jpeg" alt="presentacion" class="imagen-presentacion" />
+		<article id="contact">
+			<h2>Contáctanos:</h2>
+			<br>
+			<div class="contacto-general">
+				<div class="contacto">
+					<p>Ubicación Google maps:</p>
+					<p class="location">
+						<img src="https://img.icons8.com/?size=100&id=mrGQR87U1PR2&format=png&color=000000"
+							alt="location" width="50" /><a href="https://maps.app.goo.gl/etEfyUXMmZKjtdNv9"
+							target="_blank">Visitanos</a>
+					</p>
+				</div>
+				<div>
+					<p>
+						Email:
+						<a href="mailto:kzonagrillmar@gmail.com" target="_blank">kzonagrillmar@gmail.com</a>
+					</p>
+					<p>Llámanos al: <a href="tel:0959221180">0959221180</a></p>
+				</div>
+			</div>
+		</article>
+		<hr />
+		<article id="registro" class="section-form">
+			<h3>Registro a nuestro sistema</h3>
+			<p>
+				Nos gustaría seguir mejorando nuestra atención y menú</p>
+			<br>
+			<p>Registrate para que te enteres de todas nuestras promociones.</p>
+			<form id="formulario">
+				<div class="form-content">
+					<div class="personal-info-container">
+						<fieldset>
+							<legend>Información personal</legend>
 
-						<p>
-							<label for="apellido">Apellido:</label>
-							<input
-								type="text"
-								name="apellido"
-								id="apellido"
-								placeholder="Calderon"
-								autocomplete="on"
-								required
-							/>
-						</p>
-						<p>
-							<label for="celular">Número celular:</label>
-							<input
-								type="tel"
-								name="celular"
-								id="celular"
-								placeholder="5555555555"
-								pattern="\d{9,10}"
-								autocomplete="on"
-								required
-							/>
-						</p>
-						<p>
-							<label for="age">Año de nacimiento:</label>
-							<input
-								type="number"
-								name="edad"
-								id="age"
-								min="1925"
-								max="2020"
-								step="1"
-								value="1980"
-							/>
-						</p>
-						<p>
-							<label for="platillo">El plato que más te gustó:</label>
-							<input
-								type="text"
-								name="platillo"
-								id="platillo"
-								list="platillo-list"
-								placeholder="Cecina"
-							/>
-							<datalist id="platillo-list">
-								<option value="Cecina"></option>
-								<option value="Chuleta"></option>
-								<option value="Encebollado"></option>
-								<option value="Filete de pollo"></option>
-								<option value="Chaulafán mixto"></option>
-								<option value="Chaulafán especial"></option>
-								<option value="Encebollado mixto"></option>
-								<option value="Pescado frito"></option>
-								<option value="Chaulafán con tallarín especial"></option>
-								<option value="Mega Encebollado"></option>
-								<option value="Bolón"></option>
-								<option value="Otro"></option>
-							</datalist>
-						</p>
-					</fieldset>
+							<div class="form-item">
+								<label for="primerNombre">Primer nombre:</label>
+								<input type="text" id="primerNombre" name="primerNombre" placeholder="Jane" required />
+							</div>
+
+							<div class="form-item">
+								<label for="apellido">Apellido:</label>
+								<input type="text" id="apellido" name="apellido" placeholder="Calderon" required />
+							</div>
+
+							<div class="form-item">
+								<label for="celular">Número celular:</label>
+								<input type="tel" id="celular" name="celular" placeholder="5555555555"
+									pattern="\d{9,10}" required />
+							</div>
+
+							<div class="form-item">
+								<label for="age">Año de nacimiento:</label>
+								<input type="number" id="age" name="edad" min="1925" max="2020" value="1980" />
+							</div>
+
+							<div class="form-item">
+								<label for="platillo">El plato que más te gustó:</label>
+								<input type="text" id="platillo" name="platillo" list="platillo-list"
+									placeholder="Cecina" />
+								<datalist id="platillo-list">
+									<option value="Cecina"></option>
+									<option value="Chuleta"></option>
+									<option value="Encebollado"></option>
+								</datalist>
+							</div>
+						</fieldset>
+					</div>
+
 					<fieldset>
 						<label for="opinion">Déjanos un comentario:</label>
 						<br />
-						<textarea
-							name="opinion"
-							id="opinion"
-							cols="30"
-							rows="5"
-							placeholder="Escríbenos..."
-						></textarea>
+						<textarea name="opinion" id="opinion" cols="50" rows="5" placeholder="Escríbenos..."
+							class="text-zoom"></textarea>
 					</fieldset>
-					<br />
-					<!---<input type="submit" value=""> tambien se puede poner esto pero no hay como detallar bien como el button-->
-					<div class="botones-formulario">
-					<button
-						type="submit"
-					>
+				</div>
+				<br />
+				<!---<input type="submit" value=""> tambien se puede poner esto pero no hay como detallar bien como el button-->
+				<div class="botones-formulario">
+					<button type="submit">
 						Enviar
 					</button>
 					<button type="reset">Resetear</button>
-					</div>
-					</form>
-</div>
-					<script>
-  document.getElementById("formulario").addEventListener("submit", function (e) {
-    e.preventDefault(); // Evita que recargue
+				</div>
+			</form>
+			</div>
+			<script>
+				document.getElementById("formulario").addEventListener("submit", function (e) {
+					e.preventDefault(); // Evita que recargue
 
-    const form = e.target;
-    const data = new FormData(form);
+					const form = e.target;
+					const data = new FormData(form);
 
-    fetch("https://script.google.com/macros/s/AKfycbwHhqpMmP9itWw3SbpaqSHOm37-tq3Jf4uw1c3cF7DtuQM8R3iDUpqYxY4gUtXsVd0D/exec", {
-      method: "POST",
-      body: data,
-    })
-    .then((mensaje) => {
-  		alert("✅ ¡Gracias por registrarte!");
-  		form.reset(); // Limpia los campos
-  		window.location.href = "#"; // Vuelve al inicio de la página
-		})
+					fetch("https://script.google.com/macros/s/AKfycbwHhqpMmP9itWw3SbpaqSHOm37-tq3Jf4uw1c3cF7DtuQM8R3iDUpqYxY4gUtXsVd0D/exec", {
+						method: "POST",
+						body: data,
+					})
+						.then((mensaje) => {
+							alert("✅ ¡Gracias por registrarte!");
+							form.reset(); // Limpia los campos
+							window.location.href = "#"; // Vuelve al inicio de la página
+						})
 
-      .catch((error) => {
-        alert("❌ Ocurrió un error. Inténtalo de nuevo.");
-        console.error("Error:", error);
-      });
-  });
-</script>
-			</article>
-		</main>
+						.catch((error) => {
+							alert("❌ Ocurrió un error. Inténtalo de nuevo.");
+							console.error("Error:", error);
+						});
+				});
+			</script>
+		</article>
+	</main>
 
-		<footer>
-			<p><a href="#">Ir al inicio</a></p>
-			<br>
-			<p>
-				&copy;<a href="about.html" style="font-size: 10px"	text-decoration= "none">Sammi</a>
-			</p>
-		</footer>
-	</body>
+	<footer>
+		<p class="text-decoration"><a href="#">Ir al inicio</a></p>
+		<br>
+		<p>
+			&copy;<a href="about.html" style="font-size: 10px" text-decoration="none">Sammi</a>
+		</p>
+	</footer>
+</body>
+
 </html>

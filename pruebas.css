@@ -1,0 +1,36 @@
+.container-nav {
+	background-color: rgb(219, 81, 35);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1em;
+	gap: 1em;
+}
+
+.container-nav img {
+	width: 100px;
+	border-radius: 50%;
+	/*SCADEV*/
+}
+
+.nav-lista {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.nav-lista li a {
+	text-decoration: none;
+	color: white;
+	font-size: large;
+}
+
+.nav-lista li:hover {
+	background-color: rgb(76, 37, 18);
+	border-radius: 5px;
+	padding: 0.2em 0.5em;
+}

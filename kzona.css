@@ -1,20 +1,23 @@
-html {
-	font-size: 22px;
-}
-
+/* *{ This inside rules apply with all elements on html */
 * {
 	box-sizing: border-box;
-	max-width: 1400px;
-	margin: 2px;
+	margin: 0px;
 	padding: auto;
+	font-size: 16px;
+	scroll-behavior: smooth;
 }
 
 h1 {
-	font-size: 3.5em;
+	font-size: x-large;
+	text-align: center;
+	margin: 0.5em;
+	5515151
 }
+
 h2 {
 	font-size: 1.7em;
 }
+
 p {
 	font-size: 1em;
 }
@@ -24,7 +27,7 @@ body {
 	color: black;
 	border: 5px;
 	box-sizing: border-box;
-	margin: 1;
+	margin: 1px;
 }
 
 img[alt] {
@@ -33,15 +36,18 @@ img[alt] {
 }
 
 a {
-	color: rgb(0, 0, 0); /* default link color */
+	/* default link color */
+	color: rgb(0, 0, 0);
 }
 
 a:visited {
-	color: rgb(15, 0, 102); /* after we visit the page */
+	/* after we visit the page */
+	color: rgb(15, 0, 102);
 }
 
 a:hover {
-	color: rgb(145, 22, 6); /* when is a option */
+	/* when is a option */
+	color: rgb(145, 22, 6);
 }
 
 title {
@@ -53,40 +59,290 @@ header {
 	background-color: rgb(245, 245, 245);
 }
 
-/*head-LOGO*/
-.imagen-logo {
-	width: 150px;
-	height: 150px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	border-width: 2px;
-	border-color: black;
-	border-style: ridge;
-	border-radius: 50%;
+input[type='text'] {
+	font-size: 16px;
+	/* Tamaño inicial */
+	padding: 10px;
+	width: 100%;
+	transition: font-size 0.2s ease;
+	/* Transición suave al hacer foco */
+	z-index: 1;
+}
+
+/* SCADEV APPLY DRY (DON'T REPEAT YOURSELF) - input[type='text']:focus - input[type='tel']:focus { */
+input[type='text']:focus {
+	position: relative;
+	font-size: 18px;
+	/* Aumenta el tamaño cuando el input tiene el foco */
+	outline: none;
+	/* Elimina el borde por defecto al enfocar */
+	transform: scale(1.2);
+	/* zoom */
+	z-index: 10;
+}
+
+input[type='tel'] {
+	font-size: 16px;
+	/* Tamaño inicial */
+	padding: 10px;
+	width: 100%;
+	transition: font-size 0.2s ease;
+	/* Transición suave al hacer foco */
+	z-index: 1;
+}
+
+input[type='tel']:focus {
+	position: absolute;
+	font-size: 18px;
+	/* Aumenta el tamaño cuando el input tiene el foco */
+	outline: none;
+	/* Elimina el borde por defecto al enfocar */
+	transform: scale(1.2);
+	/* zoom */
+	z-index: 10;
 }
 
 /*head-lista de navegacion*/
-.nav-lista {
-	background-color: rgb(183, 81, 38);
-	padding: 5px 0px;
+/* --- Estilos base para móvil --- */
+.logo {
+	width: 80px;
+	border-radius: 50%;
+	order: 1;
+	/* primero en mobile */
+}
+
+.nav-left {
+	order: 2;
 	display: flex;
-	flex-direction: row; /* por defecto fila */
-	justify-content: center;
-	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.nav-right {
+	order: 3;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.container-nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(219, 81, 35);
+	gap: 1rem;
+	padding: 1rem;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
 	margin: 0;
 }
 
-.nav-lista li {
-	list-style: none;
-	padding: 0.5rem 0.7rem;
+nav ul li a {
+	color: white;
+	text-decoration: none;
 	font-size: 1rem;
+}
+
+nav ul li:hover {
+	background-color: rgb(76, 37, 18);
+	border-radius: 5px;
+	padding: 0.2em 0.5em;
+}
+
+/* --- Estilos para pantallas grandes --- */
+@media (min-width: 768px) {
+	.container-nav {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.nav-left,
+	.nav-right {
+		flex-direction: row;
+	}
+
+	.nav-left {
+		justify-content: flex-start;
+	}
+
+	.nav-right {
+		justify-content: flex-end;
+	}
+
+	.logo {
+		width: 120px;
+	}
+}
+
+.nav-lista li:hover {
+	background-color: rgb(76, 37, 18);
+	border-radius: 5px;
+	padding: 0.2em 0.5em;
+}
+
+@media (min-width: 768px) {
+	.container-nav {
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	.nav-lista {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		flex: 1;
+	}
+
+	.nav-left,
+	.nav-right {
+		display: flex;
+		gap: 1em;
+	}
+
+	.nav-left {
+		order: 1;
+	}
+
+	.nav-left ul {
+		display: flex;
+		justify-content: space-evenly;
+	}
+
+	.container-nav img {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+/* Estilo base (mobile first) 
+.container-nav img {
+	width: 100px;
+	height: auto;
+	border-radius: 50%;
+}
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1em;
+  background-color: rgb(219, 81, 35);
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-left li a,
+.nav-right li a {
+  text-decoration: none;
+  color: white;
+  font-size: large;
+}
+
+.nav-left li:hover {
+	background-color: rgb(76, 37, 18);
+	color: white;
+	width: auto;
+	height: 100%;
+}
+.nav-right li:hover {
+	background-color: rgb(76, 37, 18);
+	color: white;
+}
+
+  .container-nav {
+    display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+  }
+
+  .logo img  {
+    order: 1;
+  }
+
+  .nav-left {
+    order: 2;
+  }
+
+  .nav-right {
+    order: 3;
+  }
+
+  .nav-left li a,
+  .nav-right li a {
+	font-size: 20px;
+  }
+
+@media (min-width: 768px) {
+  .container-nav {
+    flex-wrap: nowrap;
+  }
+
+  .logo img  {
+    order: 2;
+  }
+
+  .nav-left {
+    order: 1;
+  }
+
+  .nav-right {
+    order: 3;
+  }
+
+  .container-nav {
+    justify-content: space-evenly;
+  }
+  .nav-left li a,
+  .nav-right li a {
+	font-size: 20px;
+  }
+}
+
+
+/*.container-nav img {
+	width: 100px;
+	height: auto;
+	border-radius: 50%;
+}
+
+.container-nav {
+	background-color: rgb(219, 81, 35);
+	margin: 0.1em;
+	padding: auto	;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.container-nav ul {
+	display: flex;
+	justify-content: center;
+	flex-direction: column; 
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+	gap: 0.2rem;
+	padding: 0.2em 1em 0.2em 1em;
 }
 
 .nav-lista li a {
 	text-decoration: none;
 	color: rgb(255, 255, 255);
-	display: block;
 }
 
 .nav-lista li:hover {
@@ -94,10 +350,51 @@ header {
 	color: white;
 }
 
-@media (max-width: 480px) {
+.nav-lista li {
+	list-style: none;
+	padding: 0.5rem 0.7rem;
+	font-size: large;
+	text-align: center;
+}
+
+@media (min-width: 480px) {
 	.nav-lista {
-		flex-direction: column; /* aquí cambia a columna */
-		align-items: center;
+		padding: 0px;
+		display: flex;
+		flex-direction: row; 
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 1em;
+	}
+	.nav-lista li {
+		font-size: 20px;
+		padding: 5px 20px 5px 20px;
+	}
+}*/
+
+/*INTRO*/
+.intro {
+	margin: 5px;
+}
+
+.intro h3 {
+	text-align: start;
+	padding: 10px;
+}
+
+.intro p {
+	font-size: small;
+	padding: 10px;
+}
+
+@media (min-width: 768px) {
+	.intro {
+		margin: 0px 80px 20px 80px;
+	}
+
+	.intro p {
+		display: flex;
+		justify-content: center;
 	}
 }
 
@@ -105,7 +402,7 @@ header {
 .tabla-sin-bordes {
 	border: none;
 	border-collapse: collapse;
-	margin: 0 auto;
+	margin: 0 auk;
 }
 
 .tabla-sin-bordes th,
@@ -115,56 +412,127 @@ td {
 	font-size: 25px;
 	text-align: center;
 }
+
 .tabla-sin-bordes th {
 	font-size: 22px;
 	font-weight: bold;
 }
 
 /*main-lo mas pedido*/
-.icono-delicious {
-	width: 1.5em;
-	height: 1.5em;
-	vertical-align: middle;
-	margin-right: 2px; /* espacio entre imagen y texto */
-}
+
 #lomaspedido {
 	font-family: Andika, sans-serif;
 	font-style: italic;
 }
 
-.img-plato {
-	max-width: 100%;
-	height: auto;
-}
-
-.images-lomaspedido {
-	background-color: rgba(195, 105, 20, 0.371);
-	color: rgb(0, 0, 0);
-	gap: 2px;
+#lomaspedido {
+	background-image: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0.5)
+		),
+		url('https://media.istockphoto.com/id/1191905492/es/foto/chef-preparando-la-comida-de-llama-usando-sart%C3%A9n-en-una-cocina-comercial.jpg?s=612x612&w=0&k=20&c=qu9AvPXzRSrjznUe0lWuEDks3yDdX1ZLz9lwYyPr-64=');
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: rgb(255, 255, 255);
 	display: flex;
 	align-items: center;
 	flex-direction: column;
+	padding: 5px;
+	margin: auto;
 }
 
-.images-lomaspedido img {
-	display: flex;
-	justify-content: start;
-	width: 800px;
-	height: auto;
-	padding: 1px;
-	margin: 20px;
+#lomaspedido h2 {
+	text-align: start;
+	font-size: 7vw;
+}
+
+#lomaspedido p {
+	text-align: start;
+	font-size: medium;
+}
+
+.pescado img,
+.cecina img,
+.encebollado img {
+	width: 100%;
+	transition: transform 0.3s ease;
+	margin-top: 20px;
 }
 
 .images-lomaspedido figcaption {
-	font-size: 40px;
-	display: flex;
-	justify-content: end;
-	flex-wrap: wrap-reverse;
-	padding: 1px;
-	margin: 20px;
+	font-size: medium;
+	padding: 0px;
+	margin-bottom: 30px;
+	margin-top: 0px;
+}
+
+@media (hover: hover) {
+	.pescado {
+		display: inline;
+	}
+
+	.pescado img:hover {
+		transform: scale(1.6);
+	}
+
+	.cecina img:hover {
+		transform: scale(1.6);
+	}
+
+	.encebollado img:hover {
+		transform: scale(1.6);
+	}
+}
+
+/* 🌐 Mobile first: imágenes ocupan todo el ancho */
+.pescado img,
+.cecina img,
+.encebollado img {
+	width: 100%;
+	transition: transform 0.3s ease;
+	margin-top: 20px;
+}
+
+@media (min-width: 480px) {
+	.pescado img,
+	.cecina img,
+	.encebollado img {
+		width: 300px;
+	}
+
+	.pescado,
+	.cecina,
+	.encebollado {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		gap: 3rem;
+	}
+
+	#lomaspedido h2 {
+		font-size: xxx-large;
+		text-shadow: 5px 5px black;
+		padding: 15px;
+	}
+
+	#lomaspedido p {
+		padding: 15px;
+		font-size: x-large;
+	}
+}
+
+.icono-delicious {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+	margin-right: 2px;
+	/* espacio entre imagen y texto */
 }
 
 /*menu diario*/
+
 .style-nuestromenu {
 	display: flex;
 	justify-content: center;
@@ -183,21 +551,25 @@ td {
 .style-nuestromenu h3 {
 	justify-content: center;
 }
+
 #menu-diario h2 {
-	font-size: 28px;
+	font-size: x-large;
 	text-align: center;
-	background-color: rgba(235, 113, 68, 0.559);
-	margin: 10px;
+	background-color: rgb(219, 81, 35);
+	border: 10px solid rgb(90, 17, 6);
+	color: azure;
 	padding: 10px;
+	margin: 15px 0px 15px 0px;
 }
+
 #menu-diario p {
-	font-size: 21px;
+	font-size: medium;
 }
 
 /*Carta menu kzona*/
 .tabla-menu caption {
 	text-align: center;
-	font-size: 45px;
+	font-size: xx-large;
 	font-family: 'Amatic SC', sans-serif;
 	font-weight: 400;
 	font-style: normal;
@@ -206,7 +578,8 @@ td {
 
 .tabla-menu {
 	border-collapse: collapse;
-	width: 100%; /* o el ancho que necesites */
+	width: 100%;
+	/* o el ancho que necesites */
 }
 
 .tabla-menu th,
@@ -214,33 +587,92 @@ td {
 	border: 1px solid #ccccccb6;
 	padding: 4px;
 	text-align: left;
-	font-size: 20px;
+	font-size: medium;
 }
 
 .tabla-menu .variedad {
 	text-align: center;
 }
 
+@media (min-width: 760px) {
+	.tabla-menu {
+		display: flex;
+		justify-content: center;
+	}
+}
+
 .imagen-presentacion {
 	margin: 0;
 	border: #7f0909b6;
 	border-color: brown;
-	margin-left: auto;
-	margin-right: auto;
+	width: 100%;
+	/* o lo que creas adecuado */
+	height: 30vh;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
 	.imagen-presentacion {
-		width: 100%; /* o lo que creas adecuado */
-		height: 30vh;
+		width: 100%;
+		/* o lo que creas adecuado */
+		height: 50vh;
+		display: flex;
+		justify-content: center;
+	}
+}
+
+@media (min-width: 768px) {
+	.imagen-presentacion {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+/*contacto*/
+#contact {
+	background-color: rgb(219, 81, 35);
+	padding: 6em 0.7em 6em 0.7em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#contact h2 {
+	font-size: 5vw;
+}
+
+#contact p {
+	padding: 7px;
+}
+
+.contacto p {
+	font-size: large;
+}
+
+.location {
+	display: flex;
+	align-items: center;
+}
+
+@media (min-width: 500px) {
+	.contacto-general {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		align-items: center;
+		gap: 3em;
+		text-align: left;
+	}
+
+	#contact h2 {
+		text-align: center;
 	}
 }
 
 /*formulario*/
-.formulari-sec {
-	font-size: 2.3rem;
-	margin: 0px;
-	padding: 3rem;
+.section-form {
+	margin: auto;
+	padding: 1em;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -257,63 +689,122 @@ td {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-.formulari-sec p {
-	font-size: 2rem;
-	margin: 0px;
-	padding: 0.3rem;
+
+.section-form p:nth-child(2) {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.formulari-sec textarea {
-	font-size: 2rem;
+
+.section-form p {
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.section-form textarea {
+	font-size: 10px;
 	width: 100%;
 }
 
-.formulari-sec input {
-	font-size: 1.5rem;
-}
-.formulari-sec label {
-	font-size: 2rem;
-}
-#formulario {
-	margin: 12px;
-	padding: 12px;
-	width: 100%;
+/*zoom textarea*/
+.text-zoom {
+	transition: transform 0.2s ease;
+	z-index: 1;
 }
 
-@media screen {
-	.formulari-sec {
+.text-zoom:focus {
+	position: absolute;
+	left: 0;
+	transform: scale(0.9);
+	/* Aplica el zoom */
+	z-index: 10;
+	/* Lo coloca por encima */
+	background-color: rgb(246, 246, 246);
+}
+
+.personal-info-container legend {
+	font-size: large;
+}
+
+.section-form h3 {
+	font-size: large;
+	margin-bottom: 10px;
+}
+
+.form-content input {
+	font-size: 11px;
+	padding: 0.4em;
+	width: auto;
+	height: auto;
+	display: flex;
+	align-items: start;
+}
+
+.section-form label {
+	font-size: medium;
+}
+
+.form-item {
+	padding: 5px;
+}
+
+@media (min-width: 480px) {
+	.personal-info-container fieldset {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	.form-item {
 		display: flex;
 		flex-direction: column;
-		align-content: center;
+		padding: 1px;
+		margin: 1px;
 	}
-	.formulari-sec input {
-		display: flex;
-		align-content: start;
-	}
-}
 
-@media screen {
-	#formulario {
+	.form-content input,
+	.form-content label {
 		width: 100%;
 	}
+
+	.section-form p {
+		font-size: 18px;
+	}
+
+	.section-form h3 {
+		font-size: 28px;
+	}
 }
 
-.botones-formulario {
-	display: flex;
-	gap: 8rem; /* separación entre botones */
-	justify-content: center; /* centra los botones */
-	margin-top: 10px;
+@media (min-width: 768px) {
+	.text-zoom:focus {
+		position: relative;
+		transform: scale(1);
+		z-index: 1;
+	}
+
+	input[type='text']:focus {
+		position: relative;
+		font-size: 11px;
+		transform: scale(1);
+	}
 }
 
 /*botones formulario*/
+.botones-formulario {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px;
+}
+
 button {
-	font-size: 0.8em;
+	font-size: large;
 	font-weight: bold;
-	padding: 15px;
+	padding: 8px;
 	border-radius: 10px;
 	border: 1px solid rgba(10, 6, 7, 0.5);
 	box-shadow: 2px 3px rgba(10, 6, 7, 0.5);
 	color: rgb(255, 255, 255);
-	background-color: rgb(176, 74, 48);
+	background-color: rgb(219, 81, 35);
 	display: inline-block;
 }
 
@@ -321,17 +812,34 @@ button:hover {
 	background-color: rgb(84, 30, 17);
 }
 
-/*footer*/
-footer {
-	background-color: rgba(0, 0, 0, 0.915);
-	color: white;
-	margin: 5px;
-	padding: 12px;
+@media (min-width: 480px) {
+	#registro button {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	/*footer*/
+	footer {
+		background-color: rgba(0, 0, 0, 0.915);
+		color: white;
+		margin: 0px;
+		padding: 10px;
+	}
+
+	footer p a {
+		color: rgb(255, 255, 255) !important;
+
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 15px;
+	}
 }
 
-footer p a {
-	color: rgb(255, 255, 255) !important;
+/*
 
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 15px;
-}
+movil: 200-479
+tablet: 480-767
+laptop: 768-1024
+----
+optionales:
+pantallas 4k: 1024 en adelante
+*/
