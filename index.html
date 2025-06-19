@@ -8,7 +8,15 @@
 	<title>K-zona Grill & Mar</title>
 	<link rel="icon" href="restaurante.png" type="image/x-icon" />
 	<link rel="stylesheet" href="kzona.css" type="text/css" />
-	<!--solo se usa para subir a git-hub-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+
+
+
+
+		<!--solo se usa para subir a git-hub-->
 
 	<!--<base href="/Restaurante-K-zona-Grill-Mar/" />-->
 	<script>
@@ -19,9 +27,6 @@
 			document.head.appendChild(baseTag);
 		}
 	</script>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body id="top">
@@ -46,8 +51,7 @@
 		</div>
 	</header>
 
-	<!--<h1>Restaurante <br> <strong>K-zona Grill & Mar</strong> </h1>
->-->
+		<main>
 	<div class="intro">
 		<br>
 		<h3>
@@ -60,47 +64,47 @@
 			emprendimiento. Con el tiempo, hemos crecido y expandido nuestro restaurante, incorporando un variado menú
 			que incluye mariscos, asados, cafetería y mucho más. </p>
 
-		<p>Este camino no habría sido posible sin el apoyo incondicional de nuestras familias y la confianza de nuestros
+		<p>
+			Este camino no habría sido posible sin el apoyo incondicional de nuestras familias y la confianza de nuestros
 			clientes, muchos de los cuales se han convertido en grandes amigos. Hoy, nos encontramos en la capital del
 			Ecuador, orgullosos de ofrecer nuestros platos tradicionales con el mismo sabor de siempre y la calidez que
 			ustedes se merecen.
 		</p>
 	</div>
-	<br>
-	<main>
-		<section>
-			<div>
-				<details>
-					<summary>Horario de atención</summary>
-					<table class="tabla-sin-bordes">
-						<thead>
-							<tr>
-								<th>&nbsp;</th>
-								<th scope="col">Lunes a sábado</th>
-								<th scope="col">Domingos</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<th scope="row">Apertura</th>
-								<td>
-									<time datetime="08:00">8 am</time>
-								</td>
-								<td><time datetime="09:00">9 am</time></td>
-							</tr>
-							<tr>
-								<th scope="row">Cierre</th>
-								<td>
-									<time datetime="19:00">7 pm</time>
-								</td>
-								<td><time datetime="18:00">6 pm</time></td>
-							</tr>
-						</tbody>
-					</table>
-				</details>
+
+			<img src="presentacion.jpeg" alt="presentacion" class="imagen-presentacion" />
+			
+		<section class="horarioSection">
+			<div class="openingHours">
+				<h3>Horario de atención</h3>
+				<table class="tabla-sin-bordes">
+					<thead>
+						<tr>
+							<th>&nbsp;</th>
+							<th scope="col">Lunes a sábado</th>
+							<th scope="col">Domingos</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">Apertura</th>
+							<td>
+								<time datetime="08:00">8 am</time>
+							</td>
+							<td><time datetime="09:00">9 am</time></td>
+						</tr>
+						<tr>
+							<th scope="row">Cierre</th>
+							<td>
+								<time datetime="19:00">7 pm</time>
+							</td>
+							<td><time datetime="18:00">6 pm</time></td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
 		</section>
-		<br>
+
 		<hr />
 
 		<section id="lomaspedido">
@@ -140,24 +144,21 @@
 			</div>
 		</section>
 
-		<br>
 		<section id="menu-diario">
 			<h2>Nuestro menú completo</h2>
+			<div class="sloganMenu">
 			<p>Pide lo que más te guste, cuando quieras y donde estés.</p>
-			<br />
-			<hr />
-			<div class="style-nuestromenu">
+			</div>
+			<div class="styleMenuDiario">
 				<h3>Menú diario</h3>
 				<p><span>Fecha: 4 de mayo de 2025</span></p>
 				<h4><strong>Sopa:</strong></h4>
 				<p>Locro de acelga</p>
 				<p>Sancocho de res</p>
-				<br>
 				<h4><strong>Plato fuerte:</strong></h4>
 				<p>Lasagna de carne</p>
 				<p>Estofado de pollo</p>
 				<p>Omellette de camarón</p>
-				<br>
 				<h4><strong>Postre:</strong></h4>
 				<p>Gelatina de frutas</p>
 				<h4><strong>Bebida:</strong></h4>
@@ -165,9 +166,8 @@
 			</div>
 		</section>
 		<hr />
-		<br />
 		<section class="tabla-menu" id="nuestromenu">
-			<table>
+			<table class="tabla-borde-externo">
 				<caption>
 					Carta K-zona Grill & Mar
 				</caption>
@@ -286,34 +286,11 @@
 		</section>
 		<br>
 		</article>
-		<img src="presentacion.jpeg" alt="presentacion" class="imagen-presentacion" />
-		<article id="contact">
-			<h2>Contáctanos:</h2>
-			<br>
-			<div class="contacto-general">
-				<div class="contacto">
-					<p>Ubicación Google maps:</p>
-					<p class="location">
-						<img src="https://img.icons8.com/?size=100&id=mrGQR87U1PR2&format=png&color=000000"
-							alt="location" width="50" /><a href="https://maps.app.goo.gl/etEfyUXMmZKjtdNv9"
-							target="_blank">Visitanos</a>
-					</p>
-				</div>
-				<div>
-					<p>
-						Email:
-						<a href="mailto:kzonagrillmar@gmail.com" target="_blank">kzonagrillmar@gmail.com</a>
-					</p>
-					<p>Llámanos al: <a href="tel:0959221180">0959221180</a></p>
-				</div>
-			</div>
-		</article>
 		<hr />
 		<article id="registro" class="section-form">
 			<h3>Registro a nuestro sistema</h3>
 			<p>
-				Nos gustaría seguir mejorando nuestra atención y menú</p>
-			<br>
+				Nos gustaría seguir mejorando nuestra atención y menú.</p>
 			<p>Registrate para que te enteres de todas nuestras promociones.</p>
 			<form id="formulario">
 				<div class="form-content">
@@ -358,8 +335,9 @@
 					<fieldset>
 						<label for="opinion">Déjanos un comentario:</label>
 						<br />
-						<textarea name="opinion" id="opinion" cols="50" rows="5" placeholder="Escríbenos..."
-							class="text-zoom"></textarea>
+						<div class="text-zoom">
+						<textarea name="opinion" id="opinion" cols="50" rows="5" placeholder="Escríbenos..."></textarea>
+						</div>
 					</fieldset>
 				</div>
 				<br />
@@ -399,11 +377,33 @@
 	</main>
 
 	<footer>
-		<p class="text-decoration"><a href="#">Ir al inicio</a></p>
-		<br>
+			<article id="contact">
+			<h2>Contáctanos:</h2>
+			<div class="contacto-general">
+				<div class="location">
+					<img src="https://img.icons8.com/?size=100&id=mrGQR87U1PR2&format=png&color=000000"
+							alt="location" width="30px" />
+					<a href="https://maps.app.goo.gl/etEfyUXMmZKjtdNv9"
+							target="_blank">Visítanos</a>
+				</div>
+				<div class="email">
+					<img src="https://img.icons8.com/?size=100&id=iUAL2gKFxVxc&format=png&color=000000" alt="email" width="30px">
+					<a href="mailto:kzonagrillmar@gmail.com" target="_blank"> kzonagrillmar@gmail.com</a>
+				</div>
+				<div class="whatsapp">
+					<img src="https://img.icons8.com/ios/50/whatsapp--v1.png" alt="whatsapp" width="30px"/>
+					<a href="https://wa.me/593959221180"> 0959221180</a></p>
+				</div>
+			</div>
+			<div class="textContact">
+					<p>Sera un placer servirle.</p>
+			</div>
+		</article>
+		<div class="sammi">
 		<p>
-			&copy;<a href="about.html" style="font-size: 10px" text-decoration="none">Sammi</a>
+			&copy;<a href="about.html" >Sammi</a>
 		</p>
+		
 	</footer>
 </body>
 
