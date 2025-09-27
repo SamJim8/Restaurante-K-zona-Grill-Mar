@@ -538,7 +538,7 @@ td {
 }
 
 
-.cart {
+.shopping-modal {
 	position: fixed;
 	display: none;
 	bottom: 0;
@@ -568,28 +568,28 @@ td {
 	background-color: rgb(219, 81, 35);
 }
 
-.cart.hide {
+.shopping-modal.hide {
 	transform: translateY(100%);
 }
 
-.cart.show {
+.shopping-modal.show {
 	transform: translateY(0);
 }
 
-.cart ul {
+.shopping-modal ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 }
 
-.cart li {
+.shopping-modal li {
 	margin-bottom: 8px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.cart button {
+.shopping-modal button {
 	background: red;
 	color: white;
 	border: none;
@@ -598,7 +598,7 @@ td {
 	padding: 2px 8px;
 }
 
-.cart button.remove-item {
+.shopping-modal button.remove-item {
 	background: red;
 	color: white;
 	border: none;
