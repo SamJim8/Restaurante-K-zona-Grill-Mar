@@ -1,7 +1,10 @@
 /* *{ This inside rules apply with all elements on html */
+html {
+	font-size: 16px;
+}
+
 * {
 	box-sizing: border-box;
-	margin: 0px;
 	scroll-behavior: smooth;
 	font-family: 'Lora', serif;
 }
@@ -12,6 +15,21 @@ body {
 	box-sizing: border-box;
 	margin: 1px;
 }
+
+html,
+body {
+	overflow-x: hidden;
+	/* evita scroll horizontal */
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
 
 img[alt] {
 	font-family: Andika, sans-serif;
@@ -36,7 +54,6 @@ input[type='tel'] {
 	z-index: 1;
 }
 
-/* SCADEV APPLY DRY (DON'T REPEAT YOURSELF)*/
 input[type='text']:focus,
 input[type='tel']:focus {
 	position: relative;
@@ -48,10 +65,9 @@ input[type='tel']:focus {
 	z-index: 10;
 }
 
-
 /*head-lista de navegacion*/
-.logo {
-	width: 50px;
+/*.logo {
+	width: 18%;
 	border-radius: 50%;
 	order: 1;
 }
@@ -94,19 +110,14 @@ nav ul {
 
 nav ul li a {
 	display: block;
-	/* Hace que el enlace ocupe todo el li */
+	/* Hace que el enlace ocupe todo el li 
 	padding: 5px 20px 5px 20px;
 	width: 100%;
 	color: white;
 	text-decoration: none;
-	font-size: small;
+	font-size: 3rem;
 	box-sizing: border-box;
-	/* Asegura que el padding y borde no afecten el tamaño */
-}
-
-nav ul li a:hover {
-	background-color: rgb(76, 37, 18);
-	transform: scale(1.1);
+	/* Asegura que el padding y borde no afecten el tamaño 
 }
 
 nav ul li {
@@ -115,31 +126,144 @@ nav ul li {
 
 nav:first-of-type ul li:first-child {
 	padding-top: 10px;
-}
+}*/
 
-/* Elimina el borde solo al último li del último nav */
-nav:last-of-type ul li:last-child {
+.nav:last-of-type ul li:last-child {
 	border-bottom: none;
 }
 
-/*INTRO*/
+.nav ul li a:hover {
+	background-color: rgb(76, 37, 18);
+	transform: scale(1.1);
+}
+
+/* --- Estilos base: móvil --- */
+/* 1. Barra de navegacion*/
+.brand-name {
+	margin: 0;
+	font-size: 1.2rem;
+	color: white;
+	text-align: center;
+	flex: 1;
+	/* ocupa espacio flexible */
+}
+
+header {
+	position: fixed;
+	/* fija la barra al top */
+	top: 0;
+	/* arriba de la pantalla */
+	left: 0;
+	width: 100%;
+	z-index: 2000;
+	/* encima de todo el contenido */
+	background: rgb(219, 81, 35);
+}
+
+.container-nav {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	background: rgb(219, 81, 35);
+	color: white;
+}
+
+.logo {
+	height: 50px;
+	z-index: 1100;
+}
+
+.nav-mobile {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 50vw;
+	max-width: 300px;
+	height: 100vh;
+	background: #444;
+	padding: 60px 20px;
+	border-radius: 0 0 5px 5px;
+	z-index: 1000;
+	transform: translateX(100%);
+	transition: transform 0.3s ease;
+}
+
+.nav-mobile.show {
+	transform: translateX(0);
+}
+
+.nav-mobile ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-mobile li {
+	margin: 10px 0;
+}
+
+.nav-mobile a {
+	color: white;
+	text-decoration: none;
+}
+
+.nav-left,
+.nav-right {
+	/* Menús de desktop ocultos en móvil */
+	display: none;
+}
+
+/* 1.a. Botones navegacion*/
+.hamburger {
+	display: block;
+	position: relative;
+	right: 20px;
+	font-size: 24px;
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+}
+
+.close-btn {
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	font-size: 20px;
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	z-index: 1100;
+}
+
+/* 2. INTRO*/
 .intro {
-	margin: 5px;
-	margin-top: 230px;
+	margin: 40px 40px;
 }
 
 .intro h3 {
 	text-align: start;
-	padding: 10px;
+	padding-top: 30px;
 	font-size: large;
 }
 
 .intro p {
-	font-size: small;
+	font-size: 10px;
 	padding: 10px;
 }
 
-/*HORARIOS DE ATENCION*/
+.imagen-presentacion {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center;
+}
+
+/* 3. HORARIOS DE ATENCION*/
 .openingHours h3 {
 	font-size: large;
 	text-align: center;
@@ -189,7 +313,7 @@ td {
 	font-weight: bold;
 }
 
-/*main-lo mas pedido*/
+/* 4. main-lo mas pedido*/
 #lomaspedido {
 	background-image: linear-gradient(0deg,
 			rgba(0, 0, 0, 0.5),
@@ -218,17 +342,35 @@ td {
 .pescado img,
 .cecina img,
 .encebollado img {
-	width: 100%;
+	width: 45%;
 	transition: transform 0.3s ease;
 	margin-top: 20px;
 }
 
+.pescado,
+.cecina,
+.encebollado {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	gap: 3rem;
+}
+
+#lomaspedido h2 {
+	font-size: large;
+	text-shadow: 5px 5px black;
+	padding: 15px;
+}
+
+#lomaspedido p {
+	padding: 15px;
+	font-size: large;
+}
+
 .images-lomaspedido figcaption {
-	font-size: small;
-	padding: 0px;
-	margin-bottom: 30px;
-	margin-top: 0px;
-	font-style: italic;
+	font-size: 1.2em;
+	/* 1.2 * 16px = 19.2px */
 }
 
 .icono-delicious {
@@ -238,7 +380,7 @@ td {
 	margin-right: 2px;
 }
 
-/*menu diario*/
+/* 5. menu diario*/
 .styleMenuDiario {
 	display: flex;
 	justify-content: center;
@@ -278,7 +420,7 @@ td {
 	font-size: small;
 }
 
-.sloganMenu p{
+.sloganMenu p {
 	font-family: 'Playfair Display', serif;
 	font-size: 1.5rem;
 	font-style: italic;
@@ -286,26 +428,32 @@ td {
 	padding-top: 5px;
 }
 
-/*Carta menu kzona*/
+/* 6. Carta menu kzona*/
+/* 6.a. estilos de la tabla*/
+.tabla-menu {
+	border-collapse: collapse;
+	width: 100%;
+	padding: auto;
+	display: block;
+	align-items: wrap;
+	justify-content: center;
+	gap: 10px;
+}
+
 .tabla-menu caption {
 	text-align: center;
 	font-size: x-large;
 	font-family: 'Amatic SC', sans-serif;
 	font-weight: bold;
-	font-style: normal;
-	font-weight: bold;
 }
 
 .tabla-borde-externo {
+	width: 100%;
+	table-layout: auto;
 	border-collapse: collapse;
 	border: 3px solid rgba(0, 0, 0, 0.423);
-}
-
-.tabla-menu {
-	border-collapse: collapse;
-	width: 100%;
-	/* o el ancho que necesites */
-	padding: auto;
+	table-layout: fixed;
+	/* evita que las columnas cambien de tamaño */
 }
 
 .tabla-menu th,
@@ -313,7 +461,12 @@ td {
 	border: 1px solid #ccccccb6;
 	padding: 4px;
 	text-align: left;
-	font-size: x-small;
+	font-size: medium;
+	word-wrap: break-word;
+}
+
+.columnas-carta th {
+	text-align: center;
 }
 
 .tabla-menu .variedad {
@@ -321,9 +474,192 @@ td {
 	background-color: #93300e30;
 }
 
-.imagen-presentacion {
-	width: 100%;
+#menu-diario p:nth-child(1) {
+	font-size: medium;
 }
+
+.action-style {
+	background-color: rgb(219, 81, 35);
+	min-width: none;
+	width: 80px;
+	text-align: center;
+}
+
+.price-style {
+	min-width: none;
+	width: 5.6rem;
+	text-align: center;
+}
+
+.style-carta {
+	display: flex;
+	flex: 1 1 100%;
+	align-items: flex-start;
+}
+
+/* 6.b. Clase para categoría expandida/acordeon */
+.acordeon {
+	cursor: pointer;
+	position: relative;
+	padding-right: 20px;
+	/* espacio para la flecha */
+}
+
+.acordeon::after {
+	content: "▼";
+	position: absolute;
+	right: 5px;
+	transition: transform 0.3s;
+}
+
+.acordeon.expanded::after {
+	transform: rotate(-180deg);
+	/* gira la flecha hacia arriba */
+}
+
+/* 6.c. Carrito de compras*/
+.td-price {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	.btn-add {
+		width: 1.55rem;
+		border: none;
+		padding: 0;
+	}
+
+		.btn-add:hover {
+			img {
+				filter: saturate(0.5);
+			}
+	}
+
+}
+
+
+.cart {
+	position: fixed;
+	display: none;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	max-height: 40%;
+	background: #f9f9f9;
+	border-top: 2px solid #ccc;
+	padding: 5px;
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+	overflow-y: auto;
+	z-index: 1000;
+	/* que esté encima de todo */
+}
+
+.add-to-cart {
+	font-size: 10px;
+	background-color: rgb(244, 243, 243);
+	;
+	box-shadow: 2px 3px rgba(10, 6, 7, 0.5);
+	border: none;
+	width: 100%;
+	padding: 2px;
+}
+
+.add-to-cart:hover {
+	background-color: rgb(219, 81, 35);
+}
+
+.cart.hide {
+	transform: translateY(100%);
+}
+
+.cart.show {
+	transform: translateY(0);
+}
+
+.cart ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.cart li {
+	margin-bottom: 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cart button {
+	background: red;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 2px 8px;
+}
+
+.cart button.remove-item {
+	background: red;
+	color: white;
+	border: none;
+	padding: 2px 6px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+/* 6.d. Botón "Hacer pedido" */
+/* Botón "Hacer pedido" */
+.start-order-btn {
+	display: block;
+	/* se comporta como bloque */
+	margin: 0 auto 15px;
+	/* centrado y con espacio abajo */
+	padding: 10px 16px;
+	background-color: #2196F3;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	max-width: 200px;
+	/* evita que se estire demasiado */
+	text-align: center;
+}
+
+.start-order-btn:hover {
+	background-color: #1976D2;
+}
+
+#customer-name {
+	width: 100%;
+	padding: 5px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.comprar h3 {
+	font-size: medium;
+	margin-top: 0;
+}
+
+.send-order-btn {
+	margin-top: 10px;
+	width: 100%;
+	padding: 8px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.send-order-btn:hover {
+	background-color: #45a049;
+}
+
+/* .columnas-carta .action-style,
+.tabla-borde-externo .action-style {
+	display: none; /* Oculta la columna de acción al inicio 
+} */
 
 /*formulario*/
 .section-form {
@@ -348,6 +684,34 @@ td {
 .section-form p:nth-child(2) {
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
 		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/*del media 480*/
+.personal-info-container fieldset {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.5rem;
+}
+
+.form-item {
+	display: flex;
+	flex-direction: column;
+	padding: 1px;
+	margin: 1px;
+}
+
+.form-content input,
+.form-content label {
+	width: 100%;
+}
+
+.section-form p {
+	font-size: 18px;
+}
+
+#registro button {
+	display: flex;
+	justify-content: space-between;
 }
 
 /*zoom textarea*/
@@ -420,7 +784,7 @@ td {
 	margin: 0px 10px 0px 10px;
 }
 
-button {
+.botones-formulario button {
 	font-size: small;
 	font-weight: bold;
 	padding: 5px;
@@ -433,7 +797,7 @@ button {
 	gap: 2rem;
 }
 
-button:hover {
+.botones-formulario button:hover {
 	background-color: rgb(84, 30, 17);
 }
 
@@ -499,6 +863,32 @@ button:hover {
 	align-items: center;
 }
 
+/*del media 480*/
+.textContact {
+	text-align: center;
+}
+
+.contacto-general {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 7px;
+	justify-items: center;
+	text-align: end;
+}
+
+.location img {
+	width: 40px;
+}
+
+#contact h2 {
+	text-align: center;
+}
+
+.contacto-general a {
+	font-size: medium;
+}
+
+
 /*footer*/
 footer {
 	background-color: rgb(219, 81, 35);
@@ -522,126 +912,6 @@ footer {
 	text-align: center;
 }
 
-
-@media (min-width: 480px) {
-
-	/*LO MAS PEDIDO*/
-	.pescado img,
-	.cecina img,
-	.encebollado img {
-		width: 300px;
-	}
-
-	.pescado,
-	.cecina,
-	.encebollado {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-around;
-		gap: 3rem;
-	}
-
-	#lomaspedido h2 {
-		font-size: large;
-		text-shadow: 5px 5px black;
-		padding: 15px;
-	}
-
-	#lomaspedido p {
-		padding: 15px;
-		font-size: large;
-	}
-
-	.images-lomaspedido figcaption {
-		font-size: medium;
-	}
-
-	/*HORARIO*/
-	.tabla-sin-bordes th,
-	td {
-		font-size: medium;
-	}
-
-	/*MENU DIARIO*/
-	.styleMenuDiario p .styleMenuDiario h4 {
-		font-size: medium;
-	}
-
-	.styleMenuDiario h3 {
-		font-size: large;
-	}
-
-	/*CARTA*/
-	.tabla-menu {
-		display: flex;
-		justify-content: center;
-	}
-
-	.tabla-borde-externo th,
-	.tabla-borde-externo td {
-		font-size: small;
-	}
-
-	.tabla-borde-externo caption {
-		font-size: xx-large;
-	}
-
-
-	#menu-diario p:nth-child(1) {
-		font-size: medium;
-	}
-
-	/*FORMULARIO*/
-	.personal-info-container fieldset {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1.5rem;
-	}
-
-	.form-item {
-		display: flex;
-		flex-direction: column;
-		padding: 1px;
-		margin: 1px;
-	}
-
-	.form-content input,
-	.form-content label {
-		width: 100%;
-	}
-
-	.section-form p {
-		font-size: 18px;
-	}
-	#registro button {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	/*CONTACTO*/
-	.textContact {
-		text-align: center;
-	}
-	.contacto-general {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 7px;
-		justify-items: center;
-		text-align: end;
-	}
-	.location img {
-		width: 40px;
-	}
-	#contact h2 {
-		text-align: center;
-	}
-	.contacto-general a {
-		font-size: medium;
-	}
-}
-
-/*IMAGENES LO MAS pedido*/
 @media (hover: none) and (pointer: coarse) {
 	.pescado img:hover {
 		transform: scale(1.1);
@@ -655,6 +925,7 @@ footer {
 		transform: scale(1.1);
 	}
 }
+
 
 @media (min-width: 768px) and (hover: hover) {
 	.pescado img:hover {
@@ -671,6 +942,7 @@ footer {
 }
 
 @media (hover: hover) and (pointer: fine) {
+
 	.text-zoom textarea:focus,
 	input[type='text']:focus,
 	input[type='tel']:focus {
@@ -681,29 +953,8 @@ footer {
 }
 
 @media (min-width: 768px) {
-	.imagen-presentacion {
-		max-width: 65%;
-		margin-left: auto;
-		margin-right: auto;
-		display: flex;
-		justify-content: center;
-	}
-
-	/*INTRO*/
-	.intro {
-		margin: 70px 150px 20px 150px;
-	}
-
-	.intro h3 {
-		font-size: x-large;
-	}
-
-	.intro p {
-		font-size: 17px;
-	}
-
 	/*NABEGACION*/
-	.container-nav {
+	/*.container-nav {
 		position: fixed;
 		border-bottom: 1px solid white;
 		width: 100%;
@@ -717,7 +968,7 @@ footer {
 	.nav-left,
 	.nav-right {
 		display: flex;
-		/*justify-content: space-evenly;*/
+		/*justify-content: space-evenly;
 		gap: 1em;
 		margin-left: 10px;
 		margin-right: 10px;
@@ -761,11 +1012,50 @@ footer {
 
 	nav ul li a {
 		display: inline-block;
-		/* para que puedas controlar padding y tamaño */
+		/* para que puedas controlar padding y tamaño 
 		padding: 5px;
 		max-width: 200px;
-		/* límite de ancho */
+		/* límite de ancho 
 		text-align: center;
+	}*/
+
+	.hamburger {
+		display: none;
+	}
+
+	/* Menús visibles */
+	.nav-left,
+	.nav-right {
+		display: flex;
+		gap: 20px;
+		align-items: center;
+		position: absolute;
+		left: 20px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	/* Ocultar menú móvil */
+	.nav-mobile {
+		display: none !important;
+	}
+
+	.nav-left {
+		left: 20px;
+	}
+
+	.nav-right {
+		right: 20px;
+	}
+
+	.logo {
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.nav-mobile {
+		display: none !important;
 	}
 
 	/*HORARIO*/
@@ -811,6 +1101,25 @@ footer {
 		font-size: medium;
 	}
 
+	.col-accion {
+		min-width: 40px;
+		/* más compacta en tablets/móviles */
+	}
+
+	.add-to-cart {
+		padding: 2px 6px;
+		/* botón más chico */
+		font-size: 0.75rem;
+	}
+
+	.add-to-cart,
+	.remove-item {
+		padding: 2px 6px;
+		font-size: 12px;
+		margin-left: 5px;
+		cursor: pointer;
+	}
+
 	/*FORMULARIO*/
 	.section-form {
 		background-position: center center;
@@ -834,16 +1143,14 @@ footer {
 		font-size: 20px;
 	}
 
-	.section-form label, .form-content input, .section-form textarea {
+	.section-form label,
+	.form-content input,
+	.section-form textarea {
 		font-size: medium;
 	}
 
 	.form-content input {
 		font-size: medium;
-	}
-
-	button {
-		font-size: 20px;
 	}
 
 	.text-zoom textarea,
@@ -866,11 +1173,13 @@ footer {
 	.textContact {
 		font-size: x-large;
 	}
+
 	.contacto-general {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-evenly;
 	}
+
 	#contact h2 {
 		font-size: x-large;
 	}
@@ -885,7 +1194,7 @@ footer {
 		/* límite de ancho */
 		text-align: center;
 		font-size: large;
-		margin left: 15px;
+		margin-left: 15px;
 		margin-right: 15px;
 	}
 

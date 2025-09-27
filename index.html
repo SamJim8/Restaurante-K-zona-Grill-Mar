@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<meta name="author" content="Sammi Jim" />
 	<meta name="description" content="This page contains the menu of K-zona Grill & Mar" />
 	<title>K-zona Grill & Mar</title>
@@ -11,11 +12,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-
-
-
-
+	<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
 		<!--solo se usa para subir a git-hub-->
 
 	<!--<base href="/Restaurante-K-zona-Grill-Mar/" />-->
@@ -30,28 +27,49 @@
 </head>
 
 <body id="top">
-	<header>
-		<div class="container-nav">
-			<nav aria-label="primary-navigation" class="nav-left">
-				<ul>
-					<li><a href="#">Inicio</a></li>
-					<li><a href="#lomaspedido">Los más pedidos</a></li>
-					<li><a href="#menu-diario">Menú diario</a></li>
-				</ul>
-			</nav>
+<header>
+  <div class="container-nav">
+    <img src="logo.png" alt="logo" class="logo" />
 
-			<img src="logo.png" alt="logo" class="logo" />
-			<nav class="nav-right">
-				<ul>
-					<li><a href="#nuestromenu">Nuestro menú</a></li>
-					<li><a href="#contactanos">Contáctanos</a></li>
-					<li><a href="#registro">Déjanos tu opinión</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+	<h1 class="brand-name">K-zona Grill & Mar</h1>
 
-		<main>
+    <!-- botón hamburguesa -->
+    <button class="hamburger" id="hamburger">☰</button>
+
+    <!-- menú completo para móvil -->
+    <nav class="nav-mobile" id="nav-mobile">
+		<button class="close-btn" id="close-btn">✖</button>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#lomaspedido">Los más pedidos</a></li>
+        <li><a href="#menu-diario">Menú diario</a></li>
+        <li><a href="#nuestromenu">Nuestro menú</a></li>
+        <li><a href="#contactanos">Contáctanos</a></li>
+        <li><a href="#registro">Déjanos tu opinión</a></li>
+      </ul>
+    </nav>
+
+    <!-- menús de desktop -->
+    <nav aria-label="primary-navigation" class="nav-left">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#lomaspedido">Los más pedidos</a></li>
+        <li><a href="#menu-diario">Menú diario</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav-right">
+      <ul>
+        <li><a href="#nuestromenu">Nuestro menú</a></li>
+        <li><a href="#contactanos">Contáctanos</a></li>
+        <li><a href="#registro">Déjanos tu opinión</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main>
 	<div class="intro">
 		<br>
 		<h3>
@@ -167,25 +185,32 @@
 		</section>
 		<hr />
 		<section class="tabla-menu" id="nuestromenu">
+			<button id="start-order" class="start-order-btn">Hacer pedido</button>
+
+			<div class="style-carta">
 			<table class="tabla-borde-externo">
 				<caption>
 					Carta K-zona Grill & Mar
 				</caption>
-				<thead>
+				<thead class="columnas-carta">
 					<tr>
 						<th scope="col">Platos</th>
 						<th scope="col">Descripción</th>
-						<th scope="col">Precio</th>
+						<th class="price-style" scope="col">Precio</th>
 					</tr>
 				</thead>
-				<tbody>
+				<!--Mariscos-->
+				<tbody class="categoria">
 					<tr>
-						<th colspan="3" class="variedad">Mariscos</th>
+						<th colspan="3" class="variedad acordeon">Mariscos</th>
 					</tr>
 					<tr>
 						<th scope="row">Pescado frito</th>
 						<td>Acompañado de patacones, arroz, menestra y ensalada.</td>
-						<td class="precio">$8.00</td>
+						<td class="td-price">
+						<p>$8.00</p>
+						<button class="btn-add" onclick="funcionCompleja()"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Encebollado normal</th>
@@ -201,21 +226,37 @@
 						<td>Camarón y Albacora.</td>
 						<td class="precio">$4.00</td>
 					</tr>
+					</tbody>
+					<!--Asados-->
+					<tbody clas="categoria">
 					<tr>
-						<th class="variedad" colspan="3">Asados</th>
+						<th class="variedad acordeon" colspan="3">Asados</th>
 					</tr>
 					<tr>
-						<th scope="row">Filete de pollo</th>
+						<th scope="row">Filete de pollo al grill</th>
 						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
 						<td class="precio">$4.00</td>
 					</tr>
 					<tr>
-						<th scope="row">Chuleta al grill</th>
+						<th scope="row">Chuleta de cerdo al grill</th>
 						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
 						<td class="precio">$4.50</td>
 					</tr>
 					<tr>
-						<th colspan="3" class="variedad">Arroces</th>
+						<th scope="row">FIlete de res al grill</th>
+						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
+						<td class="precio">$4.50</td>
+					</tr>
+					<tr>
+						<th scope="row">Cecina</th>
+						<td>Acompañado de yucas, mote, aguacate y ensalada.</td>
+						<td class="precio">$7.00</td>
+					</tr>
+					<!--Arroces-->
+					</tbody>
+					<tbody class="categoria">
+					<tr>
+						<th colspan="3" class="variedad acordeon">Arroces</th>
 					</tr>
 					<tr>
 						<th scope="row">Chaulafán mixto</th>
@@ -226,21 +267,18 @@
 						<th scope="row">Chaulafán especial</th>
 						<td>Contiene cerdo, pollo y camarón.</td>
 						<td class="precio">$6.00</td>
-					</tr>
 					<tr>
 						<th scope="row">Chaulafán con tallarín mixto</th>
 						<td>Contiene cerdo y pollo.</td>
 						<td class="precio">$7.00</td>
 					</tr>
+					</tbody>
+					<!--Cafetería-->
+					<tbody class="categoria">
 					<tr>
-						<th colspan="3" class="variedad">
-							Comida típica Lojana
+						<th colspan="3" class="variedad acordeon">
+							Cafetería
 						</th>
-					</tr>
-					<tr>
-						<th scope="row">Cecina</th>
-						<td>Acompañado de yucas, mote, aguacate y ensalada.</td>
-						<td class="precio">$7.00</td>
 					</tr>
 					<tr>
 						<th scope="row">Humitas</th>
@@ -250,10 +288,7 @@
 					<tr>
 						<th scope="row">Tamales</th>
 						<td>Rellenas de pollo o queso.</td>
-						<td class="precio">$1.75</td>
-					</tr>
-					<tr>
-						<th colspan="3" class="variedad">Cafetería</th>
+						<td class="precio">$1.50</td>
 					</tr>
 					<tr>
 						<th scope="row">Desayuno continental</th>
@@ -261,29 +296,82 @@
 							Contiene huevos a su gusto, tostada, jugo, porción de frutas y
 							cafe/leche.
 						</td>
-						<td class="precio">$4.50</td>
+						<td class="precio">$3.50</td>
 					</tr>
 					<tr>
 						<th scope="row">Bolón</th>
-						<td>Relleno de queso, chicharrón o mixto + café.</td>
-						<td class="precio">$3.25</td>
+						<td>Relleno de queso, chicharrón o mixto.</td>
+						<td class="precio">$2.50</td>
 					</tr>
 					<tr>
 						<th scope="row">Tigrillo</th>
 						<td>De queso, chicharrón o mixto + café.</td>
-						<td class="precio">$3.75</td>
+						<td class="precio">$2.75</td>
 					</tr>
 				</tbody>
+					<!--Bebidas-->
+					<tbody class="categoria">
+					<tr>
+						<th colspan="3" class="variedad acordeon">
+							Bebidas
+						</th>
+					</tr>
+					<tr>
+						<th scope="row">Café</th>
+						<td></td>
+						<td class="precio">$1.25</td>
+					</tr>
+					<tr>
+						<th scope="row">Aguas aromáticas</th>
+						<td></td>
+						<td class="precio">$1.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Jugos</th>
+						<td>Tomate, piña, fresa, papaya, melón, mora, guanábana.</td>
+						<td class="precio">$1.75</td>
+					</tr>
+					<tr>
+						<th scope="row">Batidos</th>
+						<td>Tomate, fresa, mora, guanábana.</td>
+						<td class="precio">$2.00</td>					
+					<tr>
+						<th scope="row">Limonada</th>
+						<td></td>
+						<td class="precio">$1.50</td>
+					</tr>
+					</tr>
+					<tr>
+						<th scope="row">Cola personal</th>
+						<td>Coca-cola de 350 mL.</td>
+						<td class="precio">$1.00</td>
+					</tr>
+					<tr>
+						<th scope="row">Cola 1 Litro</th>
+						<td>Coca-cola.</td>
+						<td class="precio">$2.00</td>
+					</tr>
+				</tbody>				
 				<tfoot>
 					<tr>
 						<td colspan="3">
 							Para llevar, cada plato tiene un precio extra de $0.50 por los
 							desechables.
 						</td>
+
 					</tr>
 				</tfoot>
 			</table>
+		</div>
 		</section>
+		<div id="cart" class="cart">
+			<h3>Mi pedido</h3>
+    		<ul id="cart-items"></ul>
+    		<p><strong>Total: $<span id="cart-total">0</span></strong></p>
+			<p>Agrega tu nombre al pedido.</p>
+			<input type="text" id="customer-name" placeholder="Tu nombre" />
+			<button id="send-order" class="send-order-btn">Enviar pedido por WhatsApp</button>
+		</div>
 		<br>
 		</article>
 		<hr />
@@ -348,31 +436,8 @@
 					</button>
 					<button type="reset">Resetear</button>
 				</div>
-			</form>
+			</form> 
 			</div>
-			<script>
-				document.getElementById("formulario").addEventListener("submit", function (e) {
-					e.preventDefault(); // Evita que recargue
-
-					const form = e.target;
-					const data = new FormData(form);
-
-					fetch("https://script.google.com/macros/s/AKfycbwHhqpMmP9itWw3SbpaqSHOm37-tq3Jf4uw1c3cF7DtuQM8R3iDUpqYxY4gUtXsVd0D/exec", {
-						method: "POST",
-						body: data,
-					})
-						.then((mensaje) => {
-							alert("✅ ¡Gracias por registrarte!");
-							form.reset(); // Limpia los campos
-							window.location.href = "#"; // Vuelve al inicio de la página
-						})
-
-						.catch((error) => {
-							alert("❌ Ocurrió un error. Inténtalo de nuevo.");
-							console.error("Error:", error);
-						});
-				});
-			</script>
 		</article>
 	</main>
 
@@ -405,6 +470,10 @@
 		</p>
 		
 	</footer>
+	<script src="script-barra-navegacion.js"></script>
+	<script src="prueba-carta.js"></script>
+	<script src="script-formulario.js"></script>
+	<script src="script-shopping-car.js"></script>
 </body>
 
 </html>
