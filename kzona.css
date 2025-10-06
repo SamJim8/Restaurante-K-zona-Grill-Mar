@@ -54,17 +54,6 @@ input[type='tel'] {
 	z-index: 1;
 }
 
-input[type='text']:focus,
-input[type='tel']:focus {
-	position: relative;
-	font-size: medium;
-	outline: none;
-	/* Elimina el borde por defecto al enfocar */
-	transform: scale(1.8);
-	/* zoom */
-	z-index: 10;
-}
-
 /*head-lista de navegacion*/
 /*.logo {
 	width: 18%;
@@ -263,56 +252,6 @@ header {
 	justify-content: center;
 }
 
-/* 3. HORARIOS DE ATENCION*/
-.openingHours h3 {
-	font-size: large;
-	text-align: center;
-}
-
-.openingHours {
-	padding: 40px 0px 40px 0px;
-	margin: 10px 0px 10px 0px;
-	background-image: linear-gradient(0deg,
-			rgba(244, 243, 243, 0.95),
-			rgba(244, 243, 243, 0.871),
-			rgba(244, 243, 243, 0.75),
-			rgba(244, 243, 243, 0.65),
-			rgba(241, 223, 203, 0.6),
-			rgba(241, 223, 203, 0.5),
-			rgba(241, 223, 203, 0.45),
-			rgba(241, 223, 203, 0.30),
-			rgba(241, 223, 203, 0.45),
-			rgba(241, 223, 203, 0.5),
-			rgba(241, 223, 203, 0.45),
-			rgba(241, 223, 203, 0.5),
-			rgba(241, 223, 203, 0.6),
-			rgba(244, 243, 243, 0.65),
-			rgba(244, 243, 243, 0.75),
-			rgba(244, 243, 243, 0.871),
-			rgba(244, 243, 243, 0.95)),
-		url('https://st2.depositphotos.com/2013817/7550/v/450/depositphotos_75508309-stock-illustration-seamless-texture-with-kitchen-utensils.jpg');
-}
-
-.tabla-sin-bordes {
-	border: none;
-	border-collapse: collapse;
-	margin: 0 auto;
-}
-
-.tabla-sin-bordes th,
-td {
-	border: none;
-	padding: 5px;
-	font-size: x-small;
-	text-align: center;
-	text-shadow: 1px 1px 1px 1px rgb(65, 4, 4);
-}
-
-.tabla-sin-bordes th {
-	font-size: x-small;
-	font-weight: bold;
-}
-
 /* 4. main-lo mas pedido*/
 #lomaspedido {
 	background-image: linear-gradient(0deg,
@@ -325,7 +264,6 @@ td {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	padding: 5px;
 	margin: auto;
 }
 
@@ -344,7 +282,7 @@ td {
 .encebollado img {
 	width: 45%;
 	transition: transform 0.3s ease;
-	margin-top: 20px;
+	margin: 5px 0 5px 5px;
 }
 
 .pescado,
@@ -369,8 +307,8 @@ td {
 }
 
 .images-lomaspedido figcaption {
-	font-size: 1.2em;
-	/* 1.2 * 16px = 19.2px */
+	font-size: 0.9rem;
+	margin: 1px;
 }
 
 .icono-delicious {
@@ -397,13 +335,10 @@ td {
 	font-size: medium;
 }
 
-.styleMenuDiario p:nth-child(2) {
-	padding-top: 15px;
-}
-
 .styleMenuDiario h4 {
-	padding-top: 15px;
-	font-size: small;
+	font-size: 1rem;
+	padding: auto;
+	margin-bottom: 2px;
 }
 
 #menu-diario h2 {
@@ -412,12 +347,14 @@ td {
 	background-color: rgb(219, 81, 35);
 	color: azure;
 	padding: 10px;
-	margin: 15px 0px 15px 0px;
+	margin: 10px 0px 10px 0px;
 	text-shadow: 1px 1px 1px solid black;
 }
 
 .styleMenuDiario p {
-	font-size: small;
+	font-size: 1rem;
+	padding: 10px;
+	margin: 0px;
 }
 
 .sloganMenu p {
@@ -523,7 +460,7 @@ td {
 	flex-direction: row;
 	justify-content: space-between;
 
-	.btn-add {
+	.btn-add-item {
 		width: 1.55rem;
 		border: none;
 		padding: 0;
@@ -537,21 +474,48 @@ td {
 
 }
 
-
 .shopping-modal {
 	position: fixed;
-	display: none;
-	bottom: 0;
+	bottom: -100%;
 	left: 0;
 	width: 100%;
-	max-height: 40%;
+	max-width: 400px;
+	right: auto;
+	margin: 0 10px;
 	background: #f9f9f9;
 	border-top: 2px solid #ccc;
 	padding: 5px;
 	box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 	overflow-y: auto;
 	z-index: 1000;
-	/* que esté encima de todo */
+}
+#shopping-modal.active {
+  bottom: 0;
+}
+
+.order-name,
+#shopping-modal input#customer-name {
+  display: inline-block; /* que estén en línea */
+  vertical-align: middle; /* alineación vertical */
+}
+
+#shopping-modal p{
+	font-size: 0.9rem
+}
+#shopping-modal input#customer-name {
+  margin-left: 10px; /* separa un poco del texto */
+  padding: 5px 8px;
+  width: 150px; /* ancho adecuado para que no ocupe mucho */
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.name-row {
+  display: flex;
+  align-items: center; /* alinea verticalmente */
+  gap: 1rem; /* espacio entre texto e input */
+  margin: 10px 0;
 }
 
 .add-to-cart {
@@ -568,14 +532,6 @@ td {
 	background-color: rgb(219, 81, 35);
 }
 
-.shopping-modal.hide {
-	transform: translateY(100%);
-}
-
-.shopping-modal.show {
-	transform: translateY(0);
-}
-
 .shopping-modal ul {
 	list-style: none;
 	padding: 0;
@@ -590,7 +546,7 @@ td {
 }
 
 .shopping-modal button {
-	background: red;
+	background: rgb(219, 81, 35);
 	color: white;
 	border: none;
 	border-radius: 4px;
@@ -599,7 +555,7 @@ td {
 }
 
 .shopping-modal button.remove-item {
-	background: red;
+	background: rgb(219, 81, 35)red;
 	color: white;
 	border: none;
 	padding: 2px 6px;
@@ -607,7 +563,54 @@ td {
 	border-radius: 3px;
 }
 
-/* 6.d. Botón "Hacer pedido" */
+/* 6.d Items*/
+#cart-items li {
+  display: flex;
+  align-items: center;        /* centra verticalmente los elementos */
+  justify-content: space-between; /* espacio entre los extremos */
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  gap: 10px;      
+}
+
+#cart-items li .product {
+	font-weight: normal;
+}
+
+#cart-items .product {
+  flex: 2;                   
+  font-weight: bold;
+}
+
+#cart-items .price {
+  flex: 1;
+  text-align: right;
+}
+
+#cart-items .quantity,
+#cart-items .btn-add,
+#cart-items .btn-less {
+  flex: 0;                    
+}
+
+.close-cart-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-cart-btn:hover {
+  color: #e53935;
+}
+
+
+/* 6.e. Botón "Hacer pedido" */
 /* Botón "Hacer pedido" */
 .start-order-btn {
 	display: block;
@@ -662,9 +665,15 @@ td {
 } */
 
 /*formulario*/
+form fieldset textarea {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: small;
+}
 .section-form {
 	margin: auto;
-	padding: 1em;
+	padding: 1rem;
 	padding-bottom: 40px;
 	display: flex;
 	align-items: center;
@@ -686,23 +695,30 @@ td {
 		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-/*del media 480*/
 .personal-info-container fieldset {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 	gap: 1.5rem;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 10px;
 }
 
 .form-item {
 	display: flex;
 	flex-direction: column;
-	padding: 1px;
-	margin: 1px;
+	margin: 5px 0;
 }
 
-.form-content input,
-.form-content label {
-	width: 100%;
+.form-item label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.form-item input {
+  width: 100%; 
+  padding: 10px; 
+  box-sizing: border-box;
 }
 
 .section-form p {
@@ -714,24 +730,6 @@ td {
 	justify-content: space-between;
 }
 
-/*zoom textarea*/
-.text-zoom {
-	transform: scale(1);
-	transition: transform 0.2s ease;
-	-index: 1;
-	position: relative;
-}
-
-.text-zoom:focus {
-	position: absolute;
-	left: 0;
-	transform: scale(0.9);
-	/* Aplica el zoom */
-	z-index: 10;
-	/* Lo coloca por encima */
-	background-color: rgb(246, 246, 246);
-}
-
 .personal-info-container legend {
 	font-size: 20px;
 	text-align: center;
@@ -741,15 +739,6 @@ td {
 	font-size: large;
 	margin-bottom: 10px;
 	text-align: center;
-}
-
-.form-content input {
-	font-size: small;
-	padding: 2px;
-	width: auto;
-	height: auto;
-	display: flex;
-	align-items: start;
 }
 
 .section-form label {
@@ -771,10 +760,15 @@ td {
 .section-form textarea {
 	font-size: small;
 	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
-.form-item {
-	padding: 2px;
+form fieldset textarea {
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: small;
 }
 
 /*botones formulario*/
@@ -938,17 +932,6 @@ footer {
 
 	.encebollado img:hover {
 		transform: scale(1.6);
-	}
-}
-
-@media (hover: hover) and (pointer: fine) {
-
-	.text-zoom textarea:focus,
-	input[type='text']:focus,
-	input[type='tel']:focus {
-		transform: scale(1);
-		position: relative;
-		z-index: 1;
 	}
 }
 
@@ -1119,8 +1102,27 @@ footer {
 		margin-left: 5px;
 		cursor: pointer;
 	}
+	#shopping-modal {
+    	bottom: auto;
+    	right: -400px;
+    	top: 70px; /* si tu navbar tiene altura 70px */
+    	width: 350px;
+    	height: calc(100% - 70px);
+    	max-height: none;
+    	box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+    	transition: right 0.4s ease-in-out;
+  	}
+
+  	#shopping-modal.active {
+    	right: 0;
+    	bottom: auto;
+  	}
+}
 
 	/*FORMULARIO*/
+	.personal-info-container fieldset {
+    	grid-template-columns: 1fr 1fr; /* desktop: dos columnas */
+ 	}
 	.section-form {
 		background-position: center center;
 	}
@@ -1146,27 +1148,7 @@ footer {
 	.section-form label,
 	.form-content input,
 	.section-form textarea {
-		font-size: medium;
-	}
-
-	.form-content input {
-		font-size: medium;
-	}
-
-	.text-zoom textarea,
-	input[type='text'],
-	input[type='tel'] {
-		padding-top: 4px;
-		padding-bottom: 10px;
-		margin-bottom: 2px;
-		overflow: auto;
-	}
-
-	.text-zoom textarea:focus,
-	input[type='text']:focus,
-	input[type='tel']:focus {
-		outline: none;
-		font-size: medium;
+		font-size: 0.7rem;
 	}
 
 	/*CONTACTO*/

@@ -91,39 +91,6 @@
 	</div>
 
 			<img src="presentacion.jpeg" alt="presentacion" class="imagen-presentacion" />
-			
-		<section class="horarioSection">
-			<div class="openingHours">
-				<h3>Horario de atención</h3>
-				<table class="tabla-sin-bordes">
-					<thead>
-						<tr>
-							<th>&nbsp;</th>
-							<th scope="col">Lunes a sábado</th>
-							<th scope="col">Domingos</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">Apertura</th>
-							<td>
-								<time datetime="08:00">8 am</time>
-							</td>
-							<td><time datetime="09:00">9 am</time></td>
-						</tr>
-						<tr>
-							<th scope="row">Cierre</th>
-							<td>
-								<time datetime="19:00">7 pm</time>
-							</td>
-							<td><time datetime="18:00">6 pm</time></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</section>
-
-		<hr />
 
 		<section id="lomaspedido">
 			<h2>
@@ -147,7 +114,7 @@
 					<figure class="cecina">
 						<img src="cecina.png" alt="cecina" title="Cecina">
 						<figcaption>
-							Deliciosa y tradicional cecina lojana acompañada de yuca, mote, aguacate y ensalada.
+							Tradicional cecina lojana acompañada de yuca, mote, aguacate y ensalada.
 						</figcaption>
 					</figure>
 				</article>
@@ -155,8 +122,7 @@
 				<article>
 					<figure class="encebollado">
 						<img src="encebollado.png" alt="encebollado" title="Encebollado">
-						<figcaption>Pueder ser el normal, mixto o afrodisiaco pero todos te vienen acompañados de
-							chifles.</figcaption>
+						<figcaption>Normal, mixto o afrodisiaco, en todos se incluye chifles.</figcaption>
 					</figure>
 				</article>
 			</div>
@@ -185,8 +151,6 @@
 		</section>
 		<hr />
 		<section class="tabla-menu" id="nuestromenu">
-			<button id="start-order" class="start-order-btn">Hacer pedido</button>
-
 			<div class="style-carta">
 			<table class="tabla-borde-externo">
 				<caption>
@@ -208,23 +172,32 @@
 						<th scope="row">Pescado frito</th>
 						<td>Acompañado de patacones, arroz, menestra y ensalada.</td>
 						<td class="td-price">
-						<p>$8.00</p>
-						<button class="btn-add" onclick="funcionCompleja('Pescado frito',8.00)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						<p data-price="8.00">$8.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">Encebollado normal</th>
 						<td rowspan="2">Acompañado de una porción de chifles.</td>
-						<td class="precio">$3.00</td>
+						<td class="td-price">
+						<p data-price="3.00">$3.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Mega Encebollado</th>
-						<td class="precio">$4.00</td>
+						<td class="td-price">
+						<p data-price="4.00">$4.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Encebollado mixto</th>
 						<td>Camarón y Albacora.</td>
-						<td class="precio">$4.00</td>
+						<td class="td-price">
+						<p data-price="4.00">$4.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					</tbody>
 					<!--Asados-->
@@ -235,22 +208,34 @@
 					<tr>
 						<th scope="row">Filete de pollo al grill</th>
 						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-						<td class="precio">$4.00</td>
+						<td class="td-price">
+						<p data-price="4.00">$4.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Chuleta de cerdo al grill</th>
 						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-						<td class="precio">$4.50</td>
+						<td class="td-price">
+						<p data-price="4.50">$4.50</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">FIlete de res al grill</th>
 						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-						<td class="precio">$4.50</td>
+						<td class="td-price">
+						<p data-price="4.50">$4.50</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Cecina</th>
 						<td>Acompañado de yucas, mote, aguacate y ensalada.</td>
-						<td class="precio">$7.00</td>
+						<td class="td-price">
+						<p data-price="7.00">$7.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<!--Arroces-->
 					</tbody>
@@ -261,16 +246,25 @@
 					<tr>
 						<th scope="row">Chaulafán mixto</th>
 						<td>Contiene cerdo y pollo.</td>
-						<td class="precio">$5.00</td>
+						<td class="td-price">
+						<p data-price="5.00">$5.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Chaulafán especial</th>
 						<td>Contiene cerdo, pollo y camarón.</td>
-						<td class="precio">$6.00</td>
+						<td class="td-price">
+						<p data-price="6.00">$6.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					<tr>
 						<th scope="row">Chaulafán con tallarín mixto</th>
 						<td>Contiene cerdo y pollo.</td>
-						<td class="precio">$7.00</td>
+						<td class="td-price">
+						<p data-price="7.00">$7.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					</tbody>
 					<!--Cafetería-->
@@ -283,12 +277,18 @@
 					<tr>
 						<th scope="row">Humitas</th>
 						<td>Rellenas de queso.</td>
-						<td class="precio">$1.25</td>
+						<td class="td-price">
+						<p data-price="1.25">$1.25</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Tamales</th>
 						<td>Rellenas de pollo o queso.</td>
-						<td class="precio">$1.50</td>
+						<td class="td-price">
+						<p data-price="1.50">$1.50</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Desayuno continental</th>
@@ -296,17 +296,26 @@
 							Contiene huevos a su gusto, tostada, jugo, porción de frutas y
 							cafe/leche.
 						</td>
-						<td class="precio">$3.50</td>
+						<td class="td-price">
+							<p data-price="3.50">$3.50</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Bolón</th>
 						<td>Relleno de queso, chicharrón o mixto.</td>
-						<td class="precio">$2.50</td>
+						<td class="td-price">
+						<p data-price="2.50">$2.50</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Tigrillo</th>
 						<td>De queso, chicharrón o mixto + café.</td>
-						<td class="precio">$2.75</td>
+						<td class="td-price">
+						<p data-price="2.75">$2.75</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 				</tbody>
 					<!--Bebidas-->
@@ -319,37 +328,58 @@
 					<tr>
 						<th scope="row">Café</th>
 						<td></td>
-						<td class="precio">$1.25</td>
+						<td class="td-price">
+						<p data-price="1.25">$1.25</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Aguas aromáticas</th>
 						<td></td>
-						<td class="precio">$1.00</td>
+						<td class="td-price">
+						<p data-price="1.00">$1.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Jugos</th>
 						<td>Tomate, piña, fresa, papaya, melón, mora, guanábana.</td>
-						<td class="precio">$1.75</td>
+						<td class="td-price">
+						<p data-price="1.75">$1.75</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Batidos</th>
 						<td>Tomate, fresa, mora, guanábana.</td>
-						<td class="precio">$2.00</td>					
+						<td class="td-price">
+						<p data-price="2.00">$2.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>					
 					<tr>
 						<th scope="row">Limonada</th>
 						<td></td>
-						<td class="precio">$1.50</td>
+						<td class="td-price">
+						<p data-price="1.50">$1.50</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					</tr>
 					<tr>
 						<th scope="row">Cola personal</th>
 						<td>Coca-cola de 350 mL.</td>
-						<td class="precio">$1.00</td>
+						<td class="td-price">
+						<p data-price="1.00">$1.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 					<tr>
 						<th scope="row">Cola 1 Litro</th>
 						<td>Coca-cola.</td>
-						<td class="precio">$2.00</td>
+						<td class="td-price">
+						<p data-price="2.00">$2.00</p>
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 				</tbody>				
 				<tfoot>
@@ -358,18 +388,21 @@
 							Para llevar, cada plato tiene un precio extra de $0.50 por los
 							desechables.
 						</td>
-
+						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
 					</tr>
 				</tfoot>
 			</table>
 		</div>
 		</section>
 		<div id="shopping-modal" class="shopping-modal">
+			<button id="close-cart-btn" class="close-cart-btn">x</button>
 			<h3>Mi pedido</h3>
     		<ul id="cart-items"></ul>
     		<p><strong>Total: $<span id="cart-total">0</span></strong></p>
-			<p>Agrega tu nombre al pedido.</p>
-			<input type="text" id="customer-name" placeholder="Tu nombre" />
+			<div class="name row">
+				<p class="order-name">Agrega tu nombre al pedido:</p>
+				<input type="text" id="customer-name" placeholder="Tu nombre" />
+			</div>
 			<button id="send-order" class="send-order-btn">Enviar pedido por WhatsApp</button>
 		</div>
 		<br>
@@ -387,13 +420,8 @@
 							<legend>Información personal</legend>
 
 							<div class="form-item">
-								<label for="primerNombre">Primer nombre:</label>
+								<label for="nombreCompleto">Nombre completo:</label>
 								<input type="text" id="primerNombre" name="primerNombre" placeholder="Jane" required />
-							</div>
-
-							<div class="form-item">
-								<label for="apellido">Apellido:</label>
-								<input type="text" id="apellido" name="apellido" placeholder="Calderon" required />
 							</div>
 
 							<div class="form-item">
@@ -471,7 +499,6 @@
 		
 	</footer>
 	<script src="script-barra-navegacion.js"></script>
-	<script src="prueba-carta.js"></script>
 	<script src="script-formulario.js"></script>
 	<script src="script-shopping-car.js"></script>
 </body>
