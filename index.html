@@ -41,10 +41,10 @@
 		<button class="close-btn" id="close-btn">✖</button>
       <ul>
         <li><a href="#">Inicio</a></li>
-        <li><a href="#lomaspedido">Los más pedidos</a></li>
+        <li><a href="#lomaspedido">Lo más pedido</a></li>
         <li><a href="#menu-diario">Menú diario</a></li>
-        <li><a href="#nuestromenu">Nuestro menú</a></li>
-        <li><a href="#contactanos">Contáctanos</a></li>
+        <li><a href="#ourmenu">Nuestro menú</a></li>
+        <li><a href="#contact">Contáctanos</a></li>
         <li><a href="#registro">Déjanos tu opinión</a></li>
       </ul>
     </nav>
@@ -61,13 +61,12 @@
     <nav class="nav-right">
       <ul>
         <li><a href="#nuestromenu">Nuestro menú</a></li>
-        <li><a href="#contactanos">Contáctanos</a></li>
-        <li><a href="#registro">Déjanos tu opinión</a></li>
+		<li><a href="#registro">Déjanos tu opinión</a></li>
+        <li><a href="#contact">Contáctanos</a></li>
       </ul>
     </nav>
   </div>
 </header>
-
 
 <main>
 	<div class="intro">
@@ -89,9 +88,6 @@
 			ustedes se merecen.
 		</p>
 	</div>
-
-			<img src="presentacion.jpeg" alt="presentacion" class="imagen-presentacion" />
-
 		<section id="lomaspedido">
 			<h2>
 				Lo más pedido
@@ -127,12 +123,8 @@
 				</article>
 			</div>
 		</section>
-
 		<section id="menu-diario">
-			<h2>Nuestro menú completo</h2>
-			<div class="sloganMenu">
-			<p>Pide lo que más te guste, cuando quieras y donde estés.</p>
-			</div>
+			<h2>Menú diario de almuerzos</h2>
 			<div class="styleMenuDiario">
 				<h3>Menú diario</h3>
 				<p><span>Fecha: 4 de mayo de 2025</span></p>
@@ -149,14 +141,16 @@
 				<p>Limonada</p>
 			</div>
 		</section>
-		<hr />
-		<section class="tabla-menu" id="nuestromenu">
-			<div class="style-carta">
-			<table class="tabla-borde-externo">
+		<img src="presentacion.jpeg" alt="presentation" class="image-presentation" />
+		<div class="main-content">
+		<section class="table-menu" id="Ourmenu">
+			<div class="style-card">
+			<table class="table-outer-edge">
 				<caption>
-					Carta K-zona Grill & Mar
+					<h2>Carta K-zona Grill & Mar</h2>
+					<p class="sloganMenu">Pide lo que más te guste, cuando quieras y donde estés.</p>
 				</caption>
-				<thead class="columnas-carta">
+				<thead class="columns-card">
 					<tr>
 						<th scope="col">Platos</th>
 						<th scope="col">Descripción</th>
@@ -384,16 +378,19 @@
 				</tbody>				
 				<tfoot>
 					<tr>
-						<td colspan="3">
-							Para llevar, cada plato tiene un precio extra de $0.50 por los
-							desechables.
+						<td colspan="2">
+							Para llevar, cada plato tiene un precio extra por los desechables.
 						</td>
+						<td class="td-price">
+						<p data-price="0.50">$0.50</p>
 						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
+						</td>
 					</tr>
 				</tfoot>
 			</table>
 		</div>
 		</section>
+		</div>
 		<div id="shopping-modal" class="shopping-modal">
 			<button id="close-cart-btn" class="close-cart-btn">x</button>
 			<h3>Mi pedido</h3>
@@ -401,18 +398,16 @@
     		<p><strong>Total: $<span id="cart-total">0</span></strong></p>
 			<div class="name row">
 				<p class="order-name">Agrega tu nombre al pedido:</p>
-				<input type="text" id="customer-name" placeholder="Tu nombre" />
+				<input type="text" id="customer-name" placeholder="Tu nombre" required/>
 			</div>
 			<button id="send-order" class="send-order-btn">Enviar pedido por WhatsApp</button>
 		</div>
-		<br>
-		</article>
-		<hr />
 		<article id="registro" class="section-form">
-			<h3>Registro a nuestro sistema</h3>
-			<p>
-				Nos gustaría seguir mejorando nuestra atención y menú.</p>
-			<p>Registrate para que te enteres de todas nuestras promociones.</p>
+			<h3>¡Forma parte de nuestra comunidad!</h3>
+				<p>
+					Regístrate y ayúdanos a seguir mejorando. Además, recibe promociones y novedades de nuestro menú.
+				</p>
+
 			<form id="formulario">
 				<div class="form-content">
 					<div class="personal-info-container">
@@ -421,29 +416,12 @@
 
 							<div class="form-item">
 								<label for="nombreCompleto">Nombre completo:</label>
-								<input type="text" id="primerNombre" name="primerNombre" placeholder="Jane" required />
+								<input type="text" id="customerName" name="customerName" placeholder="Jane" required />
 							</div>
-
 							<div class="form-item">
 								<label for="celular">Número celular:</label>
-								<input type="tel" id="celular" name="celular" placeholder="5555555555"
+								<input type="tel" id="phone" name="phone" placeholder="5555555555"
 									pattern="\d{9,10}" required />
-							</div>
-
-							<div class="form-item">
-								<label for="age">Año de nacimiento:</label>
-								<input type="number" id="age" name="edad" min="1925" max="2020" value="1980" />
-							</div>
-
-							<div class="form-item">
-								<label for="platillo">El plato que más te gustó:</label>
-								<input type="text" id="platillo" name="platillo" list="platillo-list"
-									placeholder="Cecina" />
-								<datalist id="platillo-list">
-									<option value="Cecina"></option>
-									<option value="Chuleta"></option>
-									<option value="Encebollado"></option>
-								</datalist>
 							</div>
 						</fieldset>
 					</div>
@@ -457,7 +435,6 @@
 					</fieldset>
 				</div>
 				<br />
-				<!---<input type="submit" value=""> tambien se puede poner esto pero no hay como detallar bien como el button-->
 				<div class="botones-formulario">
 					<button type="submit">
 						Enviar

@@ -1,11 +1,10 @@
 document.getElementById("formulario").addEventListener("submit", function (e) {
-  e.preventDefault(); // Evita que recargue
-
+  e.preventDefault(); 
   const form = e.target;
   const data = new FormData(form);
 
   fetch(
-    "https://script.google.com/macros/s/AKfycbwHhqpMmP9itWw3SbpaqSHOm37-tq3Jf4uw1c3cF7DtuQM8R3iDUpqYxY4gUtXsVd0D/exec",
+    "https://script.google.com/macros/s/AKfycbwHf108Nusg0_jylpFvKq3rWCe7CGkjIKlUek-SMOKhXbXg9LahIGMC-rytTOys9Vfs/exec",
     {
       method: "POST",
       body: data,
@@ -13,8 +12,8 @@ document.getElementById("formulario").addEventListener("submit", function (e) {
   )
     .then((mensaje) => {
       alert("✅ ¡Gracias por registrarte!");
-      form.reset(); // Limpia los campos
-      window.location.href = "#"; // Vuelve al inicio de la página
+      form.reset(); 
+      window.location.href = "#"; 
     })
 
     .catch((error) => {
