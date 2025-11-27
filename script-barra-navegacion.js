@@ -4,24 +4,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("close-btn");
   const navLinks = navMobile.querySelectorAll("a");
 
-  // Abrir/cerrar con ☰
-  hamburger.addEventListener("click", () => {
+  const toggleMenu = () => {
     navMobile.classList.toggle("show");
     document.body.classList.toggle("menu-open");
-  });
+  };
 
-  // Cerrar con ✖
-  closeBtn.addEventListener("click", () => {
+  const closeMenu = () => {
     navMobile.classList.remove("show");
     document.body.classList.remove("menu-open");
+  };
+
+  hamburger.addEventListener("click", toggleMenu);
+  closeBtn.addEventListener("click", closeMenu);
+
+  navLinks.forEach(link => {
+    link.addEventListener("click", closeMenu);
   });
 
-  // Cerrar al hacer click en un enlace
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      navMobile.classList.remove("show");
-      document.body.classList.remove("menu-open");
-    });
+  document.addEventListener("click", (e) => {
+    const clickInsideMenu = navMobile.contains(e.target);
+    const clickOnHamburger = hamburger.contains(e.target);
+
+    if (navMobile.classList.contains("show") && 
+        !clickInsideMenu && 
+        !clickOnHamburger) {
+      closeMenu();
+    }
   });
 });
-

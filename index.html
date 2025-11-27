@@ -13,7 +13,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-		<!--solo se usa para subir a git-hub-->
+		<!--para subir a git-hub-->
 
 	<!--<base href="/Restaurante-K-zona-Grill-Mar/" />-->
 	<script>
@@ -42,7 +42,7 @@
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#lomaspedido">Lo más pedido</a></li>
-        <li><a href="#menu-diario">Menú diario</a></li>
+        <li><a href="#diary-menu">Menú diario</a></li>
         <li><a href="#ourmenu">Nuestro menú</a></li>
         <li><a href="#contact">Contáctanos</a></li>
         <li><a href="#registro">Déjanos tu opinión</a></li>
@@ -54,13 +54,13 @@
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#lomaspedido">Los más pedidos</a></li>
-        <li><a href="#menu-diario">Menú diario</a></li>
+        <li><a href="#diary-menu">Menú diario</a></li>
       </ul>
     </nav>
 
     <nav class="nav-right">
       <ul>
-        <li><a href="#nuestromenu">Nuestro menú</a></li>
+        <li><a href="#ourmenu">Nuestro menú</a></li>
 		<li><a href="#registro">Déjanos tu opinión</a></li>
         <li><a href="#contact">Contáctanos</a></li>
       </ul>
@@ -91,8 +91,6 @@
 		<section id="lomaspedido">
 			<h2>
 				Lo más pedido
-				<img class="icono-delicious"
-					src="https://img.icons8.com/?size=100&id=jijxyLFxJ0Yg&format=png&color=000000" alt="delicious">
 			</h2>
 			<p>¡Por algo está tan bueno!</p>
 
@@ -123,7 +121,7 @@
 				</article>
 			</div>
 		</section>
-		<section id="menu-diario">
+		<section id="diary-menu">
 			<h2>Menú diario de almuerzos</h2>
 			<div class="styleMenuDiario">
 				<h3>Menú diario</h3>
@@ -143,7 +141,7 @@
 		</section>
 		<img src="presentacion.jpeg" alt="presentation" class="image-presentation" />
 		<div class="main-content">
-		<section class="table-menu" id="Ourmenu">
+		<section class="table-menu" id="ourmenu">
 			<div class="style-card">
 			<table class="table-outer-edge">
 				<caption>
@@ -378,12 +376,8 @@
 				</tbody>				
 				<tfoot>
 					<tr>
-						<td colspan="2">
+						<td colspan="3">
 							Para llevar, cada plato tiene un precio extra por los desechables.
-						</td>
-						<td class="td-price">
-						<p data-price="0.50">$0.50</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
 						</td>
 					</tr>
 				</tfoot>
@@ -427,19 +421,18 @@
 					</div>
 
 					<fieldset>
+						<div class="form-item">
 						<label for="opinion">Déjanos un comentario:</label>
-						<br />
-						<div class="text-zoom">
-						<textarea name="opinion" id="opinion" cols="50" rows="5" placeholder="Escríbenos..."></textarea>
+						<textarea name="opinion" id="opinion" cols="5" rows="5" placeholder="Escríbenos..."></textarea>
 						</div>
 					</fieldset>
 				</div>
 				<br />
 				<div class="botones-formulario">
-					<button type="submit">
+					<button type="reset">Resetear</button>
+										<button type="submit">
 						Enviar
 					</button>
-					<button type="reset">Resetear</button>
 				</div>
 			</form> 
 			</div>
@@ -466,7 +459,7 @@
 				</div>
 			</div>
 			<div class="textContact">
-					<p>Sera un placer servirle.</p>
+					<p>Es un placer servirle.</p>
 			</div>
 		</article>
 		<div class="sammi">

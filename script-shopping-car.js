@@ -1,7 +1,9 @@
-// ---------------- Acordeón ----------------
+// ------------------ ACORDEÓN ------------------
 const acordeones = document.querySelectorAll(".acordeon");
-acordeones.forEach((acordeon) => {
+
+acordeones.forEach(acordeon => {
   let fila = acordeon.parentElement.nextElementSibling;
+
   while (fila && !fila.classList.contains("variedad")) {
     fila.style.display = "none";
     fila = fila.nextElementSibling;
@@ -10,94 +12,89 @@ acordeones.forEach((acordeon) => {
   acordeon.addEventListener("click", () => {
     acordeon.classList.toggle("expanded");
 
-    let _fila = acordeon.parentElement.nextElementSibling;
-    while (_fila && !_fila.classList.contains("variedad")) {
-      if (_fila.style.display === "none") {
-        _fila.style.display = "table-row";
-      } else {
-        _fila.style.display = "none";
-      }
-      _fila = _fila.nextElementSibling;
+    let nextRow = acordeon.parentElement.nextElementSibling;
+    while (nextRow && !nextRow.classList.contains("variedad")) {
+      nextRow.style.display = nextRow.style.display === "none" ? "table-row" : "none";
+      nextRow = nextRow.nextElementSibling;
     }
   });
 });
 
-const closeCartWithConfirmation = () => {
-  const cartModal = document.getElementById("shopping-modal");
-  const allItems = document.querySelectorAll("#cart-items li");
-
-  if (allItems.length === 0) {
-    cartModal.classList.remove("active");
-    document.body.classList.remove("carrito-abierto");
-    return;
-  }
-  const confirmClose = confirm("¿Deseas vaciar el carrito?");
-  if (confirmClose) {
-    allItems.forEach((item) => item.remove());
-    cartModal.classList.remove("active");
-    document.body.classList.remove("carrito-abierto");
-  }
-};
-
-// Evento para el botón “X”
-document
-  .getElementById("close-cart-btn")
-  .addEventListener("click", closeCartWithConfirmation);
-
+// ------------------ MODAL (CARRITO) ------------------
 const openModalPrice = () => {
-  const carContainer = document.getElementById("shopping-modal");
-  carContainer.classList.add("active");
-  document.body.classList.add("carrito-abierto");
+  const modal = document.getElementById("shopping-modal");
+  modal.classList.add("active");
+  document.body.classList.add("open-cart");
 };
 
 const closeModalPrice = () => {
-  const carContainer = document.getElementById("shopping-modal");
-  carContainer.classList.remove("active");
-  document.body.classList.remove("carrito-abierto");
+  const modal = document.getElementById("shopping-modal");
+  modal.classList.remove("active");
+  document.body.classList.remove("open-cart");
 };
 
+const closeCartWithConfirmation = () => {
+  const modal = document.getElementById("shopping-modal");
+  const items = document.querySelectorAll("#cart-items li");
+
+  if (items.length === 0) return closeModalPrice();
+
+  if (confirm("¿Deseas vaciar el carrito?")) {
+    items.forEach(item => item.remove());
+    closeModalPrice();
+  }
+};
+
+document.getElementById("close-cart-btn")
+  .addEventListener("click", closeCartWithConfirmation);
+
+// ------------------ UTILIDADES ------------------
 const updateTotal = () => {
-  const allItems = document.querySelectorAll("#cart-items li");
+  const items = document.querySelectorAll("#cart-items li");
   let total = 0;
 
-  allItems.forEach((item) => {
+  items.forEach(item => {
     const price = parseFloat(item.querySelector(".price").dataset.price);
     const quantity = parseInt(item.querySelector(".quantity").textContent);
     total += price * quantity;
   });
+
   document.getElementById("cart-total").textContent = total.toFixed(2);
 };
 
+// Crear elemento del carrito
 const createList = (product, price) => {
   const cartItems = document.getElementById("cart-items");
-  const item = document.createElement("li");
+  const li = document.createElement("li");
   let quantity = 1;
-  item.innerHTML = `
-    <span class="product">${product}</span>
-    <span class="price" data-price="${price}"> $${price.toFixed(2)}</span>
-    <button class="btn-less">-</button>
-    <span class="quantity">${quantity}</span>
-    <button class="btn-add">+</button>
-  `;
 
-  const btnAdd = item.querySelector(".btn-add");
-  const btnLess = item.querySelector(".btn-less");
-  const quantitySpan = item.querySelector(".quantity");
+  li.innerHTML = `
+  <span class="product">${product}</span>
 
-  btnAdd.addEventListener("click", () => {
+  <div class="qty-controls">
+      <button class="btn-less">-</button>
+      <span class="quantity">${quantity}</span>
+      <button class="btn-add">+</button>
+  </div>
+
+  <span class="price" data-price="${price}">$${price.toFixed(2)}</span>
+`;
+
+
+  const quantitySpan = li.querySelector(".quantity");
+
+  li.querySelector(".btn-add").addEventListener("click", () => {
     quantity++;
     quantitySpan.textContent = quantity;
     updateTotal();
   });
 
-  btnLess.addEventListener("click", () => {
+  li.querySelector(".btn-less").addEventListener("click", () => {
     quantity--;
     if (quantity <= 0) {
-      item.remove();
-
-      const allItems = document.querySelectorAll("#cart-items li");
-      if (allItems.length === 0) {
-        document.getElementById("shopping-modal").classList.remove("active");
+      li.remove();
+      if (!document.querySelector("#cart-items li")) {
+        closeModalPrice();
       }
     } else {
       quantitySpan.textContent = quantity;
@@ -105,56 +102,53 @@ const createList = (product, price) => {
     updateTotal();
   });
 
-  cartItems.appendChild(item);
+  cartItems.appendChild(li);
   updateTotal();
 };
 
 const addProduct = (product, price) => {
-  //llamo a mi lista y agrego producto
   createList(product, price);
 };
-const funcionCompleja = (product, price) => {
-  openModalPrice();
-  // addProduct(); añadir elemento
-  addProduct(product, price);
-  //  sumar y eliminar productos dentro del carrito
 
-  // que salga el precio total de los productos
-  // un input donde se coloque el nombre y que este sea conjuntamente enviado al whats con el pedido
+const Completefunction = (product, price) => {
+  openModalPrice();
+  addProduct(product, price);
 };
 
+// Botón "Agregar al carrito"
 function addToCart(button) {
   const row = button.closest("tr");
-
   const product = row.querySelector('th[scope="row"]').textContent.trim();
-
   const price = parseFloat(row.querySelector(".td-price p").dataset.price);
-
-  funcionCompleja(product, price);
+  Completefunction(product, price);
 }
-    
-// Enviar pedido por WhatsApp
-const sendOrderBtn = document.getElementById('send-order');
+
+// ------------------ ENVIAR PEDIDO POR WHATSAPP ------------------
+const sendOrderBtn = document.getElementById("send-order");
 
 sendOrderBtn.addEventListener("click", () => {
-  const cartData = [];
-  const allItems = document.querySelectorAll("#cart-items li");
   const nameInput = document.getElementById("customer-name");
-  allItems.forEach((item) => {
-    const name = item.querySelector(".product").textContent;
-    const price = parseFloat(item.querySelector(".price").dataset.price);
-    const quantity = parseInt(item.querySelector(".quantity").textContent);
-    cartData.push({ name, price, quantity });
+  const items = document.querySelectorAll("#cart-items li");
+
+  if (!items.length)
+    return alert("No hay productos en el carrito");
+
+  if (nameInput.value.trim() === "")
+    return alert("Por favor ingresa tu nombre para enviar el pedido");
+
+  const cartData = [...items].map(item => {
+    return {
+      name: item.querySelector(".product").textContent,
+      price: parseFloat(item.querySelector(".price").dataset.price),
+      quantity: parseInt(item.querySelector(".quantity").textContent)
+    };
   });
-  if (cartData.length === 0) return alert("No hay productos en el carrito");
-  if(nameInput.value.trim() === "") return alert("Por favor ingresa tu nombre para enviar el pedido");
+
   let message = `Hola! Soy ${nameInput.value.trim()}. Quiero pedir:\n`;
-  cartData.forEach((item) => {
-    message += `${item.quantity} x ${item.name} - $${(
-      item.price * item.quantity
-    ).toFixed(2)}\n`;
+  cartData.forEach(item => {
+    message += `${item.quantity} x ${item.name} - $${(item.price * item.quantity).toFixed(2)}\n`;
   });
+
   const url = `https://wa.me/593959221166?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 });
-
