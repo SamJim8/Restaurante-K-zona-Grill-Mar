@@ -138,7 +138,7 @@ header {
 }
 
 nav.nav-right li:nth-child(1) a {
-  padding-left: 30px;
+	padding-left: 30px;
 }
 
 
@@ -210,11 +210,10 @@ nav.nav-right li:nth-child(1) a {
 	text-align: center;
 	font-size: 0.8rem;
 	padding: 5px;
-	margin: 7px;
+	margin: 0px;
 	background-color: rgb(219, 81, 35);
-  	width: 100%;                /
-  	display: inline-block;      
-  	padding: 10px 0;   
+	width: 100%;
+	padding: 10px 0;
 }
 
 #lomaspedido p {
@@ -311,7 +310,7 @@ nav.nav-right li:nth-child(1) a {
 	gap: 10px;
 }
 
-.table-outer-edge{
+.table-outer-edge {
 	width: 100%;
 	table-layout: auto;
 	border-collapse: separate;
@@ -322,17 +321,17 @@ nav.nav-right li:nth-child(1) a {
 	position: relative;
 }
 
-.table-outer-edge caption h2 {     
+.table-outer-edge caption h2 {
 	display: block;
-  	text-align: center;
+	text-align: center;
 	font-size: 0.8rem;
-    background-color: rgb(219, 81, 35);
-    color: azure;
-    padding: 10px 0;
-    margin: 0;
+	background-color: rgb(219, 81, 35);
+	color: azure;
+	padding: 10px 0;
+	margin: 0;
 }
 
-.table-outer-edge caption p{
+.table-outer-edge caption p {
 	font-size: 0.7rem;
 	text-align: center;
 	margin: 0;
@@ -342,8 +341,8 @@ nav.nav-right li:nth-child(1) a {
 
 .table-outer-edgecaption h2,
 .table-outer-edgecaption p {
-  display: block;
-  margin: 0;
+	display: block;
+	margin: 0;
 }
 
 .table-menu th,
@@ -417,10 +416,10 @@ nav.nav-right li:nth-child(1) a {
 		padding: 0;
 	}
 
-		.btn-add:hover {
-			img {
-				filter: saturate(0.5);
-			}
+	.btn-add:hover {
+		img {
+			filter: saturate(0.5);
+		}
 	}
 
 }
@@ -439,46 +438,47 @@ nav.nav-right li:nth-child(1) a {
 	z-index: 1000;
 	display: none;
 }
+
 #shopping-modal.active {
-  bottom: 0;
-  display: block;
+	bottom: 0;
+	display: block;
 }
 
 .order-name,
 #shopping-modal input#customer-name {
-  display: inline-block; 
-  vertical-align: middle;
-  font-size: 0.7rem; 
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 0.7rem;
 }
 
 .order-name {
-  text-align: center;
-  padding-top: 5px; 
+	text-align: center;
+	padding-top: 5px;
 }
 
-#shopping-modal p{
+#shopping-modal p {
 	font-size: 0.6rem;
 	margin: 5px;
 }
 
 #shopping-modal h3 {
-  font-size: 0.8rem;
+	font-size: 0.8rem;
 }
 
 #shopping-modal input#customer-name {
-  margin-left: 10px; 
-  padding: 5px 8px;
-  width: 150px; 
-  box-sizing: border-box;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+	margin-left: 10px;
+	padding: 5px 8px;
+	width: 150px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1px solid #ccc;
 }
 
 .name-row {
-  display: flex;
-  align-items: center; 
-  gap: 1rem; 
-  margin: 10px 0;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin: 10px 0;
 }
 
 .shopping-modal ul {
@@ -515,14 +515,14 @@ nav.nav-right li:nth-child(1) a {
 
 /* 6.d Items*/
 #cart-items li {
-  display: flex;
-  align-items: center;       
-  justify-content: space-between; 
-  margin-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 5px;
-  gap: 10px;    
-  font-size: 0.6rem;  
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 5px;
+	gap: 10px;
+	font-size: 0.6rem;
 }
 
 #cart-items li .product {
@@ -531,36 +531,36 @@ nav.nav-right li:nth-child(1) a {
 }
 
 #cart-items .product {
-  flex: 2;                   
-  font-weight: bold;
+	flex: 2;
+	font-weight: bold;
 }
 
-#shopping-modal input::placeholder{
+#shopping-modal input::placeholder {
 	font-size: 0.6rem;
 }
 
 #cart-items .price {
-  flex: 1;
-  text-align: right;
-  font-size: 0.7rem;
+	flex: 1;
+	text-align: right;
+	font-size: 0.7rem;
 }
 
 #cart-items .quantity,
 #cart-items .btn-add,
 #cart-items .btn-less {
-  flex: 0; 
-  font-size: 0.6rem;                   
+	flex: 0;
+	font-size: 0.6rem;
 }
 
 #close-cart-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: #333;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: transparent;
+	border: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+	color: #333;
 }
 
 /* 6.e. Botón "Hacer pedido" */
@@ -597,19 +597,21 @@ form fieldset textarea {
 	width: 100%;
 	padding: 2px;
 }
+
 form fieldset {
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  margin: 0;
-  width: 100%; 
-  box-sizing: border-box;
+	border: 2px solid rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	margin: 0;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 form {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
+
 .section-form {
 	padding-bottom: 40px;
 	display: flex;
@@ -663,16 +665,16 @@ select {
 }
 
 .form-item label {
-  margin-bottom: 1px;
-  padding: 1px;
-  font-size: 0.7rem;
+	margin-bottom: 1px;
+	padding: 1px;
+	font-size: 0.7rem;
 }
 
 .form-item input {
-  width: 100%; 
-  box-sizing: border-box;
-  font-size: 0.7rem;
-  padding: 2px;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 0.7rem;
+	padding: 2px;
 }
 
 .section-form p {
@@ -754,7 +756,7 @@ select {
 
 .contacto-general {
 	display: flex;
-	flex-flow:column;
+	flex-flow: column;
 	flex-wrap: wrap;
 	justify-items: start;
 	align-content: center;
@@ -853,11 +855,11 @@ footer {
 	}
 
 	.nav-left li,
-  	.nav-right li {
-    	margin: 0;
-    	padding: 0;
-  	}
- 
+	.nav-right li {
+		margin: 0;
+		padding: 0;
+	}
+
 	.nav-left ul,
 	.nav-right ul {
 		display: flex;
@@ -874,14 +876,14 @@ footer {
 		padding: 15px 10px;
 		text-decoration: none;
 		color: white;
-		font-size: 0.7rem;
+		font-size: 1.1rem;
 		border-left: 1px solid white;
 		transition: color 0.3s ease;
 	}
 
 	.nav-left a:hover,
 	.nav-right a:hover {
-		color: #f5c518; 
+		color: #f5c518;
 	}
 
 	.logo {
@@ -893,16 +895,16 @@ footer {
 	}
 
 	.brand-name {
-		display: none; 
+		display: none;
 	}
 
 	.nav-left {
 		grid-area: navleft;
 		justify-self: start;
 		display: block;
-    	z-index: 10000;
+		z-index: 10000;
 		max-height: 3.5rem;
-    	z-index: 9999;
+		z-index: 9999;
 	}
 
 	.logo {
@@ -915,7 +917,7 @@ footer {
 		grid-area: navright;
 		justify-self: end;
 		display: block;
-    	z-index: 10000;
+		z-index: 10000;
 	}
 
 	.nav-left ul li,
@@ -925,8 +927,8 @@ footer {
 		border: none;
 	}
 
-	.nav-left ul li + li,
-	.nav-right ul li + li {
+	.nav-left ul li+li,
+	.nav-right ul li+li {
 		border-left: 1px solid white;
 	}
 
@@ -942,22 +944,24 @@ footer {
 	}
 
 	.intro h3 {
-    	font-size: 1.1rem;
+		font-size: 1.5rem;
 	}
 
 	/*LO MAS PEDIDO*/
 	#lomaspedido h2 {
-		font-size: 1.1rem;
+		font-size: 1.5rem;
 		padding: 15px;
 	}
 
 	#lomaspedido p {
 		padding: 15px;
-		font-size: 0.9rem;
+		font-size: 1.4rem;
+		text-shadow: 0 6px 15px rgb(0 0 0);
 	}
 
 	.images-lomaspedido figcaption {
-		font-size: 0.8rem;
+		font-size: 1.2rem;
+		text-shadow: 0 6px 15px rgb(0 0 0);
 	}
 
 	/*MENU DIARIO*/
@@ -966,33 +970,31 @@ footer {
 	}
 
 	#diary-menu h2 {
-		font-size: 1.1rem;
+		font-size: 1.5rem;
 	}
 
-	.styleMenuDiario p {
-		font-size: 0.8rem;
+	.styleMenuDiario p,
+	.styleMenuDiario h4 {
+		font-size: 1.15rem;
 	}
 
 	.styleMenuDiario h3 {
-		font-size: 0.9rem;
+		font-size: 1.4rem;
 	}
 
-	.styleMenuDiario h4 {
-		font-size: 0.8rem;
-	}
 
 	/*CARTA MENU*/
 	.table-menu th,
 	.table-menu td {
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 
-	.table-outer-edge caption h2 {   
+	.table-outer-edge caption h2 {
+		font-size: 1.5rem;
+	}
+
+	.table-outer-edge caption p {
 		font-size: 1.1rem;
-	}
-
-	.table-outer-edge caption p{
-		font-size: 0.85rem;
 	}
 
 	.col-accion {
@@ -1000,22 +1002,22 @@ footer {
 	}
 
 	.main-content {
-        transition: transform 0.3s ease;
+		transition: transform 0.3s ease;
 		width: 100%;
-    }
-
-    body.open-cart .main-content {
-    width: calc(100% - 170px);
-    margin-right: 170px; 
-    transform: none; 	
 	}
-	
+
+	body.open-cart .main-content {
+		width: calc(100% - 425px);
+		margin-right: 425px;
+		transform: none;
+	}
+
 	#cart-items .quantity {
-		font-size: 0.8rem; 
+		font-size: 1rem;
 	}
 
-	.shopping-modal h3 {
-		font-size: 0.9rem;
+	#shopping-modal h3 {
+		font-size: 1.2rem;
 	}
 
 	#shopping-modal input#customer-name,
@@ -1026,22 +1028,21 @@ footer {
 	#cart-items li .product,
 	#cart-items .price,
 	#cart-items .btn-add,
-	#cart-items .btn-less  
-	{
-		font-size: 0.7rem;
+	#cart-items .btn-less {
+		font-size: 1rem;
 	}
 
 	#cart-items li {
-  		display: grid;
-    	grid-template-columns: 1fr auto auto;
-    	align-items: center;
-    	gap: 10px;
-    	padding: 8px 0;
-		font-size: 0.8rem;   
+		display: grid;
+		grid-template-columns: 1fr auto auto;
+		align-items: center;
+		gap: 10px;
+		padding: 8px 0;
+		font-size: 1rem;
 	}
 
 	#close-cart-btn {
-  		font-size: 1.5rem;
+		font-size: 1.5rem !important;
 	}
 
 	#customer-name {
@@ -1049,83 +1050,97 @@ footer {
 	}
 
 	#shopping-modal {
-    	position: fixed;
-    	top: 70px;            
-    	right: -200px;       
-    	width: 170px;
-    	height: calc(100vh - 70px);
-    	background: #fff;
-    	box-shadow: -4px 0 15px rgba(0,0,0,0.2);
-    	transition: right 0.3s ease;
-    	overflow-y: auto;
-    	z-index: 999;
+		position: fixed;
+		top: 70px;
+		right: -200px;
+		width: 425px;
+		height: calc(100vh - 70px);
+		background: #fff;
+		box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+		transition: right 0.3s ease;
+		overflow-y: auto;
+		z-index: 999;
 	}
 
-  	#shopping-modal.active {
-        right: 0;
+	#shopping-modal.active {
+		right: 0;
 		position: fixed;
-  	}
+	}
 
 	.close-cart-btn:hover {
 		color: #e53935;
 	}
 
 	/*FORMULARIO*/
-	.section-form {      
-		margin: 0 auto;         
-		padding: 2rem 3rem;       
+	.section-form {
+		margin: 0 auto;
+		padding: 2rem 3rem;
 		align-items: center;
-		font-size: 0.8rem;
+		font-size: 1rem;
 		font-weight: bold;
 	}
 
+	.section-form p:nth-child(2) {
+		font-size: 1rem;
+	}
+
 	.section-form h3 {
-		font-size: 1.1rem;
+		font-size: 1.5rem;
 	}
 
 	.personal-info-container legend {
-		font-size: 0.8rem;
+		font-size: 1.3rem;
 	}
 
 	.personal-info-container fieldset {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-	gap: 10px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+		gap: 10px;
 	}
 
 	.form-item label {
-		font-size: 0.7rem;
+		font-size: 0.9rem;
 	}
 
 	.form-item input,
 	textarea {
-		font-size: 0.7rem;
+		font-size: 0.9rem;
 	}
 
 	.botones-formulario button {
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 
 	/*CONTACTO*/
 	.textContact {
-		font-size: 0.9rem;
+		font-size: 1.2rem;
 	}
 
 	.contacto-general {
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: space-evenly;
-		font-size: 0.8rem;
+		font-size: 1rem;
 	}
 
 	.contacto-general a {
-		font-size: 0.8rem;
+		font-size: 1.2rem;
 	}
 
 	#contact h2 {
-		font-size: 1.1rem;
+		font-size: 1.5rem;
+	}
+
+	.intro p {
+		font-size: 1rem;
+		padding: 10px;
+	}
+
+	.sammi p,
+	a {
+		font-size: 1rem;
 	}
 }
 
