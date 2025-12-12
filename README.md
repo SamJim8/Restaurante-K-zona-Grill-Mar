@@ -8,6 +8,9 @@ Este es un sitio web sencillo diseñado como parte de un curso de HTML. El objet
 - `menu.html`: Página del menú
 - `contacto.html`: Página de contacto
 - `estilos.css`: Hojas de estilo CSS
+- `script-barra-navegacion.js`: código de la barra de navegación para mobile first
+- `script-formulario.js`: código para guardar los datos de los clientes en la nube.
+- `script-shopping-car.js`: código de agregar productos al carrito y pedir por whats.
 
 ## 🚀 Cómo verlo
 
@@ -18,6 +21,8 @@ Este es un sitio web sencillo diseñado como parte de un curso de HTML. El objet
 
 - HTML5
 - CSS3
+- JavaScript
+- proximanete React
 - Un poco de creatividad :)
 
 ## 💡 Autor
