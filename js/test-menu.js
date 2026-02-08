@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ---------------- Acordeón ----------------
-  const acordeones = document.querySelectorAll(".acordeon");
-  acordeones.forEach(acordeon => {
-    acordeon.addEventListener("click", () => {
-      let fila = acordeon.parentElement.nextElementSibling;
-      while (fila && !fila.classList.contains("acordeon")) {
-        fila.style.display = (getComputedStyle(fila).display !== "none") 
+  // ---------------- Accordion ----------------
+  const accordions = document.querySelectorAll(".accordion");
+  accordions.forEach(accordion => {
+    accordion.addEventListener("click", () => {
+      let row = accordion.parentElement.nextElementSibling;
+      while (row && !row.classList.contains("accordion")) {
+        row.style.display = (getComputedStyle(row).display !== "none") 
           ? "none" 
           : "table-row";
-        fila = fila.nextElementSibling;
+        row = row.nextElementSibling;
       }
-      acordeon.classList.toggle("expanded");
+      accordion.classList.toggle("expanded");
     });
   });
 
@@ -21,43 +21,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalElement = document.getElementById("cart-total");
   let total = 0;
 
-  // Acción al hacer clic en "Hacer pedido"
+  // Action on "Place order" click
   btnHacerPedido.addEventListener("click", () => {
-    btnHacerPedido.remove(); // elimina el botón
-    carritoContainer.style.display = "block"; // muestra el carrito
+    btnHacerPedido.remove(); // remove the button
+    carritoContainer.style.display = "block"; // show the cart
 
-    // Muestra la columna de acción en el encabezado
+    // Show action column in header
     const thAccion = document.querySelector("th.accion");
     if (thAccion) thAccion.style.display = "table-cell";
 
-    // Recorre todas las filas del cuerpo de la tabla
+    // Iterate all table body rows
     const filas = document.querySelectorAll("tbody tr");
     filas.forEach((fila) => {
-      // Encuentra la celda de acción de esa fila
+      // Find action cell for that row
       let tdAccion = fila.querySelector("td.accion");
 
       if (tdAccion) {
-        tdAccion.style.display = "table-cell"; // muestra la celda
+        tdAccion.style.display = "table-cell"; // show the cell
 
-        // Evita duplicar botones
+        // Avoid duplicate buttons
         if (!tdAccion.querySelector("button")) {
           const btnAgregar = document.createElement("button");
           btnAgregar.textContent = "Agregar";
           btnAgregar.classList.add("btn-agregar");
 
-          // Acción al hacer clic en "Agregar"
+          // Action on "Add" click
           btnAgregar.addEventListener("click", () => {
             const producto = fila.querySelector("td:nth-child(1)").textContent;
             const precio = parseFloat(
               fila.querySelector("td:nth-child(2)").textContent.replace("$", "")
             );
 
-            // Agregar producto al carrito
+            // Add product to cart
             const li = document.createElement("li");
             li.textContent = `${producto} - $${precio.toFixed(2)}`;
             carritoLista.appendChild(li);
 
-            // Actualizar total
+            // Update total
             total += precio;
             totalElement.textContent = total.toFixed(2);
           });

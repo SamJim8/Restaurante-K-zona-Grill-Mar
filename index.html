@@ -7,18 +7,15 @@
 	<meta name="author" content="Sammi Jim" />
 	<meta name="description" content="This page contains the menu of K-zona Grill & Mar" />
 	<title>K-zona Grill & Mar</title>
-	<link rel="icon" href="restaurante.png" type="image/x-icon" />
-	<link rel="stylesheet" href="kzona.css" type="text/css" />
+	<link rel="icon" href="assets/images/restaurante.png" type="image/x-icon" />
+	<link rel="stylesheet" href="css/styles.css" type="text/css" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-		<!--para subir a git-hub-->
-
-	<!--<base href="/Restaurante-K-zona-Grill-Mar/" />-->
+	<!-- Base URL for GitHub Pages (relative paths) -->
 	<script>
 		if (window.location.hostname === 'samjim8.github.io') {
-			// Solo agregar <base> si está en GitHub Pages
 			var baseTag = document.createElement('base');
 			baseTag.setAttribute('href', '/Restaurante-K-zona-Grill-Mar/');
 			document.head.appendChild(baseTag);
@@ -28,52 +25,51 @@
 
 <body id="top">
 <header>
-  <div class="container-nav">
-    <img src="logo.png" alt="logo" class="logo" />
-
-	<h1 class="brand-name">K-zona Grill & Mar</h1>
-
-    <!-- botón hamburguesa -->
-    <button class="hamburger" id="hamburger">☰</button>
-
-    <!-- menú completo para móvil -->
-    <nav class="nav-mobile" id="nav-mobile">
-		<button class="close-btn" id="close-btn">✖</button>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#lomaspedido">Lo más pedido</a></li>
-        <li><a href="#diary-menu">Menú diario</a></li>
-        <li><a href="#ourmenu">Nuestro menú</a></li>
-        <li><a href="#contact">Contáctanos</a></li>
-        <li><a href="#registro">Déjanos tu opinión</a></li>
-      </ul>
-    </nav>
-
-    <!-- menús de desktop -->
-    <nav aria-label="primary-navigation" class="nav-left">
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#lomaspedido">Los más pedidos</a></li>
-        <li><a href="#diary-menu">Menú diario</a></li>
-      </ul>
-    </nav>
-
-    <nav class="nav-right">
-      <ul>
-        <li><a href="#ourmenu">Nuestro menú</a></li>
-		<li><a href="#registro">Déjanos tu opinión</a></li>
-        <li><a href="#contact">Contáctanos</a></li>
-      </ul>
-    </nav>
-  </div>
+	<div class="container-nav">
+		<div class="header-brand">
+			<img src="assets/images/logo.png" alt="Logo K-zona Grill & Mar" class="logo" width="36" height="36" />
+			<h1 class="brand-name">K-zona Grill & Mar</h1>
+		</div>
+		<button class="hamburger" id="hamburger" aria-label="Abrir menú">☰</button>
+		<nav class="nav-mobile" id="nav-mobile" aria-label="Menú móvil">
+			<button class="close-btn" id="close-btn" aria-label="Cerrar menú">✖</button>
+			<ul>
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#most-ordered">Lo más pedido</a></li>
+				<li><a href="#diary-menu">Menú diario</a></li>
+				<li><a href="#ourmenu">Nuestro menú</a></li>
+				<li><a href="#reviews">Opiniones</a></li>
+				<li><a href="#registro">Registro y sugerencia</a></li>
+				<li><a href="#contact">Contáctanos</a></li>
+			</ul>
+		</nav>
+		<nav class="nav-desktop" aria-label="Navegación principal">
+			<ul>
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#most-ordered">Lo más pedido</a></li>
+				<li class="nav-dropdown">
+					<button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" id="dropdown-nuestro-menu">Nuestro menú</button>
+					<ul class="nav-dropdown-menu" aria-labelledby="dropdown-nuestro-menu">
+						<li><a href="#ourmenu">Menú carta</a></li>
+						<li><a href="#diary-menu">Menú diario</a></li>
+					</ul>
+				</li>
+				<li class="nav-dropdown">
+					<button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true" id="dropdown-opiniones">Opiniones</button>
+					<ul class="nav-dropdown-menu" aria-labelledby="dropdown-opiniones">
+						<li><a href="#reviews">Opiniones</a></li>
+						<li><a href="#registro">Registro y sugerencia</a></li>
+					</ul>
+				</li>
+				<li><a href="#contact">Contáctanos</a></li>
+			</ul>
+		</nav>
+	</div>
 </header>
 
 <main>
 	<div class="intro">
-		<br>
-		<h3>
-			Sobre nosotros:
-		</h3>
+		<h3>Sobre nosotros</h3>
 		<p>
 			Nuestra historia nace del arduo trabajo que hemos realizado durante décadas. Aunque quizás no comenzamos con
 			el nombre que hoy nos identifica, contamos con una amplia trayectoria en atención al cliente. Iniciamos con
@@ -88,16 +84,14 @@
 			ustedes se merecen.
 		</p>
 	</div>
-		<section id="lomaspedido">
-			<h2>
-				Lo más pedido
-			</h2>
+		<section id="most-ordered">
+			<h2>Lo más pedido</h2>
 			<p>¡Por algo está tan bueno!</p>
 
-			<div class="images-lomaspedido">
+			<div class="most-ordered-images">
 				<article>
 					<figure class="pescado">
-						<img src="pescfrit.png" alt="pescado frito" title="Pescado Frito">
+						<img src="assets/images/pescfrit.png" alt="Pescado frito" title="Pescado Frito" loading="lazy" width="400" height="300">
 						<figcaption>
 							Delicioso pargo acompañado de patacones, arroz, ensalada y menestra.
 						</figcaption>
@@ -106,7 +100,7 @@
 
 				<article>
 					<figure class="cecina">
-						<img src="cecina.png" alt="cecina" title="Cecina">
+						<img src="assets/images/cecina.png" alt="Cecina lojana" title="Cecina" loading="lazy" width="400" height="300">
 						<figcaption>
 							Tradicional cecina lojana acompañada de yuca, mote, aguacate y ensalada.
 						</figcaption>
@@ -115,7 +109,7 @@
 
 				<article>
 					<figure class="encebollado">
-						<img src="encebollado.png" alt="encebollado" title="Encebollado">
+						<img src="assets/images/encebollado.png" alt="Encebollado" title="Encebollado" loading="lazy" width="400" height="300">
 						<figcaption>Normal, mixto o afrodisiaco, en todos se incluye chifles.</figcaption>
 					</figure>
 				</article>
@@ -123,297 +117,158 @@
 		</section>
 		<section id="diary-menu">
 			<h2>Menú diario de almuerzos</h2>
-			<div class="styleMenuDiario">
-				<h3>Menú diario</h3>
-				<p><span>Fecha: 4 de mayo de 2025</span></p>
-				<h4><strong>Sopa:</strong></h4>
-				<p>Locro de acelga</p>
-				<p>Sancocho de res</p>
-				<h4><strong>Plato fuerte:</strong></h4>
-				<p>Lasagna de carne</p>
-				<p>Estofado de pollo</p>
-				<p>Omellette de camarón</p>
-				<h4><strong>Postre:</strong></h4>
-				<p>Gelatina de frutas</p>
-				<h4><strong>Bebida:</strong></h4>
-				<p>Limonada</p>
+			<div class="diary-menu-slot">
+				<div id="diary-menu-content" class="styleMenuDiario">
+					<p class="diary-menu-loading">Cargando menú…</p>
+				</div>
+				<div id="diary-cart-inline" class="diary-cart-inline" hidden>
+					<div class="diary-cart-back-row">
+						<button id="close-diary-cart-btn" class="close-cart-btn" type="button" aria-label="Cerrar carrito y volver al menú">×</button>
+						<span class="diary-cart-back-label" role="button" tabindex="0">← Volver al menú</span>
+					</div>
+					<h3 class="diary-cart-title">Menú del día – Mi pedido</h3>
+					<section class="diary-cart-block diary-cart-block-complete">
+						<h4 class="diary-cart-block-heading">Almuerzo completo</h4>
+						<p class="diary-cart-block-desc">Puedes agregar varios almuerzos con distintas opciones.</p>
+						<p class="diary-cart-sub">Sopa (elegir 1):</p>
+						<div id="diary-complete-soup" class="diary-menu-options"></div>
+						<p class="diary-cart-sub">Plato fuerte (elegir 1):</p>
+						<div id="diary-complete-main" class="diary-menu-options"></div>
+						<button type="button" id="diary-add-complete-btn" class="diary-add-complete-btn">+ Agregar almuerzo seleccionado</button>
+						<div id="diary-cart-complete-list" class="diary-cart-complete-list" aria-live="polite"></div>
+					</section>
+					<hr class="diary-cart-hr" />
+					<section class="diary-cart-block diary-cart-block-soup">
+						<h4 class="diary-cart-block-heading">Solo sopa</h4>
+						<div id="diary-cart-single-soup-list" class="diary-cart-single-list"></div>
+					</section>
+					<hr class="diary-cart-hr" />
+					<section class="diary-cart-block diary-cart-block-main">
+						<h4 class="diary-cart-block-heading">Solo plato fuerte</h4>
+						<div id="diary-cart-single-main-list" class="diary-cart-single-list"></div>
+					</section>
+					<hr class="diary-cart-hr" />
+					<section class="diary-cart-summary-wrap">
+						<h4 class="diary-cart-block-heading">Resumen</h4>
+						<div id="diary-cart-summary" class="diary-cart-summary">
+							<p class="diary-summary-empty">Sin ítems. Agrega almuerzos o elige solo sopa / solo plato fuerte.</p>
+							<div id="diary-cart-summary-lines"></div>
+							<p class="diary-cart-total-row"><strong>Total: $<span id="diary-cart-total">0.00</span></strong></p>
+						</div>
+					</section>
+					<div class="diary-cart-options">
+						<label><input type="checkbox" id="diary-takeaway" /> Para llevar</label>
+						<label><input type="checkbox" id="diary-dine-in" /> Para reservar en el local</label>
+					</div>
+					<section class="diary-cart-block diary-cart-place-order">
+						<h4 class="diary-cart-block-heading">Hacer el pedido</h4>
+						<p class="diary-cart-label">Tu nombre:</p>
+						<input type="text" id="diary-customer-name" class="diary-customer-input" placeholder="Jane" />
+						<button id="diary-send-order" class="send-order-btn" type="button">Enviar pedido por WhatsApp</button>
+					</section>
+				</div>
 			</div>
 		</section>
-		<img src="presentacion.jpeg" alt="presentation" class="image-presentation" />
 		<div class="main-content">
 		<section class="table-menu" id="ourmenu">
-			<div class="style-card">
-			<table class="table-outer-edge">
-				<caption>
-					<h2>Carta K-zona Grill & Mar</h2>
-					<p class="sloganMenu">Pide lo que más te guste, cuando quieras y donde estés.</p>
-				</caption>
-				<thead class="columns-card">
-					<tr>
-						<th scope="col">Platos</th>
-						<th scope="col">Descripción</th>
-						<th class="price-style" scope="col">Precio</th>
-					</tr>
-				</thead>
-				<!--Mariscos-->
-				<tbody class="categoria">
-					<tr>
-						<th colspan="3" class="variedad acordeon">Mariscos</th>
-					</tr>
-					<tr>
-						<th scope="row">Pescado frito</th>
-						<td>Acompañado de patacones, arroz, menestra y ensalada.</td>
-						<td class="td-price">
-						<p data-price="8.00">$8.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Encebollado normal</th>
-						<td rowspan="2">Acompañado de una porción de chifles.</td>
-						<td class="td-price">
-						<p data-price="3.00">$3.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Mega Encebollado</th>
-						<td class="td-price">
-						<p data-price="4.00">$4.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Encebollado mixto</th>
-						<td>Camarón y Albacora.</td>
-						<td class="td-price">
-						<p data-price="4.00">$4.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					</tbody>
-					<!--Asados-->
-					<tbody clas="categoria">
-					<tr>
-						<th class="variedad acordeon" colspan="3">Asados</th>
-					</tr>
-					<tr>
-						<th scope="row">Filete de pollo al grill</th>
-						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-						<td class="td-price">
-						<p data-price="4.00">$4.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Chuleta de cerdo al grill</th>
-						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-						<td class="td-price">
-						<p data-price="4.50">$4.50</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">FIlete de res al grill</th>
-						<td>Acompañado de papas fritas, arroz, menestra y ensalada.</td>
-						<td class="td-price">
-						<p data-price="4.50">$4.50</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Cecina</th>
-						<td>Acompañado de yucas, mote, aguacate y ensalada.</td>
-						<td class="td-price">
-						<p data-price="7.00">$7.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<!--Arroces-->
-					</tbody>
-					<tbody class="categoria">
-					<tr>
-						<th colspan="3" class="variedad acordeon">Arroces</th>
-					</tr>
-					<tr>
-						<th scope="row">Chaulafán mixto</th>
-						<td>Contiene cerdo y pollo.</td>
-						<td class="td-price">
-						<p data-price="5.00">$5.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Chaulafán especial</th>
-						<td>Contiene cerdo, pollo y camarón.</td>
-						<td class="td-price">
-						<p data-price="6.00">$6.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					<tr>
-						<th scope="row">Chaulafán con tallarín mixto</th>
-						<td>Contiene cerdo y pollo.</td>
-						<td class="td-price">
-						<p data-price="7.00">$7.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					</tbody>
-					<!--Cafetería-->
-					<tbody class="categoria">
-					<tr>
-						<th colspan="3" class="variedad acordeon">
-							Cafetería
-						</th>
-					</tr>
-					<tr>
-						<th scope="row">Humitas</th>
-						<td>Rellenas de queso.</td>
-						<td class="td-price">
-						<p data-price="1.25">$1.25</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Tamales</th>
-						<td>Rellenas de pollo o queso.</td>
-						<td class="td-price">
-						<p data-price="1.50">$1.50</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Desayuno continental</th>
-						<td>
-							Contiene huevos a su gusto, tostada, jugo, porción de frutas y
-							cafe/leche.
-						</td>
-						<td class="td-price">
-							<p data-price="3.50">$3.50</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Bolón</th>
-						<td>Relleno de queso, chicharrón o mixto.</td>
-						<td class="td-price">
-						<p data-price="2.50">$2.50</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Tigrillo</th>
-						<td>De queso, chicharrón o mixto + café.</td>
-						<td class="td-price">
-						<p data-price="2.75">$2.75</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-				</tbody>
-					<!--Bebidas-->
-					<tbody class="categoria">
-					<tr>
-						<th colspan="3" class="variedad acordeon">
-							Bebidas
-						</th>
-					</tr>
-					<tr>
-						<th scope="row">Café</th>
-						<td></td>
-						<td class="td-price">
-						<p data-price="1.25">$1.25</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Aguas aromáticas</th>
-						<td></td>
-						<td class="td-price">
-						<p data-price="1.00">$1.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Jugos</th>
-						<td>Tomate, piña, fresa, papaya, melón, mora, guanábana.</td>
-						<td class="td-price">
-						<p data-price="1.75">$1.75</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Batidos</th>
-						<td>Tomate, fresa, mora, guanábana.</td>
-						<td class="td-price">
-						<p data-price="2.00">$2.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>					
-					<tr>
-						<th scope="row">Limonada</th>
-						<td></td>
-						<td class="td-price">
-						<p data-price="1.50">$1.50</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					</tr>
-					<tr>
-						<th scope="row">Cola personal</th>
-						<td>Coca-cola de 350 mL.</td>
-						<td class="td-price">
-						<p data-price="1.00">$1.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-					<tr>
-						<th scope="row">Cola 1 Litro</th>
-						<td>Coca-cola.</td>
-						<td class="td-price">
-						<p data-price="2.00">$2.00</p>
-						<button class="btn-add-item" onclick="addToCart(this)"><img src="src/img/icon-cart-shopping.svg" alt="icon-to-buy"></button>
-						</td>
-					</tr>
-				</tbody>				
-				<tfoot>
-					<tr>
-						<td colspan="3">
-							Para llevar, cada plato tiene un precio extra por los desechables.
-						</td>
-					</tr>
-				</tfoot>
-			</table>
-		</div>
+			<div class="table-menu-inner">
+				<p class="section-lead section-lead-menu">Carta completa: mariscos, asados y más. Agrega al carrito y envía tu pedido por WhatsApp.</p>
+				<div class="style-card" id="menu-container"></div>
+			</div>
 		</section>
 		</div>
 		<div id="shopping-modal" class="shopping-modal">
-			<button id="close-cart-btn" class="close-cart-btn">x</button>
+			<button id="close-cart-btn" class="close-cart-btn" type="button" aria-label="Cerrar carrito">×</button>
 			<h3>Mi pedido</h3>
-    		<ul id="cart-items"></ul>
-    		<p><strong>Total: $<span id="cart-total">0</span></strong></p>
-			<div class="name row">
+			<ul id="cart-items"></ul>
+			<div class="cart-totals">
+				<p id="cart-disposables-line" class="cart-disposables-line" aria-hidden="true"></p>
+				<p><strong>Total: $<span id="cart-total">0</span></strong></p>
+			</div>
+			<div class="cart-takeaway">
+				<label><input type="checkbox" id="cart-takeaway" /> Para llevar (+$0.50 por plato, desechables)</label>
+			</div>
+			<div class="name-row">
 				<p class="order-name">Agrega tu nombre al pedido:</p>
-				<input type="text" id="customer-name" placeholder="Tu nombre" required/>
+				<input type="text" id="customer-name" placeholder="Tu nombre" required />
 			</div>
 			<button id="send-order" class="send-order-btn">Enviar pedido por WhatsApp</button>
 		</div>
+		<section id="reviews" class="reviews-section" aria-label="Opiniones de clientes en Google">
+			<div class="reviews-section-inner">
+				<h2 class="reviews-title">Lo que dicen en Google</h2>
+				<p class="reviews-subtitle">Opiniones de quienes nos visitan</p>
+				<div class="reviews-carousel" role="region" aria-roledescription="carousel" aria-label="Carrusel de reseñas">
+					<div class="reviews-track">
+						<article class="review-card" data-slide="0" role="group" aria-roledescription="slide" aria-label="Reseña 1 de 5">
+							<div class="review-header">
+								<div class="review-stars" aria-hidden="true">★★★★★</div>
+								<span class="review-author">milu milu (Kerly, Suiza 🇨🇭)</span>
+							</div>
+							<blockquote class="review-text">¡Menús absolutamente deliciosos! Los dueños son muy amables, acogedores y empáticos. Muchas gracias por compartir su maravillosa cocina ecuatoriana e innovación culinaria con nosotros, incorporando recetas europeas. El chef es un verdadero artista culinario. ¡Bravo! 👏👏</blockquote>
+							<div class="review-image-wrap"></div>
+						</article>
+						<article class="review-card" data-slide="1" role="group" aria-roledescription="slide" aria-label="Reseña 2 de 5">
+							<div class="review-header">
+								<div class="review-stars" aria-hidden="true">★★★★★</div>
+								<span class="review-author">Danny Ordoñez</span>
+							</div>
+							<blockquote class="review-text">Excelente servicio y sazón 🤤</blockquote>
+							<div class="review-image-wrap"></div>
+						</article>
+						<article class="review-card" data-slide="2" role="group" aria-roledescription="slide" aria-label="Reseña 3 de 5">
+							<div class="review-header">
+								<div class="review-stars" aria-hidden="true">★★★★★</div>
+								<span class="review-author">isaak carrillo</span>
+							</div>
+							<blockquote class="review-text">La comida estuvo muy rica y muy bien servicio</blockquote>
+							<div class="review-image-wrap"></div>
+						</article>
+						<article class="review-card" data-slide="3" role="group" aria-roledescription="slide" aria-label="Reseña 4 de 5">
+							<div class="review-header">
+								<div class="review-stars" aria-hidden="true">★★★★★</div>
+								<span class="review-author">Steven Calderon</span>
+							</div>
+							<blockquote class="review-text">Estaba delicioso. El lugar es relajante, perfecto para disfrutar de una comida tranquila. La atención fue muy cordial. Definitivamente volveré con mi familia. Aunque me hubiera gustado pagar con tarjeta pero si reciben transferencia. Los precios son baratos, lo recomiendo!</blockquote>
+							<div class="review-image-wrap"></div>
+						</article>
+						<article class="review-card" data-slide="4" role="group" aria-roledescription="slide" aria-label="Reseña 5 de 5">
+							<div class="review-header">
+								<div class="review-stars" aria-hidden="true">★★★★★</div>
+								<span class="review-author">Rosita Verdezoto</span>
+							</div>
+							<blockquote class="review-text">Muy buena comida, buen ambiente y atención, muy recomendado</blockquote>
+							<div class="review-image-wrap"></div>
+						</article>
+					</div>
+					<div class="reviews-dots" role="tablist" aria-label="Seleccionar reseña">
+						<button type="button" class="reviews-dot active" role="tab" aria-selected="true" aria-label="Reseña 1" data-index="0"></button>
+						<button type="button" class="reviews-dot" role="tab" aria-selected="false" aria-label="Reseña 2" data-index="1"></button>
+						<button type="button" class="reviews-dot" role="tab" aria-selected="false" aria-label="Reseña 3" data-index="2"></button>
+						<button type="button" class="reviews-dot" role="tab" aria-selected="false" aria-label="Reseña 4" data-index="3"></button>
+						<button type="button" class="reviews-dot" role="tab" aria-selected="false" aria-label="Reseña 5" data-index="4"></button>
+					</div>
+				</div>
+			</div>
+		</section>
 		<article id="registro" class="section-form">
-			<h3>¡Forma parte de nuestra comunidad!</h3>
+			<div class="section-form-inner">
+				<h3>¡Forma parte de nuestra comunidad!</h3>
 				<p>
 					Regístrate y ayúdanos a seguir mejorando. Además, recibe promociones y novedades de nuestro menú.
 				</p>
-
-			<form id="formulario">
+				<form id="feedback-form">
 				<div class="form-content">
 					<div class="personal-info-container">
 						<fieldset>
 							<legend>Información personal</legend>
 
 							<div class="form-item">
-								<label for="nombreCompleto">Nombre completo:</label>
+								<label for="customerName">Nombre completo:</label>
 								<input type="text" id="customerName" name="customerName" placeholder="Jane" required />
 							</div>
 							<div class="form-item">
-								<label for="celular">Número celular:</label>
+								<label for="phone">Número celular:</label>
 								<input type="tel" id="phone" name="phone" placeholder="5555555555"
 									pattern="\d{9,10}" required />
 							</div>
@@ -428,49 +283,51 @@
 					</fieldset>
 				</div>
 				<br />
-				<div class="botones-formulario">
-					<button type="reset">Resetear</button>
-										<button type="submit">
-						Enviar
-					</button>
+				<div class="form-buttons botones-formulario">
+					<button type="reset">Limpiar</button>
+					<button type="submit">Enviar</button>
 				</div>
-			</form> 
+				</form>
 			</div>
 		</article>
 	</main>
 
 	<footer>
-			<article id="contact">
-			<h2>Contáctanos:</h2>
-			<div class="contacto-general">
-				<div class="location">
-					<img src="https://img.icons8.com/?size=100&id=mrGQR87U1PR2&format=png&color=000000"
-							alt="location" width="30px" />
-					<a href="https://maps.app.goo.gl/etEfyUXMmZKjtdNv9"
-							target="_blank">Visítanos</a>
-				</div>
+		<article id="contact" class="contact">
+			<h2>Contáctanos</h2>
+			<div class="contact-general">
 				<div class="email">
 					<img src="https://img.icons8.com/?size=100&id=iUAL2gKFxVxc&format=png&color=000000" alt="email" width="30px">
-					<a href="mailto:kzonagrillmar@gmail.com" target="_blank"> kzonagrillmar@gmail.com</a>
+					<a href="mailto:kzonagrillmar@gmail.com" target="_blank">kzonagrillmar@gmail.com</a>
 				</div>
 				<div class="whatsapp">
 					<img src="https://img.icons8.com/ios/50/whatsapp--v1.png" alt="whatsapp" width="30px"/>
-					<a href="https://wa.me/593959221180"> 0959221180</a></p>
+					<a href="https://wa.me/593979495354">0959221180</a>
 				</div>
 			</div>
+			<div class="footer-map">
+				<iframe
+					title="Ubicación K zona Grill Mar"
+					src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7979.605790176454!2d-78.4681614!3d-0.1593226!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d591007441998d%3A0xbd74ebe8c00d2221!2sK-zona%20Grill%20%26%20Mar!5e0!3m2!1ses-419!2sec!4v1770540089772!5m2!1ses-419!2sec"
+					allowfullscreen=""
+					referrerpolicy="no-referrer-when-downgrade">
+				</iframe>
+				<a class="footer-map-link" href="https://maps.app.goo.gl/5Gh9N7nBK49rLTZy8" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
+			</div>
 			<div class="textContact">
-					<p>Es un placer servirle.</p>
+				<p>Es un placer servirle.</p>
 			</div>
 		</article>
 		<div class="sammi">
-		<p>
-			&copy;<a href="about.html" >Sammi</a>
-		</p>
-		
+			<p>&copy; <a href="https://www.linkedin.com/in/samantha-jimenez-armijos-68b11926b/" target="_blank" rel="noopener noreferrer">Sammi</a></p>
+		</div>
 	</footer>
-	<script src="script-barra-navegacion.js"></script>
-	<script src="script-formulario.js"></script>
-	<script src="script-shopping-car.js"></script>
+	<script src="js/nav.js"></script>
+	<script src="js/form.js"></script>
+	<script src="js/menu.js"></script>
+	<script src="js/daily-menu.js"></script>
+	<script src="js/cart.js"></script>
+	<script src="js/reviews-carousel.js"></script>
 </body>
 
 </html>

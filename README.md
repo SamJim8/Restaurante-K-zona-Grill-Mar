@@ -1,25 +1,39 @@
-# Restaurante K-zona Grill-Mar 🍽️
+# K-zona Grill & Mar 🍽️
 
-Este es un sitio web sencillo diseñado como parte de un curso de HTML. El objetivo es simular la página web de un restaurante.
+Sitio web del restaurante K-zona Grill & Mar: carta, menú diario, carrito de pedidos y envío por WhatsApp.
 
-## 📁 Estructura del proyecto
+## Estructura del proyecto
 
-- `index.html`: Página principal
-- `menu.html`: Página del menú
-- `contacto.html`: Página de contacto
-- `estilos.css`: Hojas de estilo CSS
+```
+├── index.html              # Página principal
+├── css/
+│   └── styles.css          # Estilos globales
+├── js/
+│   ├── nav.js              # Navegación y menú móvil
+│   ├── form.js             # Formulario de registro/opinión
+│   ├── menu.js             # Carta y tabla del menú
+│   ├── cart.js             # Carrito y acordeón del menú
+│   ├── daily-menu.js       # Menú diario (API + PDF)
+│   └── test-menu.js        # Pruebas/legacy del menú
+├── assets/
+│   ├── images/             # Logo, favicon, fotos de platos, fondos
+│   └── icons/              # Iconos (carrito, etc.)
+└── docs/
+    └── daily-menu-apps-script.js   # Google Apps Script para menú diario
+```
 
-## 🚀 Cómo verlo
+## Cómo verlo
 
-1. Descarga el repositorio
-2. Abre el archivo `kzona.html` con tu navegador favorito
+1. Clona o descarga el repositorio.
+2. Abre `index.html` en el navegador (doble clic o servidor local).
 
-## ✏️ Tecnologías usadas
+Para GitHub Pages, la base URL se ajusta automáticamente a `/Restaurante-K-zona-Grill-Mar/`.
 
-- HTML5
-- CSS3
-- Un poco de creatividad :)
+## Tecnologías
 
-## 💡 Autor
+- HTML5, CSS3, JavaScript (vanilla)
+- Menú diario: Google Sheets + Apps Script (ver `docs/daily-menu-apps-script.js`)
 
-Samantha Jimenez – [GitHub](https://github.com/samantha-jimenez-armijos)
+## Autor
+
+Samantha Jiménez – [LinkedIn](https://www.linkedin.com/in/samantha-jimenez-armijos-68b11926b/)
