@@ -234,7 +234,7 @@ if (sendOrderBtn) {
     }
     message += `\nTotal: $${total.toFixed(2)}`;
 
-    const url = `https://wa.me/593959221166?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/593979495354?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   });
 }
