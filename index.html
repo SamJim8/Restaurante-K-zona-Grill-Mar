@@ -157,8 +157,12 @@
 						</div>
 					</section>
 					<div class="diary-cart-options">
-						<label><input type="checkbox" id="diary-takeaway" /> Para llevar</label>
-						<label><input type="checkbox" id="diary-dine-in" /> Para reservar en el local</label>
+						<label>
+							<input type="radio" name="diary-service"  id="diary-takeaway" /> Para llevar (+$0.50 por plato, desechables)
+						</label>
+						<label>
+							<input type="radio" name="diary-service"  id="diary-dine-in" /> Para reservar en el local (Se debe cancelar un anticipo)
+						</label>
 					</div>
 					<section class="diary-cart-block diary-cart-place-order">
 						<h4 class="diary-cart-block-heading">Hacer el pedido</h4>
@@ -185,8 +189,13 @@
 				<p id="cart-disposables-line" class="cart-disposables-line" aria-hidden="true"></p>
 				<p><strong>Total: $<span id="cart-total">0</span></strong></p>
 			</div>
-			<div class="cart-takeaway">
-				<label><input type="checkbox" id="cart-takeaway" /> Para llevar (+$0.50 por plato, desechables)</label>
+			<div class="cart-options">
+				<label>
+					<input type="radio" name="cart-service"  id="cart-takeaway" /> Para llevar (+$0.50 por plato, desechables)
+				</label>
+				<label>
+					<input type="radio" name="cart-service"  id="cart-dine-in" /> Para reservar en el local (Se debe cancelar un anticipo)
+				</label>
 			</div>
 			<div class="name-row">
 				<p class="order-name">Agrega tu nombre al pedido:</p>
