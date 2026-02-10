@@ -200,34 +200,82 @@ function buildDiaryCartFormHtml(headers, row) {
         "</label>",
     );
   });
-  var soloSopaParts = [];
+ /** var soloSopaParts = [];
   sopaItems.forEach(function (item) {
     soloSopaParts.push(
-      '<div class="diary-single-soup-wrap diary-single-row"><label class="diary-single-label"><input type="checkbox" class="diary-single-soup-check" data-item="' +
+    '<div class="diary-single-soup-wrap diary-single-row">' +
+      '<label class="diary-single-label">' +
         escapeHtml(item) +
-        '"> ' +
+      '</label>' +
+      '<div class="diary-qty-wrap">' +
+        '<button type="button" class="diary-qty-btn diary-qty-minus" aria-label="Menos">−</button>' +
+        '<input type="number" min="0" max="99" step="1" value="0" ' +
+          'class="diary-qty-input diary-single-soup-qty" ' +
+          'data-item="' + escapeHtml(item) + '" ' +
+          'aria-label="Cantidad ' + escapeHtml(item) + '" inputmode="numeric" />' +
+        '<button type="button" class="diary-qty-btn diary-qty-plus" aria-label="Más">+</button>' +
+      '</div>' +
+    '</div>'
+  );
+});
+var soloSegundoParts = [];
+platoItems.forEach(function (item) {
+  soloSegundoParts.push(
+    '<div class="diary-single-main-wrap diary-single-row">' +
+      '<label class="diary-single-label">' +
         escapeHtml(item) +
-        '</label> <div class="diary-qty-wrap"><button type="button" class="diary-qty-btn diary-qty-minus" aria-label="Menos">−</button><input type="number" min="0" max="99" step="1" value="0" class="diary-qty-input diary-single-soup-qty" data-item="' +
-        escapeHtml(item) +
-        '" aria-label="Cantidad ' +
-        escapeHtml(item) +
-        '" inputmode="numeric" /><button type="button" class="diary-qty-btn diary-qty-plus" aria-label="M\u00e1s">+</button></div></div>',
-    );
-  });
-  var soloSegundoParts = [];
-  platoItems.forEach(function (item) {
-    soloSegundoParts.push(
-      '<div class="diary-single-main-wrap diary-single-row"><label class="diary-single-label"><input type="checkbox" class="diary-single-main-check" data-item="' +
-        escapeHtml(item) +
-        '"> ' +
-        escapeHtml(item) +
-        '</label> <div class="diary-qty-wrap"><button type="button" class="diary-qty-btn diary-qty-minus" aria-label="Menos">−</button><input type="number" min="0" max="99" step="1" value="0" class="diary-qty-input diary-single-main-qty" data-item="' +
-        escapeHtml(item) +
-        '" aria-label="Cantidad ' +
-        escapeHtml(item) +
-        '" inputmode="numeric" /><button type="button" class="diary-qty-btn diary-qty-plus" aria-label="M\u00e1s">+</button></div></div>',
-    );
-  });
+      '</label>' +
+      '<div class="diary-qty-wrap">' +
+        '<button type="button" class="diary-qty-btn diary-qty-minus" aria-label="Menos">−</button>' +
+        '<input type="number" min="0" max="99" step="1" value="0" ' +
+          'class="diary-qty-input diary-single-main-qty" ' +
+          'data-item="' + escapeHtml(item) + '" ' +
+          'aria-label="Cantidad ' + escapeHtml(item) + '" inputmode="numeric" />' +
+        '<button type="button" class="diary-qty-btn diary-qty-plus" aria-label="Más">+</button>' +
+      '</div>' +
+    '</div>'
+  );
+});**/
+var orderSolo = {};
+  function updateProduct(item, quantity, category) {
+  if (quantity > 0) {
+    orderSolo[item] = {
+      quantity: quantity,
+      category: category
+    };
+  } else {
+    delete orderSolo[item];
+  }
+
+  console.log(orderSolo);
+}
+  document.addEventListener("click", function (e) {
+
+  if (e.target.classList.contains("diary-qty-plus")) {
+    const input = e.target.previousElementSibling;
+    const item = input.dataset.item;
+    const category = input.dataset.category;
+
+    let quantity = parseInt(input.value) || 0;
+    input.value = ++quantity;
+
+    updateProduct(item, quantity, category);
+  }
+
+  if (e.target.classList.contains("diary-qty-minus")) {
+    const input = e.target.nextElementSibling;
+    const item = input.dataset.item;
+    const category = input.dataset.category;
+
+    let quantity = parseInt(input.value) || 0;
+    quantity = Math.max(0, quantity - 1);
+    input.value = quantity;
+
+    updateProduct(item, quantity, category);
+  }
+
+});
+  
   return {
     sopaHtml: sopaParts.join(""),
     platoHtml: platoParts.join(""),
