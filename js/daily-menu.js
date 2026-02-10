@@ -366,26 +366,31 @@ function showDiaryMenuView() {
 
 function updateDiaryCartTotal() {
   var total = 0;
+
   document
     .querySelectorAll("#diary-cart-complete-list .diary-complete-qty")
     .forEach(function (input) {
       total += (parseInt(input.value, 10) || 0) * DIARY_MENU_PRICES.completo;
     });
-  document.querySelectorAll(".diary-single-soup-wrap").forEach(function (wrap) {
-    var check = wrap.querySelector(".diary-single-soup-check");
-    var input = wrap.querySelector(".diary-single-soup-qty");
-    if (check && check.checked && input)
-      total += (parseInt(input.value, 10) || 0) * DIARY_MENU_PRICES.soloSopa;
-  });
+
   document
-    .querySelectorAll(".diary-single-main-wrap")
-    .forEach(function (wrap) {
-      var check = wrap.querySelector(".diary-single-main-check");
-      var input = wrap.querySelector(".diary-single-main-qty");
-      if (check && check.checked && input)
-        total +=
-          (parseInt(input.value, 10) || 0) * DIARY_MENU_PRICES.soloPlatoFuerte;
+    .querySelectorAll(".diary-single-soup-qty")
+    .forEach(function (input) {
+      var qty = parseInt(input.value, 10) || 0;
+      if (qty > 0) {
+        total += qty * DIARY_MENU_PRICES.soloSopa;
+      }
     });
+
+  document
+    .querySelectorAll(".diary-single-main-qty")
+    .forEach(function (input) {
+      var qty = parseInt(input.value, 10) || 0;
+      if (qty > 0) {
+        total += qty * DIARY_MENU_PRICES.soloPlatoFuerte;
+      }
+    });
+
   var el = document.getElementById("diary-cart-total");
   if (el) el.textContent = total.toFixed(2);
 }
