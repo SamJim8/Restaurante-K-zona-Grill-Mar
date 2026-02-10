@@ -1,7 +1,6 @@
 /**
  * Daily menu section: loads weekday menu via Google Apps Script Web App (no CORS), weekend menu as PDF.
  * - Weekdays: calls your Web App with gid + day; Web App reads the Sheet and returns JSON.
- * - Weekends: shows embedded PDF for "menú de fin de semana".
  */
 
 const DIARY_MENU_CONFIG = {
@@ -200,7 +199,7 @@ function buildDiaryCartFormHtml(headers, row) {
         "</label>",
     );
   });
- /** var soloSopaParts = [];
+ var soloSopaParts = [];
   sopaItems.forEach(function (item) {
     soloSopaParts.push(
     '<div class="diary-single-soup-wrap diary-single-row">' +
@@ -235,32 +234,7 @@ platoItems.forEach(function (item) {
       '</div>' +
     '</div>'
   );
-});**/
-var orderSolo = {};
-  function updateProduct(item, quantity, category) {
-  if (quantity > 0) {
-    orderSolo[item] = {
-      quantity: quantity,
-      category: category
-    };
-  } else {
-    delete orderSolo[item];
-  }
-
-  console.log(orderSolo);
-}
-  document.addEventListener("click", function (e) {
-
-  if (e.target.classList.contains("diary-qty-plus")) {
-    const input = e.target.previousElementSibling;
-    const item = input.dataset.item;
-    const category = input.dataset.category;
-
-    let quantity = parseInt(input.value) || 0;
-    input.value = ++quantity;
-
-    updateProduct(item, quantity, category);
-  }
+});
 
   if (e.target.classList.contains("diary-qty-minus")) {
     const input = e.target.nextElementSibling;
@@ -407,31 +381,28 @@ function updateDiaryCartResumen() {
   var pricePlato = DIARY_MENU_PRICES.soloPlatoFuerte;
 
   document
-    .querySelectorAll("#diary-cart-complete-list .diary-complete-item")
-    .forEach(function (div) {
-      var input = div.querySelector(".diary-complete-qty");
-      var qty = input ? parseInt(input.value, 10) || 0 : 0;
-      if (qty <= 0) return;
-      var sopa = (input && input.getAttribute("data-sopa")) || "";
-      var plato = (input && input.getAttribute("data-plato")) || "";
-      var subtotal = (qty * priceCompleto).toFixed(2);
-      lines.push(
-        '<div class="diary-summary-line"><span class="diary-summary-qty">' +
-          escapeHtml(String(qty)) +
-          '</span> <span class="diary-summary-text">Almuerzo completo:<br>Sopa = ' +
-          escapeHtml(sopa) +
-          ", Plato fuerte = " +
-          escapeHtml(plato) +
-          '</span> <span class="diary-summary-price">= $' +
-          subtotal +
-          "</span></div>",
-      );
-    });
+  .querySelectorAll(".diary-single-main-wrap")
+  .forEach(function (wrap) {
+    var input = wrap.querySelector(".diary-single-main-qty");
+    if (!input) return;
+    var qty = parseInt(input.value, 10) || 0;
+    if (qty <= 0) return;
+    var item = input.getAttribute("data-item") || "Plato fuerte";
+    var subtotal = (qty * pricePlato).toFixed(2);
+    lines.push(
+      '<div class="diary-summary-line"><span class="diary-summary-qty">' +
+        escapeHtml(String(qty)) +
+        '</span> <span class="diary-summary-text">' +
+        escapeHtml(item) +
+        '</span> <span class="diary-summary-price">= $' +
+        subtotal +
+        "</span></div>"
+    );
+  });
 
   document.querySelectorAll(".diary-single-soup-wrap").forEach(function (wrap) {
-    var check = wrap.querySelector(".diary-single-soup-check");
     var input = wrap.querySelector(".diary-single-soup-qty");
-    if (!check || !check.checked || !input) return;
+    if (!input) return;
     var qty = parseInt(input.value, 10) || 0;
     if (qty <= 0) return;
     var item = input.getAttribute("data-item") || "Sopa";
@@ -622,9 +593,8 @@ function sendDiaryOrderToWhatsApp() {
       total += qty * DIARY_MENU_PRICES.completo;
     });
   document.querySelectorAll(".diary-single-soup-wrap").forEach(function (wrap) {
-    var check = wrap.querySelector(".diary-single-soup-check");
     var input = wrap.querySelector(".diary-single-soup-qty");
-    if (!check || !check.checked || !input) return;
+    if (!input) return;
     var qty = parseInt(input.value, 10) || 0;
     if (qty <= 0) return;
     var item = input.getAttribute("data-item") || "Sopa";
