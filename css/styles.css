@@ -584,6 +584,12 @@ header {
 	font-size: 1.25rem;
 }
 
+.diary-section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 20px;
+}
+
 .diary-cart-hr {
 	border: none;
 	border-top: 1px solid #eee;
@@ -2687,6 +2693,12 @@ footer .sammi {
 		max-height: 44px;
 		max-width: 44px;
 	}
+}
+
+@media (max-width: 600px) {
+  .diary-section-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Reference breakpoints: mobile 200–479px, tablet 480–767px, laptop 768–1024px, 4K 1024px+ */
