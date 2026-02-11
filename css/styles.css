@@ -667,7 +667,6 @@ header {
 }
 
 .diary-single-row .diary-single-label {
-	font-weight: 500;
 	cursor: pointer;
 	display: inline-flex;
 	align-items: center;
@@ -678,6 +677,28 @@ header {
 	accent-color: rgb(219, 81, 35);
 }
 
+.diary-single-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0; /* 🔥 clave para evitar desbordes */
+}
+
+.diary-single-label {
+  flex: 1;
+  min-width: 0;  /* 🔥 importante */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.diary-qty-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 /* Quantity: wrap with − button, input, + button (elegant pill-style controls) */
 .diary-qty-wrap {
 	display: inline-flex;
