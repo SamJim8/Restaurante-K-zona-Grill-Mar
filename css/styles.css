@@ -669,15 +669,16 @@ header {
 }
 
 .diary-single-row {
-   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
+  display: flex;
+  align-items: flex-start;   
+  gap: 12px;
+  margin-bottom: 12px;
 }
 
 .diary-single-label {
-  flex: 1;
-  min-width: 0;
+  flex: 1;              
+  min-width: 0;        
+  white-space: normal;  
   word-break: break-word;
 }
 
