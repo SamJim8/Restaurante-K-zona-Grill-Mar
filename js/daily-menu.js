@@ -239,8 +239,15 @@ platoItems.forEach(function (item) {
   return {
     sopaHtml: sopaParts.join(""),
     platoHtml: platoParts.join(""),
-    soloSopaHtml: soloSopaParts.join(""),
-    soloSegundoHtml: soloSegundoParts.join(""),
+    soloSopaHtml:
+      '<div class="diary-section-grid">' +
+      soloSopaParts.join("") +
+      '</div>',
+
+    soloSegundoHtml:
+      '<div class="diary-section-grid">' +
+      soloSegundoParts.join("") +
+      '</div>',
     sopaItems: sopaItems,
     platoItems: platoItems,
   };
