@@ -137,6 +137,7 @@ function createThead() {
 function createCategoryTbody(categoryName, items) {
   const tbody = document.createElement("tbody");
   tbody.className = "category";
+  tbody.id = "menu-" + categoryName.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
 
   const headerRow = document.createElement("tr");
   headerRow.innerHTML = `<th colspan="3" class="variety accordion" role="button" tabindex="0" aria-expanded="false">${escapeHtml(categoryName)}</th>`;

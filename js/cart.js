@@ -82,7 +82,6 @@ window.addEventListener("resize", () => {
   resizeTimeout = setTimeout(scheduleUpdateTableMenuBackground, 150);
 });
 
-/* Modal del carrito */
 const openCartModal = () => {
   const modal = document.getElementById("shopping-modal");
   if (modal) {
@@ -195,13 +194,17 @@ function openCartAndAddItem(product, price) {
 function addToCart(button) {
   const row = button.closest("tr");
   if (!row) return;
-  const product = row.querySelector('th[scope="row"]')?.textContent?.trim();
+  let product = row.querySelector('th[scope="row"]')?.textContent?.trim();
   const priceEl = row.querySelector(".td-price p");
   const price = priceEl ? parseFloat(priceEl.dataset.price) : 0;
+  const tbody = row.closest("tbody");
+  if (tbody && tbody.id === "menu-al-grill" && sessionStorage.getItem("asadoPromo")) {
+    product = "Asados PROMO";
+    sessionStorage.removeItem("asadoPromo");
+  }
   if (product && !Number.isNaN(price)) openCartAndAddItem(product, price);
 }
 
-/* Send order via WhatsApp */
 const sendOrderBtn = document.getElementById("send-order");
 if (sendOrderBtn) {
   sendOrderBtn.addEventListener("click", () => {
@@ -237,4 +240,38 @@ if (sendOrderBtn) {
     const url = `https://wa.me/593979495354?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   });
+}
+
+document.querySelectorAll(".promo-add-to-cart-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const name = btn.getAttribute("data-promo-name");
+    const price = parseFloat(btn.getAttribute("data-promo-price"), 10);
+    if (name && !Number.isNaN(price)) openCartAndAddItem(name, price);
+  });
+});
+
+function scrollToAsadosAndExpand() {
+  if (window.location.hash !== "#menu-al-grill") return;
+  const section = document.getElementById("menu-al-grill");
+  if (!section) return;
+  sessionStorage.setItem("asadoPromo", "1");
+  section.scrollIntoView({ behavior: "smooth", block: "start" });
+  const accordion = section.querySelector(".accordion");
+  if (accordion && accordion.getAttribute("aria-expanded") !== "true") {
+    setAccordionExpanded(accordion, true);
+    requestAnimationFrame(updateTableMenuBackgroundMode);
+  }
+}
+
+document.getElementById("promo-asado-link")?.addEventListener("click", () => {
+  sessionStorage.setItem("asadoPromo", "1");
+});
+
+window.addEventListener("hashchange", scrollToAsadosAndExpand);
+if (window.location.hash === "#menu-al-grill") {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => setTimeout(scrollToAsadosAndExpand, 100));
+  } else {
+    setTimeout(scrollToAsadosAndExpand, 100);
+  }
 }
