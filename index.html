@@ -13,7 +13,6 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-	<!-- Base URL for GitHub Pages (relative paths) -->
 	<script>
 		if (window.location.hostname === 'samjim8.github.io') {
 			var baseTag = document.createElement('base');
@@ -21,9 +20,23 @@
 			document.head.appendChild(baseTag);
 		}
 	</script>
+	<script>
+		history.scrollRestoration = 'manual';
+		document.addEventListener('DOMContentLoaded', function () {
+			window.scrollTo(0, 0);
+		});
+	</script>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TSPSG3P3');</script>
 </head>
 
 <body id="top">
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSPSG3P3"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 <header>
 	<div class="container-nav">
 		<div class="header-brand">
@@ -190,17 +203,27 @@
 						<div id="diary-complete-soup" class="diary-menu-options"></div>
 						<p class="diary-cart-sub">Plato fuerte (elegir 1):</p>
 						<div id="diary-complete-main" class="diary-menu-options"></div>
-						<button type="button" id="diary-add-complete-btn" class="diary-add-complete-btn">+ Agregar almuerzo seleccionado</button>
+						<div class="diary-complete-add-row">
+							<div id="diary-complete-selection-wrap" class="diary-complete-selection-wrap" hidden>
+								<p class="diary-complete-selection-text">Tu elección: <strong>Sopa:</strong> <span id="diary-selected-soup"></span>, <strong>Plato fuerte:</strong> <span id="diary-selected-main"></span></p>
+								<div class="diary-qty-wrap">
+									<button type="button" class="diary-qty-btn diary-qty-minus" id="diary-complete-qty-minus" aria-label="Menos">−</button>
+									<input type="number" min="1" max="99" value="1" id="diary-complete-qty-input" class="diary-qty-input" aria-label="Cantidad de almuerzos" inputmode="numeric" />
+									<button type="button" class="diary-qty-btn diary-qty-plus" id="diary-complete-qty-plus" aria-label="Más">+</button>
+								</div>
+							</div>
+							<button type="button" id="diary-add-complete-btn" class="diary-add-complete-btn">+ Agregar almuerzo(s) seleccionado(s)</button>
+						</div>
 						<div id="diary-cart-complete-list" class="diary-cart-complete-list" aria-live="polite"></div>
 					</section>
 					<hr class="diary-cart-hr" />
 					<section class="diary-cart-block diary-cart-block-soup">
-						<h4 class="diary-cart-block-heading">Solo sopa</h4>
+						<h4 class="diary-cart-block-heading">Solo Sopa:</h4>
 						<div id="diary-cart-single-soup-list" class="diary-cart-single-list"></div>
 					</section>
 					<hr class="diary-cart-hr" />
 					<section class="diary-cart-block diary-cart-block-main">
-						<h4 class="diary-cart-block-heading">Solo plato fuerte</h4>
+						<h4 class="diary-cart-block-heading">Solo Plato Fuerte:</h4>
 						<div id="diary-cart-single-main-list" class="diary-cart-single-list"></div>
 					</section>
 					<hr class="diary-cart-hr" />
@@ -222,8 +245,10 @@
 					</div>
 					<section class="diary-cart-block diary-cart-place-order">
 						<h4 class="diary-cart-block-heading">Hacer el pedido</h4>
-						<p class="diary-cart-label">Tu nombre:</p>
-						<input type="text" id="diary-customer-name" class="diary-customer-input" placeholder="Jane" />
+						<div class="diary-cart-name-row">
+							<p class="diary-cart-label">Tu nombre:</p>
+							<input type="text" id="diary-customer-name" class="diary-customer-input" placeholder="Coloque su nombre para hacer el pedido" />
+						</div>
 						<button id="diary-send-order" class="send-order-btn" type="button">Enviar pedido por WhatsApp</button>
 					</section>
 				</div>
@@ -247,7 +272,7 @@
 			</div>
 			<div class="cart-options">
 				<label>
-					<input type="radio" name="cart-service"  id="cart-takeaway" /> Para llevar (+$0.50 por plato, desechables)
+					<input type="radio" name="cart-service"  id="cart-takeaway" /> Para llevar (desechables: +$0.50 por plato)
 				</label>
 				<label>
 					<input type="radio" name="cart-service"  id="cart-dine-in" /> Para reservar en el local (Se debe cancelar un anticipo)

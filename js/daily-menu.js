@@ -1,6 +1,6 @@
 /**
- * Daily menu section: loads weekday menu via Google Apps Script Web App (no CORS), weekend menu as PDF.
- * - Weekdays: calls your Web App with gid + day; Web App reads the Sheet and returns JSON.
+ * Daily menu section: loads menu from Google Apps Script Web App (no CORS).
+ * Same menu (Google Sheets) every day; weekend prices are applied automatically via getDiaryMenuPrices().
  */
 
 const DIARY_MENU_CONFIG = {
@@ -11,9 +11,6 @@ const DIARY_MENU_CONFIG = {
     809953540, 0, 1318363453, 1656569497, 1894987393, 1214624297, 2016672776,
     1045389944, 1845539428, 569415544, 952435126,
   ],
-  // URL to weekend menu PDF
-  weekendPdfUrl:
-    "https://drive.google.com/file/d/1XAZ0Oc1PHNBy2qG3gGAFvpQYg3LFPhZB/view?usp=sharing",
 };
 
 const SECTION_HEADERS = ["Sopa", "Plato fuerte"];
@@ -36,10 +33,15 @@ const WHATSAPP_NUMBER = "593979495354";
 const SECTION_LABELS = { sopa: "Sopa", platofuerte: "Plato fuerte" };
 var lastDiaryMenuData = null;
 var DIARY_MENU_PRICES = { completo: 3.25, soloSopa: 1.5, soloPlatoFuerte: 2.5 };
+var DIARY_MENU_PRICES_WEEKEND = { completo: 4, soloSopa: 1.75, soloPlatoFuerte: 3.25 };
 
 function isWeekend() {
   const day = new Date().getDay();
   return day === 0 || day === 6;
+}
+
+function getDiaryMenuPrices() {
+  return isWeekend() ? DIARY_MENU_PRICES_WEEKEND : DIARY_MENU_PRICES;
 }
 
 function getDiaryMenuBaseUrl() {
@@ -125,9 +127,11 @@ function buildDailyMenuHtml(headers, row, formattedDate) {
     }
     if (sectionItems.length === 0) continue;
     parts.push(`<h4><strong>${escapeHtml(sectionName)}:</strong></h4>`);
+    parts.push(`<ul class="diary-menu-list">`);
     sectionItems.forEach((item) => {
-      parts.push(`<p>${escapeHtml(item)}</p>`);
+      parts.push(`<li>${escapeHtml(item)}</li>`);
     });
+    parts.push(`</ul>`);
   }
 
   for (let c = 0; c < headers.length; c++) {
@@ -261,31 +265,6 @@ function formatDisplayDate(date) {
   });
 }
 
-function renderWeekendMenu(container) {
-  const url = DIARY_MENU_CONFIG.weekendPdfUrl;
-  if (!url || url.includes("YOUR_")) {
-    container.innerHTML = `
-      <h3>Menú de fin de semana</h3>
-      <p>Configura la URL del PDF del menú de fin de semana en <code>js/daily-menu.js</code> (weekendPdfUrl).</p>
-    `;
-    return;
-  }
-
-  const previewUrl = url.replace(/\/view(?=\?|$)/, "/preview");
-  container.innerHTML = `
-    <h3>Menú de fin de semana</h3>
-    <p><span>Hoy es fin de semana. Disfruta nuestro menú especial.</span></p>
-    <div class="diary-menu-pdf-wrap">
-      <iframe
-        class="diary-menu-pdf"
-        src="${escapeHtml(previewUrl)}"
-        title="Menú fin de semana PDF"
-      ></iframe>
-      <a href="${escapeHtml(url)}" target="_blank" rel="noopener" class="diary-menu-pdf-link">Abrir PDF en nueva pestaña</a>
-    </div>
-  `;
-}
-
 function renderError(container, message) {
   container.innerHTML = `
     <h3>Menú diario</h3>
@@ -337,7 +316,7 @@ function updateDiaryCartTotal() {
   document
     .querySelectorAll("#diary-cart-complete-list .diary-complete-qty")
     .forEach(function (input) {
-      total += (parseInt(input.value, 10) || 0) * DIARY_MENU_PRICES.completo;
+      total += (parseInt(input.value, 10) || 0) * getDiaryMenuPrices().completo;
     });
 
   document
@@ -345,7 +324,7 @@ function updateDiaryCartTotal() {
     .forEach(function (input) {
       var qty = parseInt(input.value, 10) || 0;
       if (qty > 0) {
-        total += qty * DIARY_MENU_PRICES.soloSopa;
+        total += qty * getDiaryMenuPrices().soloSopa;
       }
     });
 
@@ -354,7 +333,7 @@ function updateDiaryCartTotal() {
     .forEach(function (input) {
       var qty = parseInt(input.value, 10) || 0;
       if (qty > 0) {
-        total += qty * DIARY_MENU_PRICES.soloPlatoFuerte;
+        total += qty * getDiaryMenuPrices().soloPlatoFuerte;
       }
     });
 
@@ -369,9 +348,10 @@ function updateDiaryCartResumen() {
   );
   if (!linesEl) return;
   var lines = [];
-  var priceCompleto = DIARY_MENU_PRICES.completo;
-  var priceSopa = DIARY_MENU_PRICES.soloSopa;
-  var pricePlato = DIARY_MENU_PRICES.soloPlatoFuerte;
+  var prices = getDiaryMenuPrices();
+  var priceCompleto = prices.completo;
+  var priceSopa = prices.soloSopa;
+  var pricePlato = prices.soloPlatoFuerte;
 
   document
     .querySelectorAll("#diary-cart-complete-list .diary-complete-item")
@@ -383,7 +363,12 @@ function updateDiaryCartResumen() {
       var plato = (input && input.getAttribute("data-plato")) || "";
       var subtotal = (qty * priceCompleto).toFixed(2);
       lines.push(
-        '<div class="diary-summary-line"><span class="diary-summary-qty">' +
+        '<div class="diary-summary-line" data-type="complete" data-sopa="' +
+          escapeHtml(sopa) +
+          '" data-plato="' +
+          escapeHtml(plato) +
+          '">' +
+          '<span class="diary-summary-qty">' +
           escapeHtml(String(qty)) +
           '</span> <span class="diary-summary-text">Almuerzo completo:<br>Sopa = ' +
           escapeHtml(sopa) +
@@ -391,7 +376,7 @@ function updateDiaryCartResumen() {
           escapeHtml(plato) +
           '</span> <span class="diary-summary-price">= $' +
           subtotal +
-          "</span></div>",
+          '</span> <button type="button" class="diary-summary-remove-btn" aria-label="Eliminar">×</button></div>',
       );
     });
 
@@ -402,13 +387,16 @@ function updateDiaryCartResumen() {
     var item = input.getAttribute("data-item") || "Sopa";
     var subtotal = (qty * priceSopa).toFixed(2);
     lines.push(
-      '<div class="diary-summary-line"><span class="diary-summary-qty">' +
+      '<div class="diary-summary-line" data-type="soup" data-item="' +
+        escapeHtml(item) +
+        '">' +
+        '<span class="diary-summary-qty">' +
         escapeHtml(String(qty)) +
         '</span> <span class="diary-summary-text">' +
         escapeHtml(item) +
         '</span> <span class="diary-summary-price">= $' +
         subtotal +
-        "</span></div>",
+        '</span> <button type="button" class="diary-summary-remove-btn" aria-label="Eliminar">×</button></div>',
     );
   });
 
@@ -416,19 +404,22 @@ function updateDiaryCartResumen() {
     .querySelectorAll(".diary-single-main-wrap")
     .forEach(function (wrap) {
       var input = wrap.querySelector(".diary-single-main-qty");
-      if (qty <= 0) return;
+      if (!input) return;
       var qty = parseInt(input.value, 10) || 0;
       if (qty <= 0) return;
       var item = input.getAttribute("data-item") || "Plato fuerte";
       var subtotal = (qty * pricePlato).toFixed(2);
       lines.push(
-        '<div class="diary-summary-line"><span class="diary-summary-qty">' +
+        '<div class="diary-summary-line" data-type="main" data-item="' +
+          escapeHtml(item) +
+          '">' +
+          '<span class="diary-summary-qty">' +
           escapeHtml(String(qty)) +
           '</span> <span class="diary-summary-text">' +
           escapeHtml(item) +
           '</span> <span class="diary-summary-price">= $' +
           subtotal +
-          "</span></div>",
+          '</span> <button type="button" class="diary-summary-remove-btn" aria-label="Eliminar">×</button></div>',
       );
     });
 
@@ -460,6 +451,63 @@ function bindDiaryQtyButtons() {
   if (!container) return;
   container.removeEventListener("click", onDiaryQtyButtonClick);
   container.addEventListener("click", onDiaryQtyButtonClick);
+}
+
+function bindDiaryRemoveItemButtons() {
+  var summaryEl = document.getElementById("diary-cart-summary");
+  if (!summaryEl) return;
+  summaryEl.removeEventListener("click", onDiarySummaryRemoveClick);
+  summaryEl.addEventListener("click", onDiarySummaryRemoveClick);
+}
+
+function onDiarySummaryRemoveClick(e) {
+  var btn = e.target.closest(".diary-summary-remove-btn");
+  if (!btn) return;
+  e.preventDefault();
+  var lineEl = btn.closest(".diary-summary-line");
+  if (!lineEl) return;
+  var type = lineEl.getAttribute("data-type");
+  if (type === "complete") {
+    var sopa = lineEl.getAttribute("data-sopa") || "";
+    var plato = lineEl.getAttribute("data-plato") || "";
+    var completeList = document.getElementById("diary-cart-complete-list");
+    if (completeList) {
+      var items = completeList.querySelectorAll(".diary-complete-item");
+      for (var i = 0; i < items.length; i++) {
+        var input = items[i].querySelector(".diary-complete-qty");
+        if (input && input.getAttribute("data-sopa") === sopa && input.getAttribute("data-plato") === plato) {
+          items[i].remove();
+          break;
+        }
+      }
+    }
+  } else if (type === "soup") {
+    var item = lineEl.getAttribute("data-item") || "";
+    var wraps = document.querySelectorAll(".diary-single-soup-wrap");
+    for (var w = 0; w < wraps.length; w++) {
+      var inp = wraps[w].querySelector(".diary-single-soup-qty");
+      if (inp && inp.getAttribute("data-item") === item) {
+        inp.value = "0";
+        inp.dispatchEvent(new Event("input", { bubbles: true }));
+        inp.dispatchEvent(new Event("change", { bubbles: true }));
+        break;
+      }
+    }
+  } else if (type === "main") {
+    var item = lineEl.getAttribute("data-item") || "";
+    var wraps = document.querySelectorAll(".diary-single-main-wrap");
+    for (var w = 0; w < wraps.length; w++) {
+      var inp = wraps[w].querySelector(".diary-single-main-qty");
+      if (inp && inp.getAttribute("data-item") === item) {
+        inp.value = "0";
+        inp.dispatchEvent(new Event("input", { bubbles: true }));
+        inp.dispatchEvent(new Event("change", { bubbles: true }));
+        break;
+      }
+    }
+  }
+  updateDiaryCartTotal();
+  updateDiaryCartResumen();
 }
 
 function onDiaryQtyButtonClick(e) {
@@ -502,6 +550,46 @@ function fillDiaryCartModalWithForm() {
   if (soloSopaEl) soloSopaEl.innerHTML = data.soloSopaHtml;
   if (soloSegundoEl) soloSegundoEl.innerHTML = data.soloSegundoHtml;
   if (completeListEl) completeListEl.innerHTML = "";
+
+  var selectionWrap = document.getElementById("diary-complete-selection-wrap");
+  var selectedSopaSpan = document.getElementById("diary-selected-soup");
+  var selectedMainSpan = document.getElementById("diary-selected-main");
+  var completeQtyInput = document.getElementById("diary-complete-qty-input");
+
+  function updateCompleteSelectionVisibility() {
+    var sopaRadio = document.querySelector('input[name="diary-complete-soup"]:checked');
+    var platoRadio = document.querySelector('input[name="diary-complete-main"]:checked');
+    if (!selectionWrap || !selectedSopaSpan || !selectedMainSpan) return;
+    if (sopaRadio && platoRadio) {
+      selectedSopaSpan.textContent = sopaRadio.value.trim();
+      selectedMainSpan.textContent = platoRadio.value.trim();
+      selectionWrap.hidden = false;
+    } else {
+      selectionWrap.hidden = true;
+    }
+  }
+
+  if (sopaEl) {
+    sopaEl.addEventListener("change", updateCompleteSelectionVisibility);
+  }
+  if (platoEl) {
+    platoEl.addEventListener("change", updateCompleteSelectionVisibility);
+  }
+  updateCompleteSelectionVisibility();
+
+  if (completeQtyInput) {
+    completeQtyInput.addEventListener("input", function () {
+      var v = parseInt(completeQtyInput.value, 10);
+      if (isNaN(v) || v < 1) completeQtyInput.value = "1";
+      else if (v > 99) completeQtyInput.value = "99";
+    });
+    completeQtyInput.addEventListener("change", function () {
+      var v = parseInt(completeQtyInput.value, 10);
+      if (isNaN(v) || v < 1) completeQtyInput.value = "1";
+      else if (v > 99) completeQtyInput.value = "99";
+    });
+  }
+
   var paraLlevar = document.getElementById("diary-para-llevar");
   if (paraLlevar) paraLlevar.checked = false;
   var reservar = document.getElementById("diary-dine-in");
@@ -526,6 +614,12 @@ function fillDiaryCartModalWithForm() {
       }
       var sopaVal = sopaRadio.value.trim();
       var platoVal = platoRadio.value.trim();
+      var qty = 1;
+      if (completeQtyInput) {
+        qty = parseInt(completeQtyInput.value, 10) || 1;
+        if (qty < 1) qty = 1;
+        if (qty > 99) qty = 99;
+      }
       var div = document.createElement("div");
       div.className = "diary-complete-item";
       div.innerHTML =
@@ -533,14 +627,18 @@ function fillDiaryCartModalWithForm() {
         escapeHtml(sopaVal) +
         ", Plato fuerte = " +
         escapeHtml(platoVal) +
-        ' — Cantidad: <input type="number" min="1" value="1" class="diary-qty-input diary-complete-qty" data-sopa="' +
+        ' — Cantidad: <input type="number" min="1" value="' +
+        String(qty) +
+        '" class="diary-qty-input diary-complete-qty" data-sopa="' +
         escapeHtml(sopaVal) +
         '" data-plato="' +
         escapeHtml(platoVal) +
         '" />';
       completeListEl.appendChild(div);
+      if (completeQtyInput) completeQtyInput.value = "1";
       sopaRadio.checked = false;
       platoRadio.checked = false;
+      updateCompleteSelectionVisibility();
       addDiaryCompleteListeners();
       updateDiaryCartTotal();
       updateDiaryCartResumen();
@@ -575,9 +673,9 @@ function sendDiaryOrderToWhatsApp() {
           " x " +
           qty +
           " = $" +
-          (qty * DIARY_MENU_PRICES.completo).toFixed(2),
+          (qty * getDiaryMenuPrices().completo).toFixed(2),
       );
-      total += qty * DIARY_MENU_PRICES.completo;
+      total += qty * getDiaryMenuPrices().completo;
     });
   document.querySelectorAll(".diary-single-soup-wrap").forEach(function (wrap) {
     var input = wrap.querySelector(".diary-single-soup-qty");
@@ -591,9 +689,9 @@ function sendDiaryOrderToWhatsApp() {
         " x " +
         qty +
         " = $" +
-        (qty * DIARY_MENU_PRICES.soloSopa).toFixed(2),
+        (qty * getDiaryMenuPrices().soloSopa).toFixed(2),
     );
-    total += qty * DIARY_MENU_PRICES.soloSopa;
+    total += qty * getDiaryMenuPrices().soloSopa;
   });
   document
     .querySelectorAll(".diary-single-main-wrap")
@@ -609,9 +707,9 @@ function sendDiaryOrderToWhatsApp() {
           " x " +
           qty +
           " = $" +
-          (qty * DIARY_MENU_PRICES.soloPlatoFuerte).toFixed(2),
+          (qty * getDiaryMenuPrices().soloPlatoFuerte).toFixed(2),
       );
-      total += qty * DIARY_MENU_PRICES.soloPlatoFuerte;
+      total += qty * getDiaryMenuPrices().soloPlatoFuerte;
     });
   if (total <= 0) {
     alert(
@@ -636,16 +734,11 @@ function initDiaryMenu() {
   const container = section.querySelector("#diary-menu-content");
   if (!container) return;
 
-  if (isWeekend()) {
-    renderWeekendMenu(container);
-    return;
-  }
-
   const apiUrl = getDiaryMenuApiUrl();
   if (!apiUrl) {
     renderError(
       container,
-      "Configura la URL de la Web App en js/daily-menu.js (diaryMenuApiUrl). Ver docs/daily-menu-apps-script.js.",
+      "Configure the Web App URL in js/daily-menu.js (diaryMenuApiUrl). See docs/daily-menu-apps-script.js.",
     );
     return;
   }
@@ -653,20 +746,19 @@ function initDiaryMenu() {
   renderLoading(container);
 
   function onSuccess(data) {
-    console.log("scadev", data);
     if (data.error) {
       if (
         data.error === "No menu for this day" ||
         data.error.indexOf("No menu") !== -1
       ) {
-        renderWeekendMenu(container);
+        renderError(container, "No hay menú para hoy.");
         return;
       }
       renderError(container, data.error);
       return;
     }
     if (!data.headers || !data.row) {
-      renderError(container, "Respuesta inválida del servidor.");
+      renderError(container, "Respuesta del servidor inválida.");
       return;
     }
     lastDiaryMenuData = { headers: data.headers, row: data.row };
@@ -683,7 +775,7 @@ function initDiaryMenu() {
     var debug = debugUrl
       ? ' <a href="' +
         escapeHtml(debugUrl) +
-        '" target="_blank" rel="noopener">Abre esta URL en otra pestaña</a> para ver qu\u00e9 responde el servidor.'
+        '" target="_blank" rel="noopener">Abre esta URL en una nueva pestaña</a> para ver la respuesta del servidor.'
       : "";
     renderError(container, msg + debug);
   }
@@ -714,7 +806,7 @@ function initDiaryMenu() {
     window.diaryMenuCb = null;
     script.remove();
     onFail(
-      "Error al cargar el men\u00fa. Revisa que la URL termine en /exec, que hayas desplegado como \u00abCualquier persona\u00bb y que el c\u00f3digo en Apps Script tenga soporte JSONP (callback).",
+      "Error al cargar el menú. Asegúrate de que la URL termine con /exec, la aplicación esté desplegada como \"Cualquiera\", y que Apps Script soporte JSONP (callback).",
       jsonpUrl,
     );
   };
@@ -751,6 +843,7 @@ function bindDiaryCartModal() {
   }
   if (sendBtn) sendBtn.addEventListener("click", sendDiaryOrderToWhatsApp);
   bindDiaryQtyButtons();
+  bindDiaryRemoveItemButtons();
 }
 
 if (document.readyState === "loading") {

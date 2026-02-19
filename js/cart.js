@@ -1,14 +1,10 @@
 /**
  * Shopping cart (full menu) and menu accordion.
  * Depends on menu.js (addToCart and table already rendered).
- *
- * Accordion UX: only the first category is open by default (mobile and desktop).
- * Headers are keyboard-accessible (Enter/Space) and use aria-expanded.
+ * Accordion: first category open by default; headers keyboard-accessible (Enter/Space), aria-expanded.
  */
-
 const accordions = document.querySelectorAll(".accordion");
 
-/** Returns the <tr> elements that belong to this category (until the next accordion header row). */
 function getCategoryRows(accordion) {
   const rows = [];
   let row = accordion.parentElement.nextElementSibling;
@@ -268,10 +264,3 @@ document.getElementById("promo-asado-link")?.addEventListener("click", () => {
 });
 
 window.addEventListener("hashchange", scrollToAsadosAndExpand);
-if (window.location.hash === "#menu-al-grill") {
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => setTimeout(scrollToAsadosAndExpand, 100));
-  } else {
-    setTimeout(scrollToAsadosAndExpand, 100);
-  }
-}
